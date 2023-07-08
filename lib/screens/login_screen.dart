@@ -1,24 +1,48 @@
 import 'package:flutter/material.dart';
 import 'register_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final _numberController = TextEditingController();
-  final _passwordController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController _phoneNumberController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
-  Future<void> signIn() async {}
+  String _errorMessage = '';
 
-  @override
-  void dispose() {
-    _numberController.dispose();
-    _passwordController.dispose();
-    super.dispose();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void _loginUser() async {
+    String phoneNumber = _phoneNumberController.text;
+    String password = _passwordController.text;
+
+    try {
+      // Sign in the user with phone number and password
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: '', // Firebase requires an email, so you can use an empty string
+        password: password,
+      );
+
+      // Validate the user's phone number if necessary
+      if (userCredential.user?.phoneNumber != phoneNumber) {
+        setState(() {
+          _errorMessage = 'Invalid phone number.';
+        });
+        return;
+      }
+
+      // Login successful, proceed to next screen or perform necessary actions
+    } catch (e) {
+      // Handle any login errors
+      print(e.toString());
+      setState(() {
+        _errorMessage = 'Login failed.';
+      });
+    }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
-                              controller: _numberController,
+                              controller: _phoneNumberController,
                               
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.phone),
@@ -98,10 +122,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
+                         SizedBox(height: 16.0),
+            if (_errorMessage.isNotEmpty)
+              Text(
+                _errorMessage,
+                style: TextStyle(color: Colors.red),
+              ),
                         const SizedBox(height: 10),
                         /////signinbutton
                         GestureDetector(
-                          onTap: signIn,
+                          onTap: _loginUser,
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
@@ -115,6 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),
@@ -127,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        RegisterScreen(),
+                                        RegisterPage(),
                                   ),
                                 );
                               },
@@ -144,6 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),

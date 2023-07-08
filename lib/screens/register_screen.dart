@@ -1,20 +1,48 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
-
+class RegisterPage extends StatefulWidget {
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
-  final _numberController = TextEditingController();
-  final _passwordController = TextEditingController();
+class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _phoneNumberController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
 
-  Future register() async {
-   
+  String _errorMessage = '';
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void _registerUser() async {
+    String phoneNumber = _phoneNumberController.text;
+    String password = _passwordController.text;
+    String confirmPassword = _confirmPasswordController.text;
+
+    if (password != confirmPassword) {
+      setState(() {
+        _errorMessage = 'Passwords do not match.';
+      });
+      return;
+    }
+
+    try {
+      // Create a new user with phone number and password
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: '', // Firebase requires an email, so you can use an empty string
+        password: password,
+      );
+
+      // Registration successful, proceed to next screen or perform necessary actions
+    } catch (e) {
+      // Handle any registration errors
+      print(e.toString());
+      setState(() {
+        _errorMessage = 'Registration failed.';
+      });
+    }
   }
 
   @override
@@ -35,13 +63,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       padding: const EdgeInsets.all(16),
                       children: [
                         const Text(
-                          'Create Account',
+                          'انشاء حساب',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Color.fromARGB(255, 235, 112, 136),
                           ),
-                          textAlign: TextAlign.left,
+                          textAlign: TextAlign.right,
                         ),
                         const SizedBox(height: 20),
                         Container(
@@ -56,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
-                              controller: _numberController,
+                              controller: _phoneNumberController,
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.phone),
                                 border: InputBorder.none,
@@ -65,7 +93,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   color: Colors.grey, // Set hint text color
                                 ),
                               ),
-                              
                             ),
                           ),
                         ),
@@ -83,20 +110,51 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _passwordController,
-                            decoration: const InputDecoration(
+                              decoration: const InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
                                 hintText: 'كلمة المرور',
                                 hintStyle: TextStyle(
                                   color: Colors.grey, // Set hint text color
                                 ),
-                            ),
+                              ),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 10),
+                        Container(
+                          height: 50,
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color.fromARGB(255, 235, 112, 136),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            child: TextField(
+                              controller: _confirmPasswordController,
+                              decoration: const InputDecoration(
+                                icon: Icon(Icons.lock),
+                                border: InputBorder.none,
+                                hintText: 'تأكيد كلمة المرور',
+                                hintStyle: TextStyle(
+                                  color: Colors.grey, // Set hint text color
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        if (_errorMessage.isNotEmpty)
+                          Text(
+                            _errorMessage,
+                            style: TextStyle(color: Colors.red),
+                          ),
+                        SizedBox(height: 16.0),
                         ElevatedButton(
-                          onPressed: register,
+                          onPressed: _registerUser,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color.fromARGB(255, 235, 112, 136)
                                 .withOpacity(0.90),
@@ -111,6 +169,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 'انشاء حساب',
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 255, 255, 255),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),
@@ -129,3 +189,4 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
+
