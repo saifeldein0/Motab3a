@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '304222462203',
     projectId: 'motab3a-6214a',
     storageBucket: 'motab3a-6214a.appspot.com',
+    androidClientId: '304222462203-3qeci8vbajb7f5q42bjhm7lbr50r8bvp.apps.googleusercontent.com',
     iosClientId: '304222462203-3oeltfacqa3sgin23qv8458tq2te3u9h.apps.googleusercontent.com',
     iosBundleId: 'com.example.application',
   );
@@ -77,6 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '304222462203',
     projectId: 'motab3a-6214a',
     storageBucket: 'motab3a-6214a.appspot.com',
+    androidClientId: '304222462203-3qeci8vbajb7f5q42bjhm7lbr50r8bvp.apps.googleusercontent.com',
     iosClientId: '304222462203-brqm4jmcghh8mggmblt43e4l159ttkkb.apps.googleusercontent.com',
     iosBundleId: 'com.example.application.RunnerTests',
   );
