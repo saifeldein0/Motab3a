@@ -1,4 +1,6 @@
 {
-  "java.configuration.updateBuildConfiguration": "interactive"
-  , "java.home": "/usr/lib/jvm/java-11-openjdk-amd64"
+  "java.configuration.updateBuildConfiguration": "automatic"
+  ,
+  "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+  "cmake.configureOnOpen": true
 }
