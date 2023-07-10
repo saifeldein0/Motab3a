@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'register_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'register_screen.dart';
 
-class LoginPage extends StatefulWidget {
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  TextEditingController _phoneNumberController = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
   String _errorMessage = '';
@@ -16,25 +19,27 @@ class _LoginPageState extends State<LoginPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   void _loginUser() async {
-    String phoneNumber = _phoneNumberController.text;
+    String email = _emailController.text;
     String password = _passwordController.text;
 
     try {
-      // Sign in the user with phone number and password
+      // Sign in the user with email and password
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: '', // Firebase requires an email, so you can use an empty string
+        email: email,
         password: password,
       );
 
-      // Validate the user's phone number if necessary
-      if (userCredential.user?.phoneNumber != phoneNumber) {
+      // Access the user data from userCredential
+      User? user = userCredential.user;
+      if (user != null) {
+        // User logged in successfully
+        print('User logged in: ${user.uid}');
+      } else {
+        // Handle the case when user is null
         setState(() {
-          _errorMessage = 'Invalid phone number.';
+          _errorMessage = 'Login failed.';
         });
-        return;
       }
-
-      // Login successful, proceed to next screen or perform necessary actions
     } catch (e) {
       // Handle any login errors
       print(e.toString());
@@ -43,152 +48,62 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
+
+  void _goToRegisterScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => RegisterScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Container(
-                    child: ListView(
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.all(16),
-                      children: [
-                        const Text(
-                          'لديك حساب ؟',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            color: Color.fromARGB(255, 235, 112, 136),
-                          ),
-                          textAlign: TextAlign.right,
-                        ),
-                        const SizedBox(height: 20),
-                        Container(
-                          height: 50,
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Color.fromARGB(255, 235, 112, 136),
-                              ),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40),
-                            child: TextField(
-                              controller: _phoneNumberController,
-                              
-                              decoration: const InputDecoration(
-                                icon: Icon(Icons.phone),
-                                border: InputBorder.none,
-                                hintText: 'رقم الهاتف',
-                                hintStyle: TextStyle(
-                                  color: Colors.grey, // Set hint text color
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Container(
-                          height: 50,
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Color.fromARGB(255, 235, 112, 136),
-                              ),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40),
-                            child: TextField(
-                              controller: _passwordController,
-                             
-                              decoration: const InputDecoration(
-                                icon: Icon(Icons.lock),
-                                border: InputBorder.none,
-                                hintText: 'كلمة المرور',
-                                hintStyle: TextStyle(
-                                  color: Colors.grey, // Set hint text color
-                                ),
-                                
-                              ),
-                            ),
-                          ),
-                        ),
-                         SizedBox(height: 16.0),
+      appBar: AppBar(
+        title: Text('Login'),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+              ),
+            ),
+            TextField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Password',
+              ),
+            ),
+            SizedBox(height: 16.0),
             if (_errorMessage.isNotEmpty)
               Text(
                 _errorMessage,
                 style: TextStyle(color: Colors.red),
               ),
-                        const SizedBox(height: 10),
-                        /////signinbutton
-                        GestureDetector(
-                          onTap: _loginUser,
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 235, 112, 136)
-                                  .withOpacity(0.90),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'تسجيل دخول',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                       GestureDetector(
-                           onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        RegisterPage(),
-                                  ),
-                                );
-                              },
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 235, 112, 136)
-                                  .withOpacity(0.90),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'انشاء حساب',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: _loginUser,
+              child: Text('Login'),
+              style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).colorScheme.primary,
+                onPrimary: Theme.of(context).colorScheme.onPrimary,
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 8.0),
+            TextButton(
+              onPressed: _goToRegisterScreen,
+              child: Text('Register'),
+            ),
+          ],
+        ),
       ),
     );
   }
