@@ -1,3 +1,4 @@
+import 'package:application/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'register_screen.dart';
@@ -21,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _loginUser() async {
     String email = _emailController.text;
     String password = _passwordController.text;
+    
 
     try {
       // Sign in the user with email and password
@@ -34,17 +36,21 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user != null) {
         // User logged in successfully
         print('User logged in: ${user.uid}');
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
       } else {
         // Handle the case when user is null
         setState(() {
-          _errorMessage = 'Login failed.';
+          _errorMessage = 'فشل الدخول';
         });
       }
     } catch (e) {
       // Handle any login errors
       print(e.toString());
       setState(() {
-        _errorMessage = 'Login failed.';
+        _errorMessage = 'فشل الدخول';
       });
     }
   }
@@ -56,54 +62,152 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  @override
+
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: 'Email',
-              ),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      body: Stack(
+        children: [
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Container(
+                    child: ListView(
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.all(16),
+                      children: [
+                        const Text(
+                          'لديك حساب ؟',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            color: Color.fromARGB(255, 235, 112, 136),
+                          ),
+                          textAlign: TextAlign.right,
+                        ),
+                        const SizedBox(height: 20),
+                        Container(
+                          height: 50,
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color.fromARGB(255, 235, 112, 136),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            child: TextField(
+                              controller: _emailController,
+                              decoration: const InputDecoration(
+                                icon: Icon(Icons.mail),
+                                border: InputBorder.none,
+                                hintText: "البريد الالكتروني",
+                                hintStyle: TextStyle(
+                                  color: Colors.grey, // Set hint text color
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Container(
+                          height: 50,
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color.fromARGB(255, 235, 112, 136),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            child: TextField(
+                              controller: _passwordController,
+                              decoration: const InputDecoration(
+                                icon: Icon(Icons.lock),
+                                border: InputBorder.none,
+                                hintText: 'كلمة المرور',
+                                hintStyle: TextStyle(
+                                  color: Colors.grey, // Set hint text color
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.0),
+                        if (_errorMessage.isNotEmpty)
+                          Text(
+                            _errorMessage,
+                            style: TextStyle(color: Colors.red),
+                          ),
+                        const SizedBox(height: 10),
+                        /////signinbutton
+                        GestureDetector(
+                          onTap: _loginUser,
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 235, 112, 136)
+                                  .withOpacity(0.90),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'تسجيل دخول',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 235, 112, 136)
+                                  .withOpacity(0.90),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'انشاء حساب',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Password',
-              ),
-            ),
-            SizedBox(height: 16.0),
-            if (_errorMessage.isNotEmpty)
-              Text(
-                _errorMessage,
-                style: TextStyle(color: Colors.red),
-              ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: _loginUser,
-              child: Text('Login'),
-              style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).colorScheme.primary,
-                onPrimary: Theme.of(context).colorScheme.onPrimary,
-              ),
-            ),
-            SizedBox(height: 8.0),
-            TextButton(
-              onPressed: _goToRegisterScreen,
-              child: Text('Register'),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
