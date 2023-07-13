@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
-import 'Home_screen.dart';
+import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -19,17 +18,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  bool _obscurePassword = true;
+
   void _registerUser() async {
     String email = _emailController.text;
     String password = _passwordController.text;
     String confirmPassword = _confirmPasswordController.text;
 
-      if (password != confirmPassword) {
+    if (password != confirmPassword) {
       setState(() {
         _errorMessage = 'Passwords do not match.';
       });
       return;
     }
+
+    // Show the password in plain text when the user clicks on the eye icon
+    setState(() {
+      _obscurePassword = !_obscurePassword;
+    });
 
     try {
       // Create a new user with email and password
@@ -43,32 +49,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
       User? user = userCredential.user;
       if (user != null) {
         // User registered successfully
-        print(Text('تم التسجيل '));
-         Navigator.push(
+        print('User registered successfully');
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => LoginScreen()),
         );
-
       } else {
         // Handle the case when user is null
         setState(() {
-          _errorMessage = 'فشل التسجيل';
+          _errorMessage = 'Failed to register user.';
         });
       }
     } catch (e) {
       // Handle any registration errors
-      print(Text(e.toString()));
+      print(e);
       setState(() {
-        _errorMessage = 'فشل التسجيل';
-        
+        _errorMessage = 'Failed to register user.';
       });
     }
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255,255,255,255),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Stack(
@@ -85,7 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       padding: const EdgeInsets.all(16),
                       children: [
                         const Text(
-                          'انشاء حساب',
+                          'Create Account',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
@@ -110,8 +115,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
-                                hintText: 'البريد الالكتروني',
-                                hintStyle: TextStyle(
+                                hintText: 'Email',
+                                 hintStyle: TextStyle(
                                   color: Colors.grey, // Set hint text color
                                 ),
                               ),
@@ -132,12 +137,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _passwordController,
-                              decoration: const InputDecoration(
+                              obscureText: _obscurePassword,
+                              decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
-                                hintText: 'كلمة المرور',
+                                hintText: 'Password',
                                 hintStyle: TextStyle(
                                   color: Colors.grey, // Set hint text color
+                                ),
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    // Toggle the password visibility
+                                    setState(() {
+                                      _obscurePassword = !_obscurePassword;
+                                    });
+                                  },
+                                  icon: _obscurePassword
+                                      ? Icon(Icons.visibility_off)
+                                      : Icon(Icons.visibility),
                                 ),
                               ),
                             ),
@@ -157,10 +174,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _confirmPasswordController,
-                              decoration: const InputDecoration(
+                              obscureText: true,
+                              decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
-                                hintText: 'تأكيد كلمة المرور',
+                                hintText: 'Confirm Password',
                                 hintStyle: TextStyle(
                                   color: Colors.grey, // Set hint text color
                                 ),
@@ -168,30 +186,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 16.0),
                         if (_errorMessage.isNotEmpty)
                           Text(
                             _errorMessage,
                             style: TextStyle(color: Colors.red),
                           ),
-                        SizedBox(height: 16.0),
-                        ElevatedButton(
-                          onPressed: _registerUser,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 235, 112, 136)
-                                    .withOpacity(0.90),
-                            shape: RoundedRectangleBorder(
+                        const SizedBox(height: 10),
+                        GestureDetector(
+                          onTap: _registerUser,
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 235, 112, 136)
+                                  .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                          ),
-                          child: Container(
-                            padding: const EdgeInsets.all(16),
                             child: const Center(
                               child: Text(
                                 'انشاء حساب',
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -199,11 +214,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 20),
                       ],
                     ),
                   ),
-                ),
+                )
               ],
             ),
           ),
