@@ -6,51 +6,149 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('أعراض ومضاعفات الحمل'),
+        backgroundColor: Colors.white,
+
+        title: const Text('أعراض ومضاعفات الحمل', 
+        style: TextStyle(
+          color:  Color.fromARGB(255, 235, 112, 136),
+          fontWeight: FontWeight.bold,
+          fontSize: 25,
+          
+        ),),
+        
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'الأعراض الخطيرة',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+              Card(
+                  margin:const EdgeInsets.all(15),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                  color:const Color.fromARGB(255, 235, 112, 136) ,
+            child:const Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 75),
+              child: Text(
+                            'الأعراض الخطيرة',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 28,
+                              color: Colors.white
+                            ),
+                          ),
+                ),
               ),
+              ],
             ),
-            const SizedBox(height: 8),
-            Text('• صداع شديد لم يزول بالمسكنات.'),
-            Text('• أضرابات في الرؤية (زغللة بالعين).'),
-            Text('• تورم في اليدين أو القدمين، والوجه خاصة حول العينين.'),
-            Text('• ألم في الجزء الأعلى من البطن (تحت الأضلاع على الجانب الأيمن).'),
-            Text('• غثيان أو قيء.'),
-            Text('• قلة إنتاج البول.'),
-            Text('• ضعف وظائف الكبد.'),
-            Text('• ضيق في التنفس.'),
-            Text('• زيادة مفاجئة في الوزن.'),
-            const SizedBox(height: 16),
-            Text(
-              'المضاعفات الخطيرة',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
+          
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children:  [
+            Text(' .صداع شديد لم يزول بالمسكنات' , style: TextStyle(fontSize: 16 , fontWeight: FontWeight.bold)),
+            Text(' .أضرابات في الرؤية (زغللة بالعين)',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+            Text(' .تورم في اليدين أو القدمين، والوجه خاصة حول العينين',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+            Text(' .ألم في الجزء الأعلى من البطن (تحت الأضلاع على الجانب الأيمن)',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+            Text(' .غثيان أو قيء',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+            Text(' .قلة إنتاج البول',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+            Text(' .ضعف وظائف الكبد',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+            Text(' .ضيق في التنفس',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+            Text(' .زيادة مفاجئة في الوزن',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                  ],
+                ),
+                const Divider(),
+
+             const SizedBox(height: 16),
+           Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Card(
+                  margin: const EdgeInsets.all(15),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25)),
+                  color: const Color.fromARGB(255, 235, 112, 136),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 100,vertical: 1),
+                    child: Text(
+                      'المضاعفات',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
-            Text('1. نوبات تشبه التشنج أو الصرع يحدث عادة بعد الأسبوع الـ ٢٠ من الحمل).'),
-            Text('2. بطء نمو الجنين وانخفاض الوزن عند الولادة.'),
-            Text('3. متلازمة هيلب (حالة تحدث في وقت متأخر من الحمل، تسبب تكسير كريات الدم الحمراء، ارتفاع إنزيمات الكبد، وانخفاض عدد الصفائح الدموية).'),
-            Text('4. الولادة المبكرة.'),
-            Text('5. الفشل الكلوي.'),
-            Text('6. تليف الكبد.'),
-            Text('7. انفصال المشيمة.'),
-            Text('8. السكتة الدماغية.'),
-            Text('9. أمراض القلب والأوعية الدموية.'),
+             
+            const Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children:  [  
+            Padding(
+              padding: EdgeInsets.only(left: 35),
+              child: Text('نوبات تشبه التشنج أوالصرع يحدث عادة بعد الأسبوع ال ٢٠ من الحمل',style: TextStyle(fontSize: 15 , fontWeight: FontWeight.bold)),
+            ),
+            
+             
+             Padding(
+               padding: EdgeInsets.symmetric(vertical: 10),
+               child: Text('.بطء نمو الجنين وانخفاض الوزن عند الولادة',
+                        style:
+                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+             ),
+            
+           
+             
+               
+             Padding(
+               padding: EdgeInsets.only(left: 50),
+               child: Text('    متلازمة هيلب: تحدث في وقت متأخر من الحمل،تسبب تكسير كريات الدم الحمراء،ارتفاع إنزيمات الكبد وانخفاض عدد الصفائح الدموية',
+                          style:
+                              TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            ),
+           
+            
+                        
+            Text('. الولادة المبكرة',
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            Text('. الفشل الكلوي',style: TextStyle(fontSize: 15 , fontWeight: FontWeight.bold)),
+            Text('. تليف الكبد',
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            Text('. انفصال المشيمة',style: TextStyle(fontSize: 15 , fontWeight: FontWeight.bold)),
+            Text('. السكتة الدماغية',
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            Text('. أمراض القلب والأوعية الدموية',
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
           ],
         ),
+          ],
+      ),
       ),
     );
   }
