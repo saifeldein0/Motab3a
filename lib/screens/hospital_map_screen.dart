@@ -17,7 +17,7 @@ class HospitalMapScreen extends StatelessWidget {
             // Launch Google Maps
             launchMaps();
           },
-          child: const Text('Find Nearest Hospitals'),
+          child: const Text('أقرب مستشفى'),
         ),
       ),
     );
