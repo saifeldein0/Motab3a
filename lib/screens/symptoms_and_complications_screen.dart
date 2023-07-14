@@ -9,7 +9,7 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-
+        
         title: const Text('أعراض ومضاعفات الحمل', 
         style: TextStyle(
           color:  Color.fromARGB(255, 235, 112, 136),
