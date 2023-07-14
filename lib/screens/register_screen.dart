@@ -93,7 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       padding: const EdgeInsets.all(16),
                       children: [
                         const Text(
-                          'Create Account',
+                          'انشاء حساب',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
@@ -118,7 +118,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
-                                hintText: 'Email',
+                                hintText: 'البريد الالكتروني',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                 ),
@@ -144,7 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
-                                hintText: 'Password',
+                                hintText: 'كلمة المرور',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                 ),
@@ -180,7 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
-                                hintText: 'Confirm Password',
+                                hintText:'تأكيد كلمة المرور',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                 ),
