@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
       User? user = userCredential.user;
       if (user != null) {
         // User logged in successfully
-        print('User logged in: ${user.uid}');
+        print('تم تسجيل الدخول بنجاح ${user.uid}');
           Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => HomeScreen()),

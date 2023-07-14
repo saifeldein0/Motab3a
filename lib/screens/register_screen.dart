@@ -19,6 +19,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
   void _registerUser() async {
     String email = _emailController.text;
@@ -27,44 +28,46 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (password != confirmPassword) {
       setState(() {
-        _errorMessage = 'Passwords do not match.';
+        _errorMessage = 'كلمة السر مش متوافقة';
       });
       return;
     }
 
-    // Show the password in plain text when the user clicks on the eye icon
+    if (password.length < 8) {
+      setState(() {
+        _errorMessage = 'كلمة السر لازم تكون 8 حروف أو أكتر';
+      });
+      return;
+    }
+
     setState(() {
       _obscurePassword = !_obscurePassword;
+      _obscureConfirmPassword = !_obscureConfirmPassword;
     });
 
     try {
-      // Create a new user with email and password
       UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      // Access the user data from userCredential
       User? user = userCredential.user;
       if (user != null) {
-        // User registered successfully
-        print('User registered successfully');
+        print('تم تسجيل المستخدم بنجاح');
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => LoginScreen()),
         );
       } else {
-        // Handle the case when user is null
         setState(() {
-          _errorMessage = 'Failed to register user.';
+          _errorMessage = 'فشل في تسجيل المستخدم';
         });
       }
     } catch (e) {
-      // Handle any registration errors
       print(e);
       setState(() {
-        _errorMessage = 'Failed to register user.';
+        _errorMessage = 'فشل في تسجيل المستخدم';
       });
     }
   }
@@ -116,8 +119,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
                                 hintText: 'Email',
-                                 hintStyle: TextStyle(
-                                  color: Colors.grey, // Set hint text color
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
                                 ),
                               ),
                             ),
@@ -143,11 +146,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 border: InputBorder.none,
                                 hintText: 'Password',
                                 hintStyle: TextStyle(
-                                  color: Colors.grey, // Set hint text color
+                                  color: Colors.grey,
                                 ),
                                 suffixIcon: IconButton(
                                   onPressed: () {
-                                    // Toggle the password visibility
                                     setState(() {
                                       _obscurePassword = !_obscurePassword;
                                     });
@@ -174,13 +176,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _confirmPasswordController,
-                              obscureText: true,
+                              obscureText: _obscureConfirmPassword,
                               decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
                                 hintText: 'Confirm Password',
                                 hintStyle: TextStyle(
-                                  color: Colors.grey, // Set hint text color
+                                  color: Colors.grey,
+                                ),
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _obscureConfirmPassword =
+                                          !_obscureConfirmPassword;
+                                    });
+                                  },
+                                  icon: _obscureConfirmPassword
+                                      ? Icon(Icons.visibility_off)
+                                      : Icon(Icons.visibility),
                                 ),
                               ),
                             ),
@@ -213,6 +226,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                             ),
                           ),
+                        ),
+                        SizedBox(height: 10), // Added SizedBox for spacing
+                        Text(
+                          'اختاري كلمة سر 8 حروف أو اكتر\nممكن تختاري أرقام\nافتكري الرمز دا كويس',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
