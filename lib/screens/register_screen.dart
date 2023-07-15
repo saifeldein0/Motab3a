@@ -97,7 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
-                            color: Color.fromARGB(255, 235, 112, 136),
+                            color: Color.fromARGB(255, 236, 161, 192),
                           ),
                           textAlign: TextAlign.right,
                         ),
@@ -107,7 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 235, 112, 136),
+                                color: Color.fromARGB(255, 236, 161, 192),
                               ),
                             ),
                           ),
@@ -132,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 235, 112, 136),
+                                color: Color.fromARGB(255, 236, 161, 192),
                               ),
                             ),
                           ),
@@ -168,7 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 235, 112, 136),
+                                color: Color.fromARGB(255, 236, 161, 192),
                               ),
                             ),
                           ),
@@ -211,7 +211,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 235, 112, 136)
+                              color: Color.fromARGB(255, 236, 161, 192)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                             ),

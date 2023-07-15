@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
-                            color: Color.fromARGB(255, 235, 112, 136),
+                            color: Color.fromARGB(255, 236, 161, 192),
                           ),
                           textAlign: TextAlign.right,
                         ),
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 235, 112, 136),
+                                color: Color.fromARGB(255, 236, 161, 192),
                               ),
                             ),
                           ),
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 235, 112, 136),
+                                color: Color.fromARGB(255, 236, 161, 192),
                               ),
                             ),
                           ),
@@ -155,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 235, 112, 136)
+                              color: Color.fromARGB(255, 236, 161, 192)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 235, 112, 136)
+                              color: Color.fromARGB(255, 236, 161, 192)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                             ),
