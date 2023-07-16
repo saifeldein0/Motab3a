@@ -97,6 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
+                            fontFamily: 'cairo',
                             color: Color.fromARGB(255, 236, 161, 192),
                           ),
                           textAlign: TextAlign.right,
@@ -119,8 +120,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
                                 hintText: 'البريد الالكتروني',
+                                
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
+                                  fontFamily: 'cairo',
                                 ),
                               ),
                             ),
@@ -147,6 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 hintText: 'كلمة المرور',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
+                                  fontFamily: 'cairo',
                                 ),
                                 suffixIcon: IconButton(
                                   onPressed: () {
@@ -183,6 +187,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 hintText:'تأكيد كلمة المرور',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
+                                  fontFamily: 'cairo',
                                 ),
                                 suffixIcon: IconButton(
                                   onPressed: () {
@@ -221,18 +226,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'cairo',
                                   fontSize: 16,
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 10), // Added SizedBox for spacing
-                        Text(
+                        const SizedBox(height: 10), // Added SizedBox for spacing
+                        const Text(
                           'اختاري كلمة سر 8 حروف أو اكتر\nممكن تختاري أرقام\nافتكري الرمز دا كويس',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey,
+                            fontFamily: 'cairo',
                           ),
                           textAlign: TextAlign.center,
                         ),

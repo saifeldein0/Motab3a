@@ -89,6 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
                             color: Color.fromARGB(255, 236, 161, 192),
+                            fontFamily: 'cairo',
                           ),
                           textAlign: TextAlign.right,
                         ),
@@ -111,7 +112,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 border: InputBorder.none,
                                 hintText: "البريد الالكتروني",
                                 hintStyle: TextStyle(
-                                  color: Colors.grey, // Set hint text color
+                                  color: Colors.grey,
+                                  fontFamily: 'cairo', // Set hint text color
                                 ),
                               ),
                             ),
@@ -136,7 +138,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 border: InputBorder.none,
                                 hintText: 'كلمة المرور',
                                 hintStyle: TextStyle(
-                                  color: Colors.grey, // Set hint text color
+                                  color: Colors.grey,
+                                  fontFamily: 'cairo', // Set hint text color
                                 ),
                               ),
                             ),
@@ -165,6 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'cairo',
                                   fontSize: 16,
                                 ),
                               ),
@@ -194,6 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'cairo',
                                   fontSize: 16,
                                 ),
                               ),
