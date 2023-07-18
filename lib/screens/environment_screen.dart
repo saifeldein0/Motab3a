@@ -25,7 +25,7 @@ class Environment extends StatelessWidget {
       body: Column(
         children: [
         Card(
-                  elevation: 20,
+                  elevation: 13,
                   margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
                   
                   shape: RoundedRectangleBorder(
