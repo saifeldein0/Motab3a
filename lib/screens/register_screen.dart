@@ -109,16 +109,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       shrinkWrap: true,
                       padding: const EdgeInsets.all(16),
                       children: [
-                        const Text(
-                          'انشاء حساب',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            fontFamily: 'cairo',
-                            color: Color.fromARGB(255, 236, 161, 192),
-                          ),
-                          textAlign: TextAlign.right,
-                        ),
+                        
                         const SizedBox(height: 20),
                         Container(
                           height: 50,
