@@ -1,3 +1,5 @@
+import 'package:application/screens/diet%20and%20nutrition_screen.dart';
+import 'package:application/screens/environment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
@@ -59,6 +61,28 @@ class HomeScreen extends StatelessWidget {
                 },
                 icon: const Icon(Icons.warning_rounded),
                 label: const Text('الأعراض الخطيرة'),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Diet()),
+                  );
+                },
+                icon: const Icon(Icons.warning_rounded),
+                label: const Text("الغذاء والتغذية"),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Environment()),
+                  );
+                },
+                icon: const Icon(Icons.warning_rounded),
+                label: const Text(" البيئة المحيطة "),
               ),
             ],
           ),

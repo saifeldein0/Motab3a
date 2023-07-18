@@ -29,3 +29,6 @@ flutter:
     - family: cairo
       fonts:
         - asset: fonts/Cairo-VariableFont_slnt,wght.ttf
+
+  assets:
+    - images/logo2.png  

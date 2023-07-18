@@ -13,12 +13,20 @@ class HospitalMapScreen extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 236, 161, 192),
+                        ) ,
+          ),
           onPressed: () {
             // Launch Google Maps
             launchMaps();
           },
-          child: const Text('أقرب مستشفى'),
-        ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: const Text('أقرب مستشفى', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold,fontFamily: 'cairo',),
+                  ),
+          ),
+      ),
       ),
     );
   }
