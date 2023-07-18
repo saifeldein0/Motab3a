@@ -22,7 +22,8 @@ class HomeScreen extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 236, 161, 192),
                   borderRadius: BorderRadius.all(Radius.circular(100)),
-                ),height: 50,
+                  boxShadow: CupertinoContextMenu.kEndBoxShadow ,
+                ),height: 50, 
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -48,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HospitalMapScreen()),
+                    MaterialPageRoute(builder: (context) =>const HospitalMapScreen()),
                   );
                 },
                 icon: const Icon(Icons.local_hospital),
@@ -59,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SymptomsAndComplicationsScreen()),
+                    MaterialPageRoute(builder: (context) =>const SymptomsAndComplicationsScreen()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Diet()),
+                        builder: (context) =>const Diet()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),
@@ -81,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Environment()),
+                    MaterialPageRoute(builder: (context) =>const Environment()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),

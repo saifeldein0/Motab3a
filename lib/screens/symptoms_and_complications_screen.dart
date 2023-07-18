@@ -18,7 +18,7 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
             fontFamily: 'cairo'
           ),
         ),
-         shape:
+        shape:
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
       ),
