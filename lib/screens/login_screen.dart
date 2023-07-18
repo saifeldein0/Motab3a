@@ -1,4 +1,5 @@
 import 'package:application/screens/home_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'register_screen.dart';
@@ -156,6 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   color: Colors.grey,
                                   fontFamily: 'cairo', // Set hint text color
                                 ),
+                                
                               ),
                             ),
                           ),
@@ -176,6 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Color.fromARGB(255, 236, 161, 192)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
+                              boxShadow: CupertinoContextMenu.kEndBoxShadow,
                             ),
                             child: const Center(
                               child: Text(
@@ -206,6 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Color.fromARGB(255, 236, 161, 192)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
+                              boxShadow: CupertinoContextMenu.kEndBoxShadow,
                             ),
                             child: const Center(
                               child: Text(

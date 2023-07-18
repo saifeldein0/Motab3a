@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'login_screen.dart';
@@ -220,11 +221,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 16.0),
+                       const SizedBox(height: 16.0),
                         if (_errorMessage.isNotEmpty)
                           Text(
                             _errorMessage,
-                            style: TextStyle(color: Colors.red),
+                            style:const TextStyle(color: Colors.red),
                           ),
                         const SizedBox(height: 10),
                         GestureDetector(
@@ -232,10 +233,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 236, 161, 192)
+                              color:const Color.fromARGB(255, 236, 161, 192)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
-                            
+                            boxShadow: CupertinoContextMenu.kEndBoxShadow,
                             ),
                             child: const Center(
                               child: Text(
