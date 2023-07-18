@@ -18,6 +18,9 @@ class HospitalMapScreen extends StatelessWidget {
               fontSize: 23,
               fontFamily: 'cairo'),
         ),
+         shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        elevation: 10,
       ),
       body: Center(
         child: ElevatedButton(

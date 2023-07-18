@@ -6,18 +6,21 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:const Color.fromARGB(255, 236, 161, 192),
+      backgroundColor: Color.fromARGB(255, 236, 161, 192),
       appBar: AppBar(
-        backgroundColor:const Color.fromARGB(255, 236, 161, 192),
+        backgroundColor:Color.fromARGB(255, 255, 255, 255),
         title: const Text(
           '   أعراض ومضاعفات الحمل',
           style: TextStyle(
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: Color.fromARGB(255, 236, 161, 192),
             fontWeight: FontWeight.bold,
             fontSize: 23,
             fontFamily: 'cairo'
           ),
         ),
+         shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        elevation: 10,
       ),
       body:  SingleChildScrollView(
         child:

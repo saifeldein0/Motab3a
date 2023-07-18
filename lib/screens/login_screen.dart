@@ -67,7 +67,22 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: Color.fromARGB(255, 236, 161, 192),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: const Text(
+            "   تسجيل دخول ",
+            style: TextStyle(
+                color: Color.fromARGB(255, 255, 255, 255),
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                fontFamily: 'cairo'),
+          ),
+        ),
+         shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        elevation: 10,
+        toolbarHeight: 70,
       ),
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Stack(

@@ -8,15 +8,15 @@ class Diet extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 236, 161, 192),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         title: const Text(
-           "      الغذاء والتغذية   " ,
+        "      الغذاء والتغذية   " ,
           style: TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: const Color.fromARGB(255, 236, 161, 192),
               fontWeight: FontWeight.bold,
               fontSize: 23,
               fontFamily: 'cairo'),
-        ),
+        ),shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)), elevation: 10,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -50,7 +50,7 @@ class Diet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-               const Padding(
+              const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	أتباع نظام غذائى متكامل يحتوى على كل العناصر الغذائية للأم والجنين.',
@@ -59,7 +59,7 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-               const Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	الإكثار من تناول الفواكه والخضروات والحبوب الكاملة.',

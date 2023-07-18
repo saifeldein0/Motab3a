@@ -8,15 +8,18 @@ class Environment extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 236, 161, 192),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+        backgroundColor:const Color.fromARGB(255, 255, 255, 255),
         title: const Text(
-                  "   البيئة المحيطة بالأم ",
+                  "  البيئة المحيطة بك ",
           style: TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: Color.fromARGB(255, 236, 161, 192),
               fontWeight: FontWeight.bold,
               fontSize: 23,
               fontFamily: 'cairo'),
         ),
+        shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        elevation: 10,
       ),
 
       body: Column(
