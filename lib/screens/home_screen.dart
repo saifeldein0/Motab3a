@@ -16,25 +16,28 @@ class HomeScreen extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 236, 161, 192),
-                borderRadius: BorderRadius.vertical(top: Radius.circular(500)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.logout_rounded),
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
-                    },
-                  ),
-                ],
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 236, 161, 192),
+                  borderRadius: BorderRadius.all(Radius.circular(100)),
+                ),height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.logout_rounded),
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

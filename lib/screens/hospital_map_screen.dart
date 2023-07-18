@@ -9,7 +9,15 @@ class HospitalMapScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hospital Map'),
+        backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+        title: const Text(
+          "  المستشفيات القريبة منك",
+          style: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.bold,
+              fontSize: 23,
+              fontFamily: 'cairo'),
+        ),
       ),
       body: Center(
         child: ElevatedButton(
