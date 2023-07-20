@@ -1,5 +1,7 @@
 import 'package:application/screens/diet%20and%20nutrition_screen.dart';
 import 'package:application/screens/environment_screen.dart';
+import 'package:application/screens/rest%20and%20exercise_screen.dart';
+import 'package:application/screens/smoking%20and%20alcohol_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
@@ -87,6 +89,27 @@ class HomeScreen extends StatelessWidget {
                 },
                 icon: const Icon(Icons.warning_rounded),
                 label: const Text(" البيئة المحيطة "),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Smoking()),
+                  );
+                },
+                icon: const Icon(Icons.warning_rounded),
+                label: const Text("التدخين والكحوليات"),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const RestExcersice()),
+                  );
+                },
+                icon: const Icon(Icons.warning_rounded),
+                label: const Text("الراحة و ممارسة الرياضة"),
               ),
             ],
           ),
