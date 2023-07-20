@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class RestExcersice extends StatelessWidget {
@@ -22,28 +21,31 @@ class RestExcersice extends StatelessWidget {
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
       ),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Card(
-            elevation: 8,
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            color: const Color.fromARGB(255, 255, 255, 255),
-            child:const Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Text(
-                ' عدم ممارسة  أى مجهود بدنى وحاولى ان تحصلى على وقت من الراحة والاسترخاء \n يجب عليكى الحصول على قسط كاف من النوم على الاقل 8 ساعات ليلاُ وأخذ قسطاُ من الراحة نهارا على الاقل ساعتين ',
-                style: TextStyle(
-                    fontSize: 20, fontFamily: 'cairo', color: Color.fromARGB(255, 236, 161, 192) , fontWeight: FontWeight.bold),
-                textDirection: TextDirection.rtl,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Card(
+              elevation: 8,
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
+              color: const Color.fromARGB(255, 255, 255, 255),
+              child: const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  ' عدم ممارسة  أى مجهود بدنى وحاولى ان تحصلى على وقت من الراحة والاسترخاء \n يجب عليكى الحصول على قسط كاف من النوم على الاقل 8 ساعات ليلاُ وأخذ قسطاُ من الراحة نهارا على الاقل ساعتين ',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'cairo',
+                      color: Color.fromARGB(255, 236, 161, 192),
+                      fontWeight: FontWeight.bold),
+                  textDirection: TextDirection.rtl,
+                ),
               ),
             ),
-          ),
-          Card(
+            Card(
               elevation: 8,
               margin: const EdgeInsets.all(10),
               shape: RoundedRectangleBorder(
@@ -58,11 +60,11 @@ class RestExcersice extends StatelessWidget {
                       fontSize: 17,
                       color: Color.fromARGB(255, 236, 161, 192),
                       fontFamily: 'cairo'),
-                textDirection: TextDirection.rtl,
+                  textDirection: TextDirection.rtl,
                 ),
               ),
             ),
-          const  Padding(
+            const Padding(
               padding: EdgeInsets.all(10.0),
               child: Text(
                 '⬤ يسمح لك بممارسة المشي الهادئ أو السريع ويعتبر المشي من الرياضات الآمنة لك بشرط أن تمارسيه على أرض ملائمة غير مرتفعة، يمكنك ممارسة المشي يوميًا بما لا يزيد عن نصف ساعة، لكن تذكري أن تأخذي قسطًا يكفيك من الراحة إن شعرت بأي إرهاق.',
@@ -80,7 +82,7 @@ class RestExcersice extends StatelessWidget {
                 textDirection: TextDirection.rtl,
               ),
             ),
-              const Padding(
+            const Padding(
               padding: EdgeInsets.all(10.0),
               child: Text(
                 '⬤ ولتعلمي أن المشي يساعدك على الحفاظ على اللياقة والوزن المناسب أثناء الحمل ويقوي القلب بوجه عام حتى في حين الولادة.',
@@ -116,7 +118,7 @@ class RestExcersice extends StatelessWidget {
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
                 textDirection: TextDirection.rtl,
               ),
-            ), 
+            ),
             const Padding(
               padding: EdgeInsets.all(10.0),
               child: Text(
@@ -153,7 +155,7 @@ class RestExcersice extends StatelessWidget {
                 textDirection: TextDirection.rtl,
               ),
             ),
-              const Padding(
+            const Padding(
               padding: EdgeInsets.all(10.0),
               child: Text(
                 '•	ألم الصدر',
@@ -162,8 +164,8 @@ class RestExcersice extends StatelessWidget {
                 textDirection: TextDirection.rtl,
               ),
             ),
-        ],
-      ),
+          ],
+        ),
       ),
     );
   }

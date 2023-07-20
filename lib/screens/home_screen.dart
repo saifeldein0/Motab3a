@@ -24,8 +24,9 @@ class HomeScreen extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 236, 161, 192),
                   borderRadius: BorderRadius.all(Radius.circular(100)),
-                  boxShadow: CupertinoContextMenu.kEndBoxShadow ,
-                ),height: 50, 
+                  boxShadow: CupertinoContextMenu.kEndBoxShadow,
+                ),
+                height: 50,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -35,7 +36,8 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
                         );
                       },
                     ),
@@ -51,7 +53,8 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>const HospitalMapScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const HospitalMapScreen()),
                   );
                 },
                 icon: const Icon(Icons.local_hospital),
@@ -62,7 +65,9 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>const SymptomsAndComplicationsScreen()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const SymptomsAndComplicationsScreen()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),
@@ -73,8 +78,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) =>const Diet()),
+                    MaterialPageRoute(builder: (context) => const Diet()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),
@@ -84,7 +88,8 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>const Environment()),
+                    MaterialPageRoute(
+                        builder: (context) => const Environment()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),
@@ -94,8 +99,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const Smoking()),
+                    MaterialPageRoute(builder: (context) => const Smoking()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),
@@ -105,7 +109,8 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const RestExcersice()),
+                    MaterialPageRoute(
+                        builder: (context) => const RestExcersice()),
                   );
                 },
                 icon: const Icon(Icons.warning_rounded),
