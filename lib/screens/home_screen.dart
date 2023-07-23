@@ -1,7 +1,12 @@
 import 'package:application/screens/diet%20and%20nutrition_screen.dart';
 import 'package:application/screens/environment_screen.dart';
+import 'package:application/screens/notes%20and%20measurements_screen.dart';
+import 'package:application/screens/pharmaceutical_screen.dart';
+import 'package:application/screens/psychological%20stressors_screen.dart';
 import 'package:application/screens/rest%20and%20exercise_screen.dart';
 import 'package:application/screens/smoking%20and%20alcohol_screen.dart';
+import 'package:application/widgets/bottom_bar_iconbuttons.dart';
+import 'package:application/widgets/home_buttons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
@@ -14,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Stack(
         children: [
           Align(
@@ -30,16 +36,13 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconButton(
+                    Icon_Button(
                       icon: const Icon(Icons.logout_rounded),
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()),
-                        );
-                      },
+                      class_name:const LoginScreen(),
+                    ),
+                    Icon_Button(
+                      icon: const Icon(Icons.place_outlined),
+                      class_name:const HospitalMapScreen(),
                     ),
                   ],
                 ),
@@ -49,72 +52,75 @@ class HomeScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HospitalMapScreen()),
-                  );
-                },
-                icon: const Icon(Icons.local_hospital),
-                label: const Text('أقرب مستشفى'),
+              
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    button(
+                      class_name: SymptomsAndComplicationsScreen(),
+                      icon: Icon(Icons.warning),
+                      label: 'الاعراض الخطيرة',
+                    ),
+                    button(
+                        class_name: Diet(),
+                        label: 'الغذاء والتغذية',
+                        icon: Icon(Icons.food_bank_rounded)),
+                  ],
+                ),
               ),
-              const SizedBox(height: 16),
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const SymptomsAndComplicationsScreen()),
-                  );
-                },
-                icon: const Icon(Icons.warning_rounded),
-                label: const Text('الأعراض الخطيرة'),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    button(
+                      class_name: Smoking(),
+                      icon: Icon(Icons.smoke_free_rounded),
+                      label: 'التدخين والكحوليات',
+                    ),
+                    button(
+                        class_name: Environment(),
+                        label: 'البيئة المحيطة',
+                        icon: Icon(Icons.home)),
+                  ],
+                ),
               ),
-              const SizedBox(height: 16),
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Diet()),
-                  );
-                },
-                icon: const Icon(Icons.warning_rounded),
-                label: const Text("الغذاء والتغذية"),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    button(
+                      class_name: RestExcersice(),
+                      icon: Icon(Icons.run_circle),
+                      label: 'الراحة و ممارسة الرياضة',
+                    ),
+                    button(
+                        class_name: Stress(),
+                        label: 'الضغوطات النفسية',
+                        icon: Icon(Icons.do_disturb_alt_outlined),),
+                  ],
+                ),
               ),
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Environment()),
-                  );
-                },
-                icon: const Icon(Icons.warning_rounded),
-                label: const Text(" البيئة المحيطة "),
-              ),
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Smoking()),
-                  );
-                },
-                icon: const Icon(Icons.warning_rounded),
-                label: const Text("التدخين والكحوليات"),
-              ),
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RestExcersice()),
-                  );
-                },
-                icon: const Icon(Icons.warning_rounded),
-                label: const Text("الراحة و ممارسة الرياضة"),
+               Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    button(
+                      class_name: pharmaticuals(),
+                      icon: Icon(Icons.local_pharmacy_rounded),
+                      label: 'الادوية',
+                    ),
+                    button(
+                      class_name: notes(),
+                      label: 'الملاحظات و القياسات',
+                      icon: Icon(Icons.medical_services_outlined),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

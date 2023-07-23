@@ -1,0 +1,49 @@
+
+import 'package:flutter/material.dart';
+
+
+class button extends StatelessWidget {
+  button({this.class_name, this.label, this.icon});
+
+  Widget? class_name;
+  String? label;
+  Icon? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      width: 180,
+      child: ElevatedButton.icon(
+        style: ButtonStyle(
+          elevation:const MaterialStatePropertyAll(5),
+          backgroundColor: const MaterialStatePropertyAll(
+              Color.fromARGB(255, 236, 161, 192)),
+          iconColor: const MaterialStatePropertyAll(Colors.white),
+          iconSize: const MaterialStatePropertyAll(50),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+          ),
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => class_name!),
+          );
+        },
+        icon: icon!,
+        label: Text(
+          label!,
+          style: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'cairo',
+              fontSize: 17,
+              fontWeight: FontWeight.bold),
+          textDirection: TextDirection.rtl,
+        ),
+      ),
+    );
+  }
+}
