@@ -38,11 +38,11 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Icon_Button(
                       icon: const Icon(Icons.logout_rounded),
-                      class_name:const LoginScreen(),
+                      class_name: const LoginScreen(),
                     ),
                     Icon_Button(
                       icon: const Icon(Icons.place_outlined),
-                      class_name:const HospitalMapScreen(),
+                      class_name: const HospitalMapScreen(),
                     ),
                   ],
                 ),
@@ -52,7 +52,6 @@ class HomeScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
@@ -94,17 +93,18 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     button(
                       class_name: RestExcersice(),
-                      icon: Icon(Icons.run_circle),
+                      icon: Icon(Icons.pregnant_woman),
                       label: 'الراحة و ممارسة الرياضة',
                     ),
                     button(
-                        class_name: Stress(),
-                        label: 'الضغوطات النفسية',
-                        icon: Icon(Icons.do_disturb_alt_outlined),),
+                      class_name: Stress(),
+                      label: 'الضغوطات النفسية',
+                      icon: Icon(Icons.do_not_disturb_alt_rounded),
+                    ),
                   ],
                 ),
               ),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
