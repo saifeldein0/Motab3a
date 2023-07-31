@@ -10,6 +10,7 @@ import 'package:application/widgets/home_buttons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
+import 'package:application/screens/profile_screen.dart';
 import 'hospital_map_screen.dart';
 import 'symptoms_and_complications_screen.dart';
 
@@ -44,6 +45,16 @@ class HomeScreen extends StatelessWidget {
                       icon: const Icon(Icons.place_outlined),
                       class_name: const HospitalMapScreen(),
                     ),
+                    // Profile Icon Button
+                    IconButton(
+                      icon: Icon(Icons.person_outline), // Customize the icon if needed
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ProfileScreen()),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -63,9 +74,10 @@ class HomeScreen extends StatelessWidget {
                       label: 'الاعراض الخطيرة',
                     ),
                     button(
-                        class_name: Diet(),
-                        label: 'الغذاء والتغذية',
-                        icon: Icon(Icons.food_bank_rounded)),
+                      class_name: Diet(),
+                      label: 'الغذاء والتغذية',
+                      icon: Icon(Icons.food_bank_rounded),
+                    ),
                   ],
                 ),
               ),
@@ -80,9 +92,10 @@ class HomeScreen extends StatelessWidget {
                       label: 'التدخين والكحوليات',
                     ),
                     button(
-                        class_name: Environment(),
-                        label: 'البيئة المحيطة',
-                        icon: Icon(Icons.home)),
+                      class_name: Environment(),
+                      label: 'البيئة المحيطة',
+                      icon: Icon(Icons.home),
+                    ),
                   ],
                 ),
               ),
