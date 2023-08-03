@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'firebase_options.dart';
@@ -25,7 +26,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // Change the home property to point to your LoginScreen
-      home: const LoginScreen(),
+      home: AnimatedSplashScreen(
+            duration: 3000,
+            splash: 'images/splash.png',
+            nextScreen:const LoginScreen(),
+            splashTransition: SplashTransition.fadeTransition,
+            splashIconSize: 300,
+            backgroundColor:const Color(0xFFfaeaf0)),
     );
   }
 }
