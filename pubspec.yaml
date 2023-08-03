@@ -16,6 +16,8 @@ dependencies:
   cupertino_icons: ^1.0.5
   google_maps_flutter: ^2.3.1
   url_launcher: ^6.1.12
+  get: ^4.6.5
+  
 
 dev_dependencies:
   flutter_test:
@@ -32,4 +34,5 @@ flutter:
         - asset: fonts/Cairo-VariableFont_slnt,wght.ttf
 
   assets:
-    - images/logo2.png  
+    - images/
+

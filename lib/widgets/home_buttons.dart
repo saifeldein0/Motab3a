@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class button extends StatelessWidget {
@@ -28,10 +29,7 @@ class button extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => class_name!),
-          );
+          Get.to(class_name!, transition: Transition.rightToLeftWithFade , duration : Duration(milliseconds: 300));
         },
         icon: icon!,
         label: Text(

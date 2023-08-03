@@ -6,7 +6,7 @@ class RestExcersice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+      backgroundColor: Color(0xFFde98bd),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         title: const Text(

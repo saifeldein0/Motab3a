@@ -6,7 +6,7 @@ class Diet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+      backgroundColor: Color(0xFFde98bd),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         title: const Text(
@@ -24,11 +24,11 @@ class Diet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Card(
                   elevation: 10,
-                  margin: const EdgeInsets.symmetric(horizontal: 90, vertical: 40),
+                  margin: const EdgeInsets.all(20),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   color: const Color.fromARGB(255, 255, 255, 255),
@@ -55,7 +55,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	أتباع نظام غذائى متكامل يحتوى على كل العناصر الغذائية للأم والجنين.',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -64,7 +64,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	الإكثار من تناول الفواكه والخضروات والحبوب الكاملة.',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -73,7 +73,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤  البروتينات: ينصح بالحصول عليها من اللحوم الخالية من الدهون (مثل: الدجاج، الأسماك، والبقول، وغيرها) كل يوم.',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -82,7 +82,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	الدهون: ينصح بالحصول عليها من المصادر النباتية (مثل: زيت الزيتون)، وتجنب الدهون المشبعة ذات المصدر الحيواني (مثل: الزبدة).',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -93,12 +93,11 @@ class Diet extends StatelessWidget {
             endIndent: 50,),
 
                   Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Card(
                       elevation: 10,
-                      margin:const  EdgeInsets.symmetric(
-                          horizontal: 90, vertical: 40),
+                      margin: const EdgeInsets.all(20),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25)),
                       color: const Color.fromARGB(255, 255, 255, 255),
@@ -122,7 +121,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	تجنب الأطعمة المصنعة كاللحوم والاسماك المصنعة (النقانق, البسطرة ،الانشون, الرنجة , الفسيخ ).',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -131,7 +130,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	الحد من تناول سمك التونة والا يزيد على أربع علب متوسطة الحجم (وزن الصافي = 140 جرامًا لكل علبة) في الأسبوع.',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -140,7 +139,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	بعض أنواع الأسماك الزيتية التي قد تحتوي على مواد كيميائية من التلوث، وقد تتراكم في الجسم مع مرور الوقت وتكون ضارة؛ لذا ينصح بألا تزيد على حصتين أسبوعيًّا (مثل: سمك الماكريل، والسردين، والسالمون، والتونة الطازجة؛ حيث لا يعتبر سمك التونة المعلب أسماكًا زيتية).',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -149,7 +148,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	تجنب تناول الأطعمة المعلبة والوجبات السريعة ووجبات المطاعم لاحتوائهم على نسبة كبيرة من الصوديوم الذي يطيل من تاريخ صلاحية المنتج الغذائي.',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -158,7 +157,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤ 	الكافيين: وهي مادة توجد بشكل طبيعي في الأطعمة (مثل: الشاي، والقهوة، والشوكولاته)، وبعض المشروبات الغازية، مشروبات الطاقة أو بعض المسكنات، وينصح بالحد من تناوله أثناء الحمل، حيث إن كثرته تزيد خطر حدوث الإجهاض وانخفاض وزن الطفل عند الولادة.',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -167,7 +166,7 @@ class Diet extends StatelessWidget {
                   child: Text(
                     '⬤  تجنب شراء المنتجات المحتوية على أحادي جلوتامات الصوديوم ويرمز له بالرمز (E621)  أو استخدامه أثناء الطبخ لتقليل من الملح في الطعام؛ حيث إنه يسبب احتباس السوائل؛ مما يؤدي إلى ارتفاع ضغط الدم.  ',
                     style: TextStyle(
-                        fontSize: 25, fontFamily: 'cairo', color: Colors.white),
+                        fontSize: 20, fontFamily: 'cairo', color: Colors.white),
                     textDirection: TextDirection.rtl,
                   ),
                 ),

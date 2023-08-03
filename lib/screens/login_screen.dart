@@ -2,8 +2,8 @@ import 'package:application/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'register_screen.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -23,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
   void _loginUser() async {
     String email = _emailController.text;
     String password = _passwordController.text;
-    
 
     try {
       // Sign in the user with email and password
@@ -37,10 +36,8 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user != null) {
         // User logged in successfully
         print('تم تسجيل الدخول بنجاح ${user.uid}');
-          Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
-        );
+        Get.to(HomeScreen(),
+            transition: Transition.fade, duration: Duration(seconds: 1));
       } else {
         // Handle the case when user is null
         setState(() {
@@ -57,14 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _goToRegisterScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => RegisterScreen()),
-    );
+    Get.to(RegisterScreen(),
+        transition: Transition.downToUp, duration: Duration(milliseconds: 300));
   }
 
-
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -80,12 +74,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontFamily: 'cairo'),
           ),
         ),
-         shape:
+        shape:
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
         toolbarHeight: 70,
       ),
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color(0xFFfaeaf0),
       body: Stack(
         children: [
           SafeArea(
@@ -104,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
-                            color: Color.fromARGB(255, 236, 161, 192),
+                            color: Color(0xFFde98bd),
                             fontFamily: 'cairo',
                           ),
                           textAlign: TextAlign.right,
@@ -115,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 236, 161, 192),
+                                color: Color(0xFFde98bd),
                               ),
                             ),
                           ),
@@ -141,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 236, 161, 192),
+                                color: Color(0xFFde98bd),
                               ),
                             ),
                           ),
@@ -157,7 +151,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   color: Colors.grey,
                                   fontFamily: 'cairo', // Set hint text color
                                 ),
-                                
                               ),
                             ),
                           ),
@@ -175,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 236, 161, 192)
+                              color: Color(0xFFde98bd)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: CupertinoContextMenu.kEndBoxShadow,
@@ -195,18 +188,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 10),
                         GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RegisterScreen(),
-                              ),
-                            );
-                          },
+                          onTap: 
+                            _goToRegisterScreen,
+                          
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 236, 161, 192)
+                              color: Color(0xFFde98bd)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: CupertinoContextMenu.kEndBoxShadow,

@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color(0xFFfaeaf0),
       body: Stack(
         children: [
           Align(
@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Container(
                 decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 236, 161, 192),
+                  color: Color(0xFFde98bd),
                   borderRadius: BorderRadius.all(Radius.circular(100)),
                   boxShadow: CupertinoContextMenu.kEndBoxShadow,
                 ),
@@ -46,14 +46,9 @@ class HomeScreen extends StatelessWidget {
                       class_name: const HospitalMapScreen(),
                     ),
                     // Profile Icon Button
-                    IconButton(
+                    Icon_Button(
                       icon: Icon(Icons.person_outline), // Customize the icon if needed
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ProfileScreen()),
-                        );
-                      },
+                      class_name: const ProfileScreen(),
                     ),
                   ],
                 ),
@@ -63,6 +58,8 @@ class HomeScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset('images/cover.png'),
+             
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
@@ -135,8 +132,12 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              
+
             ],
+            
           ),
+        
         ],
       ),
     );

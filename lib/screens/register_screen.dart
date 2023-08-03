@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -56,10 +57,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       User? user = userCredential.user;
       if (user != null) {
         print('تم تسجيل المستخدم بنجاح');
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
-        );
+        Get.to(LoginScreen(),
+            transition: Transition.fade, duration: Duration(seconds: 1));
       } else {
         setState(() {
           _errorMessage = 'فشل في تسجيل المستخدم';
@@ -94,7 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         elevation: 10,
         toolbarHeight: 70,
       ),
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color(0xFFfaeaf0),
       body: Stack(
         children: [
           SafeArea(
@@ -116,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 236, 161, 192),
+                                color: Color(0xFFde98bd),
                               ),
                             ),
                           ),
@@ -143,7 +142,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 236, 161, 192),
+                                color: Color(0xFFde98bd),
                               ),
                             ),
                           ),
@@ -180,7 +179,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Color.fromARGB(255, 236, 161, 192),
+                                color: Color(0xFFde98bd),
                               ),
                             ),
                           ),
@@ -224,7 +223,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color:const Color.fromARGB(255, 236, 161, 192)
+                              color: Color(0xFFde98bd)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                             boxShadow: CupertinoContextMenu.kEndBoxShadow,

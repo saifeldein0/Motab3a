@@ -6,7 +6,7 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 236, 161, 192),
+      backgroundColor: Color(0xFFde98bd),
       appBar: AppBar(
         backgroundColor:Color.fromARGB(255, 255, 255, 255),
         title: const Text(
@@ -29,11 +29,11 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Card(
                   elevation: 8,
-                  margin: const EdgeInsets.all(28),
+                  margin: const EdgeInsets.all(20),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   color:const Color.fromARGB(255, 255, 255, 255),
@@ -60,7 +60,7 @@ const Column(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   '⬤ صداع شديد لم يزول بالمسكنات',
-                  style: TextStyle(fontSize: 25,  fontFamily: 'cairo',color: Colors.white),
+                  style: TextStyle(fontSize: 20,  fontFamily: 'cairo',color: Colors.white),
                   textDirection: TextDirection.rtl,
                 ),
               ),
@@ -69,7 +69,7 @@ const Column(
                 child: Text(
                   '⬤ أضرابات في الرؤية (زغللة بالعين)',
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -80,7 +80,7 @@ const Column(
                 child: Text(
                   '⬤ تورم في اليدين أو القدمين، والوجه خاصة حول العينين',
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -91,7 +91,7 @@ const Column(
                 child: Text(
                   '⬤ ألم في الجزء الأعلى من البطن (تحت الأضلاع على الجانب الأيمن)',
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -102,7 +102,7 @@ const Column(
                 child: Text(
                   '⬤ غثيان أو قيء',
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -113,7 +113,7 @@ const Column(
                 child: Text(
                   '⬤ قلة إنتاج البول',
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -124,7 +124,7 @@ const Column(
                 child: Text(
                   '⬤ ضعف وظائف الكبد',
                       style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -135,7 +135,7 @@ const Column(
                 child: Text(
                   '⬤ ضيق في التنفس',
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -146,7 +146,7 @@ const Column(
                 child: Text(
                   '⬤ زيادة مفاجئة في الوزن',
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
                   textDirection: TextDirection.rtl,
@@ -167,7 +167,7 @@ const Column(
               children: [
                 Card(
                   elevation: 8,
-                  margin:const EdgeInsets.all(30),
+                  margin:const EdgeInsets.all(20),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   color: const Color.fromARGB(255, 255, 255, 255),
@@ -194,7 +194,7 @@ const Column(
                   child: Text(
                     '⬤ نوبات تشبه التشنج أوالصرع يحدث عادة بعد الأسبوع ال ٢٠ من الحمل',
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -205,7 +205,7 @@ const Column(
                   child: Text(
                     '⬤ بطء نمو الجنين وانخفاض الوزن عند الولادة',
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -216,7 +216,7 @@ const Column(
                   child: Text(
                     '⬤ متلازمة هيلب: تحدث في وقت متأخر من الحمل،تسبب تكسير كريات الدم الحمراء،ارتفاع إنزيمات الكبد وانخفاض عدد الصفائح الدموية',
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -227,7 +227,7 @@ const Column(
                   child: Text(
                     '⬤ الولادة المبكرة',
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -238,7 +238,7 @@ const Column(
                   child: Text(
                     '⬤ الفشل الكلوي',
                   style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -249,7 +249,7 @@ const Column(
                   child: Text(
                     '⬤ تليف الكبد',
                   style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -260,7 +260,7 @@ const Column(
                   child: Text(
                     '⬤ انفصال المشيمة',
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -271,7 +271,7 @@ const Column(
                   child: Text(
                     '⬤ السكتة الدماغية',
                   style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,
@@ -282,7 +282,7 @@ const Column(
                   child: Text(
                     '⬤ أمراض القلب والأوعية الدموية',
                   style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
                     textDirection: TextDirection.rtl,

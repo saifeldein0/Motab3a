@@ -8,6 +8,7 @@ class HospitalMapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFfaeaf0),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 236, 161, 192),
         title: const Text(
@@ -22,7 +23,8 @@ class HospitalMapScreen extends StatelessWidget {
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
       ),
-      body: Center(
+      body: 
+       Center(
         child: ElevatedButton(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 236, 161, 192),
