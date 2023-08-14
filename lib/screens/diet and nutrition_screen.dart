@@ -6,17 +6,20 @@ class Diet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFde98bd),
+      backgroundColor: const Color(0xFFde98bd),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         title: const Text(
-        "      الغذاء والتغذية   " ,
+          "      الغذاء والتغذية   ",
           style: TextStyle(
-              color: const Color.fromARGB(255, 236, 161, 192),
+              color: Color.fromARGB(255, 236, 161, 192),
               fontWeight: FontWeight.bold,
               fontSize: 23,
               fontFamily: 'cairo'),
-        ),shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)), elevation: 10,
+        ),
+        shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        elevation: 10,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -33,7 +36,7 @@ class Diet extends StatelessWidget {
                       borderRadius: BorderRadius.circular(25)),
                   color: const Color.fromARGB(255, 255, 255, 255),
                   child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40 , vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                     child: Text(
                       'طعام ينصح به',
                       style: TextStyle(
@@ -46,11 +49,11 @@ class Diet extends StatelessWidget {
                 ),
               ],
             ),
-          Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-              const Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	أتباع نظام غذائى متكامل يحتوى على كل العناصر الغذائية للأم والجنين.',
@@ -68,7 +71,7 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-              const  Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤  البروتينات: ينصح بالحصول عليها من اللحوم الخالية من الدهون (مثل: الدجاج، الأسماك، والبقول، وغيرها) كل يوم.',
@@ -77,7 +80,7 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-              const  Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	الدهون: ينصح بالحصول عليها من المصادر النباتية (مثل: زيت الزيتون)، وتجنب الدهون المشبعة ذات المصدر الحيواني (مثل: الزبدة).',
@@ -86,13 +89,14 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-          const Divider(thickness: 1.5,
-            color: Color.fromARGB(255, 255, 255, 255),
-            height: 50,
-            indent: 50,
-            endIndent: 50,),
-
-                  Row(
+                const Divider(
+                  thickness: 1.5,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  height: 50,
+                  indent: 50,
+                  endIndent: 50,
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Card(
@@ -105,7 +109,7 @@ class Diet extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         child: Text(
-                    "تجنبي هذا الطعام",
+                          "تجنبي هذا الطعام",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
@@ -116,7 +120,7 @@ class Diet extends StatelessWidget {
                     ),
                   ],
                 ),
-               const Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	تجنب الأطعمة المصنعة كاللحوم والاسماك المصنعة (النقانق, البسطرة ،الانشون, الرنجة , الفسيخ ).',
@@ -125,7 +129,7 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-               const Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	الحد من تناول سمك التونة والا يزيد على أربع علب متوسطة الحجم (وزن الصافي = 140 جرامًا لكل علبة) في الأسبوع.',
@@ -134,7 +138,7 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-              const  Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	بعض أنواع الأسماك الزيتية التي قد تحتوي على مواد كيميائية من التلوث، وقد تتراكم في الجسم مع مرور الوقت وتكون ضارة؛ لذا ينصح بألا تزيد على حصتين أسبوعيًّا (مثل: سمك الماكريل، والسردين، والسالمون، والتونة الطازجة؛ حيث لا يعتبر سمك التونة المعلب أسماكًا زيتية).',
@@ -143,7 +147,7 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-              const  Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤ 	تجنب تناول الأطعمة المعلبة والوجبات السريعة ووجبات المطاعم لاحتوائهم على نسبة كبيرة من الصوديوم الذي يطيل من تاريخ صلاحية المنتج الغذائي.',
@@ -161,7 +165,7 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-              const  Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     '⬤  تجنب شراء المنتجات المحتوية على أحادي جلوتامات الصوديوم ويرمز له بالرمز (E621)  أو استخدامه أثناء الطبخ لتقليل من الملح في الطعام؛ حيث إنه يسبب احتباس السوائل؛ مما يؤدي إلى ارتفاع ضغط الدم.  ',
@@ -170,7 +174,6 @@ class Diet extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
-        
               ],
             ),
           ],

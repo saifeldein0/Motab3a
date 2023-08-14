@@ -47,7 +47,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     // Profile Icon Button
                     Icon_Button(
-                      icon: Icon(Icons.person_outline), // Customize the icon if needed
+                      icon: Icon(
+                          Icons.person_outline), // Customize the icon if needed
                       class_name: const ProfileScreen(),
                     ),
                   ],
@@ -59,7 +60,6 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('images/cover.png'),
-             
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
@@ -132,12 +132,8 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              
-
             ],
-            
           ),
-        
         ],
       ),
     );
