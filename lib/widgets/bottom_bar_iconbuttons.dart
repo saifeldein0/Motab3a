@@ -10,7 +10,7 @@ class Icon_Button extends StatelessWidget {
       icon: icon!,
       color: const Color.fromARGB(255, 255, 255, 255),
       onPressed: () {
-        Get.to(class_name!, transition: Transition.downToUp,duration:Duration(milliseconds: 300) );
+        Get.to(()=>class_name!, transition: Transition.downToUp,duration:Duration(milliseconds: 300) );
       },
     );
   }

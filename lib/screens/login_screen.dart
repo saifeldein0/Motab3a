@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user != null) {
         // User logged in successfully
         print('تم تسجيل الدخول بنجاح ${user.uid}');
-        Get.to(HomeScreen(),
+        Get.to(() => HomeScreen(),
             transition: Transition.fade, duration: Duration(seconds: 1));
       } else {
         // Handle the case when user is null

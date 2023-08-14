@@ -29,7 +29,7 @@ class button extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Get.to(class_name!, transition: Transition.rightToLeftWithFade , duration : Duration(milliseconds: 300));
+          Get.to(()=>class_name!, transition: Transition.rightToLeftWithFade , duration : Duration(milliseconds: 300));
         },
         icon: icon!,
         label: Text(

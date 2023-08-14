@@ -57,7 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       User? user = userCredential.user;
       if (user != null) {
         print('تم تسجيل المستخدم بنجاح');
-        Get.to(LoginScreen(),
+        Get.to(()=>LoginScreen(),
             transition: Transition.fade, duration: Duration(seconds: 1));
       } else {
         setState(() {
