@@ -1,6 +1,6 @@
 import 'package:application/screens/diet%20and%20nutrition_screen.dart';
 import 'package:application/screens/environment_screen.dart';
-import 'package:application/screens/notes%20and%20measurements_screen.dart';
+import 'package:application/screens/MedicalTestSubmissionScreen.dart';
 import 'package:application/screens/pharmaceutical_screen.dart';
 import 'package:application/screens/psychological%20stressors_screen.dart';
 import 'package:application/screens/rest%20and%20exercise_screen.dart';
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                       label: 'الادوية',
                     ),
                     button(
-                      class_name: notes(),
+                      class_name: MedicalTestSubmissionScreen(),
                       label: 'الملاحظات و القياسات',
                       icon: Icon(Icons.medical_services_outlined),
                     ),

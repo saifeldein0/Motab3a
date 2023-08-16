@@ -28,6 +28,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController _medicalHistoryController = TextEditingController();
   TextEditingController _bmiController = TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+    _loadProfileData();
+  }
+
+  Future<void> _loadProfileData() async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      DocumentSnapshot profileSnapshot = await _firestore.collection('users').doc(user.uid).get();
+      Map<String, dynamic> profileData = profileSnapshot.data() as Map<String, dynamic>;
+
+      _nameController.text = profileData['name'] ?? '';
+      _ageController.text = profileData['age'] ?? '';
+      _placeController.text = profileData['place'] ?? '';
+      _addressController.text = profileData['address'] ?? '';
+      _educationLevelController.text = profileData['education_level'] ?? '';
+      _workController.text = profileData['work'] ?? '';
+      _numPregnanciesController.text = profileData['num_pregnancies'] ?? '';
+      _numDeliveriesController.text = profileData['num_deliveries'] ?? '';
+      _lastDeliveryTypeController.text = profileData['last_delivery_type'] ?? '';
+      _lastDeliveryTypeTypeController.text = profileData['last_delivery_type_type'] ?? '';
+      _lastPeriodDateController.text = profileData['last_period_date'] ?? '';
+      _weeksPregnantController.text = profileData['weeks_pregnant'] ?? '';
+      _complicationsController.text = profileData['complications'] ?? '';
+      _medicalHistoryController.text = profileData['medical_history'] ?? '';
+      _bmiController.text = profileData['bmi'] ?? '';
+    }
+  }
+
+
+
   void _saveProfile() async {
     User? user = _auth.currentUser;
     if (user != null) {
@@ -88,6 +120,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,7 +165,51 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 decoration: InputDecoration(labelText: 'Work'),
               ),
               SizedBox(height: 20),
-              // Add other fields for the second and third parts of the profile here
+              TextField(
+                controller: _numPregnanciesController,
+                decoration: InputDecoration(labelText: 'Number of pregnancies'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _numDeliveriesController,
+                decoration: InputDecoration(labelText: 'Number of deliveries'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _lastDeliveryTypeController,
+                decoration: InputDecoration(labelText: 'Last delivery type'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _lastDeliveryTypeTypeController,
+                decoration: InputDecoration(labelText: 'Last delivery type details'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _lastPeriodDateController,
+                decoration: InputDecoration(labelText: 'Last period date'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _weeksPregnantController,
+                decoration: InputDecoration(labelText: 'Weeks pregnant'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _complicationsController,
+                decoration: InputDecoration(labelText: 'Complications'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _medicalHistoryController,
+                decoration: InputDecoration(labelText: 'Medical history'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _bmiController,
+                decoration: InputDecoration(labelText: 'BMI'),
+              ),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _saveProfile,
                 child: Text('Save Profile'),
