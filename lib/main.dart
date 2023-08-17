@@ -1,22 +1,44 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'firebase_options.dart';
-import 'package:application/screens/NotificationsManager.dart'; // Import the notification manager
+//import 'package:application/screens/NotificationsManager.dart'; // Import the notification manager
 import 'package:application/screens/Login_screen.dart';
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+//final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+FirebaseMessaging messaging = FirebaseMessaging.instance;
+NotificationSettings settings = await messaging.requestPermission(
+  alert: true,
+  announcement: false,
+  badge: true,
+  carPlay: false,
+  criticalAlert: false,
+  provisional: false,
+  sound: true,
+
+);
+print('User granted permission: ${settings.authorizationStatus} ');
+
+FirebaseMessaging.onMessage.listen((RemoteMessage message){
+print('got a message whilst in the foreground!');
+print('Message data: ${message.data}');
+
+if (message.notification != null) {
+  print('message also contained a notification: ${message.notification} ');
+}
+});
+
   // Initialize the notification manager
-  await NotificationManager.init();
+ // await NotificationManager.init();
 
   runApp(const MyApp());
 }
