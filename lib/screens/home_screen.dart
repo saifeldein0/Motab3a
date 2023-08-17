@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                       label: 'الادوية',
                     ),
                     button(
-                      class_name: MedicalTestSubmissionScreen(),
+                      class_name: TestInputScreen(),
                       label: 'الملاحظات و القياسات',
                       icon: Icon(Icons.medical_services_outlined),
                     ),

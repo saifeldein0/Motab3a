@@ -1,81 +1,81 @@
-  import 'package:flutter/material.dart';
-  import 'package:firebase_auth/firebase_auth.dart';
-  import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-  class MedicalTestSubmissionScreen extends StatefulWidget {
-    @override
-    _MedicalTestSubmissionScreenState createState() =>
-        _MedicalTestSubmissionScreenState();
+class TestInputScreen extends StatefulWidget {
+  const TestInputScreen({Key? key}) : super(key: key);
+
+  @override
+  _TestInputScreenState createState() => _TestInputScreenState();
+}
+
+class _TestInputScreenState extends State<TestInputScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  TextEditingController _cbcController = TextEditingController();
+  TextEditingController _kidneyFunctionsController = TextEditingController();
+  TextEditingController _liverFunctionsController = TextEditingController();
+  TextEditingController _bmiController = TextEditingController();
+  TextEditingController _bloodPressureController = TextEditingController();
+
+  void _submitTestResults() async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      String userId = user.uid;
+      String name = user.displayName ?? '';
+
+      String cbcResult = _cbcController.text;
+      String kidneyFunctionsResult = _kidneyFunctionsController.text;
+      String liverFunctionsResult = _liverFunctionsController.text;
+      String bmiResult = _bmiController.text;
+      String bloodPressureResult = _bloodPressureController.text;
+
+      // Save the test results to Firestore
+      await _firestore.collection('tests').add({
+        'userId': userId,
+        'name': name,
+        'cbcResult': cbcResult,
+        'kidneyFunctionsResult': kidneyFunctionsResult,
+        'liverFunctionsResult': liverFunctionsResult,
+        'bmiResult': bmiResult,
+        'bloodPressureResult': bloodPressureResult,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      // Show a success message or navigate to the next screen
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Test Results Submitted'),
+            content: Text('Your test results have been submitted.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 
-  class _MedicalTestSubmissionScreenState
-      extends State<MedicalTestSubmissionScreen> {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-    TextEditingController _bloodPressureController = TextEditingController();
-    TextEditingController _weightController = TextEditingController();
-    TextEditingController _cbcController = TextEditingController();
-    TextEditingController _kidneyFunctionsController = TextEditingController();
-    TextEditingController _liverFunctionsController = TextEditingController();
-
-    void _submitMedicalTestResult(
-        String testType, TextEditingController controller) async {
-      User? user = _auth.currentUser;
-      if (user != null) {
-        String userId = user.uid;
-        String result = controller.text;
-
-        // Save the test result to Firestore
-        await _firestore.collection('TestResults').add({
-          'userId': userId,
-          'testType': testType,
-          'result': result,
-          'timestamp': FieldValue.serverTimestamp(),
-        });
-
-        // Show a success message or navigate to the next screen
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('Test Result Submitted'),
-              content: Text('Your test result has been submitted.'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    }
-
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text('Medical Test Submission'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Test Results Input'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextField(
-                controller: _bloodPressureController,
-                decoration: InputDecoration(labelText: 'Blood Pressure Test'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _weightController,
-                decoration: InputDecoration(labelText: 'Weight Test'),
-              ),
-              SizedBox(height: 10),
               TextField(
                 controller: _cbcController,
                 decoration: InputDecoration(labelText: 'CBC Test Result'),
@@ -83,27 +83,32 @@
               SizedBox(height: 10),
               TextField(
                 controller: _kidneyFunctionsController,
-                decoration: InputDecoration(labelText: 'Kidney Functions Test Result'),
+                decoration: InputDecoration(labelText: 'Kidney Functions Result'),
               ),
               SizedBox(height: 10),
               TextField(
                 controller: _liverFunctionsController,
-                decoration: InputDecoration(labelText: 'Liver Functions Test Result'),
+                decoration: InputDecoration(labelText: 'Liver Functions Result'),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: _bmiController,
+                decoration: InputDecoration(labelText: 'BMI Result'),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: _bloodPressureController,
+                decoration: InputDecoration(labelText: 'Blood Pressure Result'),
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                  _submitMedicalTestResult('Blood Pressure', _bloodPressureController);
-                  _submitMedicalTestResult('Weight', _weightController);
-                  _submitMedicalTestResult('CBC', _cbcController);
-                  _submitMedicalTestResult('Kidney Functions', _kidneyFunctionsController);
-                  _submitMedicalTestResult('Liver Functions', _liverFunctionsController);
-                },
+                onPressed: _submitTestResults,
                 child: Text('Submit Test Results'),
               ),
             ],
           ),
         ),
-      );
-    }
+      ),
+    );
   }
+}
