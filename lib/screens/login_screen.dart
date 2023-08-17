@@ -1,4 +1,5 @@
 import 'package:application/screens/home_screen.dart';
+import 'package:application/widgets/custom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -80,147 +81,101 @@ class _LoginScreenState extends State<LoginScreen> {
         toolbarHeight: 70,
       ),
       backgroundColor: Color(0xFFfaeaf0),
-      body: Stack(
-        children: [
-          SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Center(
+          child: ListView(
+            
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(16),
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Container(
-                    child: ListView(
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.all(16),
-                      children: [
-                        const Text(
-                          'لديك حساب ؟',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            color: Color(0xFFde98bd),
-                            fontFamily: 'cairo',
-                          ),
-                          textAlign: TextAlign.right,
-                        ),
-                        const SizedBox(height: 20),
-                        Container(
-                          height: 50,
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Color(0xFFde98bd),
-                              ),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40),
-                            child: TextField(
-                              controller: _emailController,
-                              decoration: const InputDecoration(
-                                icon: Icon(Icons.mail),
-                                border: InputBorder.none,
-                                hintText: "البريد الالكتروني",
-                                hintStyle: TextStyle(
-                                  color: Colors.grey,
-                                  fontFamily: 'cairo', // Set hint text color
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Container(
-                          height: 50,
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Color(0xFFde98bd),
-                              ),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40),
-                            child: TextField(
-                              controller: _passwordController,
-                              decoration: const InputDecoration(
-                                icon: Icon(Icons.lock),
-                                border: InputBorder.none,
-                                hintText: 'كلمة المرور',
-                                hintStyle: TextStyle(
-                                  color: Colors.grey,
-                                  fontFamily: 'cairo', // Set hint text color
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 16.0),
-                        if (_errorMessage.isNotEmpty)
-                          Text(
-                            _errorMessage,
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        const SizedBox(height: 10),
-                        /////signinbutton
-                        GestureDetector(
-                          onTap: _loginUser,
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Color(0xFFde98bd)
-                                  .withOpacity(0.90),
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: CupertinoContextMenu.kEndBoxShadow,
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'تسجيل دخول',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'cairo',
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        GestureDetector(
-                          onTap: 
-                            _goToRegisterScreen,
-                          
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Color(0xFFde98bd)
-                                  .withOpacity(0.90),
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: CupertinoContextMenu.kEndBoxShadow,
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'انشاء حساب',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'cairo',
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                const Text(
+                  'لديك حساب ؟',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Color(0xFFde98bd),
+                    fontFamily: 'cairo',
+                  ),
+                  textAlign: TextAlign.right,
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  height: 50,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Color(0xFFde98bd),
+                      ),
                     ),
                   ),
-                )
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: TextField(
+                      controller: _emailController,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.mail),
+                        border: InputBorder.none,
+                        hintText: "البريد الالكتروني",
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'cairo', // Set hint text color
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  height: 50,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Color(0xFFde98bd),
+                      ),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: TextField(
+                      controller: _passwordController,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.lock),
+                        border: InputBorder.none,
+                        hintText: 'كلمة المرور',
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'cairo', // Set hint text color
+                        ),
+                      ),
+                      obscureText: true,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16.0),
+                if (_errorMessage.isNotEmpty)
+                  Text(
+                    _errorMessage,
+                    style: TextStyle(color: Colors.red),
+                  ),
+                const SizedBox(height: 10),
+                /////signinbutton
+                CustomButton(
+                    ontap: () {
+                      _loginUser();
+                    },
+                    text: 'تسجيل دخول'),
+                const SizedBox(height: 10),
+                CustomButton(
+                    ontap: () {
+                      _goToRegisterScreen();
+                    },
+                    text: 'انشاء حساب')
               ],
             ),
-          ),
-        ],
-      ),
+        ),
+        ),
+      
     );
   }
 }

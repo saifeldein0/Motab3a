@@ -1,3 +1,6 @@
+
+import 'package:application/widgets/custom_button.dart';
+import 'package:application/widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,7 +24,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController _numPregnanciesController = TextEditingController();
   TextEditingController _numDeliveriesController = TextEditingController();
   TextEditingController _lastDeliveryTypeController = TextEditingController();
-  TextEditingController _lastDeliveryTypeTypeController = TextEditingController();
+  TextEditingController _lastDeliveryTypeTypeController =
+      TextEditingController();
   TextEditingController _lastPeriodDateController = TextEditingController();
   TextEditingController _weeksPregnantController = TextEditingController();
   TextEditingController _complicationsController = TextEditingController();
@@ -37,8 +41,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _loadProfileData() async {
     User? user = _auth.currentUser;
     if (user != null) {
-      DocumentSnapshot profileSnapshot = await _firestore.collection('users').doc(user.uid).get();
-      Map<String, dynamic> profileData = profileSnapshot.data() as Map<String, dynamic>;
+      DocumentSnapshot profileSnapshot =
+          await _firestore.collection('users').doc(user.uid).get();
+      Map<String, dynamic> profileData =
+          profileSnapshot.data() as Map<String, dynamic>;
 
       _nameController.text = profileData['name'] ?? '';
       _ageController.text = profileData['age'] ?? '';
@@ -48,8 +54,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _workController.text = profileData['work'] ?? '';
       _numPregnanciesController.text = profileData['num_pregnancies'] ?? '';
       _numDeliveriesController.text = profileData['num_deliveries'] ?? '';
-      _lastDeliveryTypeController.text = profileData['last_delivery_type'] ?? '';
-      _lastDeliveryTypeTypeController.text = profileData['last_delivery_type_type'] ?? '';
+      _lastDeliveryTypeController.text =
+          profileData['last_delivery_type'] ?? '';
+      _lastDeliveryTypeTypeController.text =
+          profileData['last_delivery_type_type'] ?? '';
       _lastPeriodDateController.text = profileData['last_period_date'] ?? '';
       _weeksPregnantController.text = profileData['weeks_pregnant'] ?? '';
       _complicationsController.text = profileData['complications'] ?? '';
@@ -57,8 +65,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _bmiController.text = profileData['bmi'] ?? '';
     }
   }
-
-
 
   void _saveProfile() async {
     User? user = _auth.currentUser;
@@ -104,14 +110,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Profile Saved'),
-            content: Text('Your profile information has been saved.'),
+            title: Text('حفظ الملف الشخصي'),
+            content: Text('تم حفظ ملفك الشخصي'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('OK'),
+                child: Text('تم'),
               ),
             ],
           );
@@ -120,102 +126,113 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFfaeaf0),
       appBar: AppBar(
-        title: Text('Profile'),
+        backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'الملف الشخصي',
+            style: const TextStyle(
+                color: Color.fromARGB(255, 255, 255, 255),
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                fontFamily: 'cairo'),
+          ),
+        ),
+        shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        elevation: 10,
+        toolbarHeight: 70,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TextField(
-                controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _ageController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(labelText: 'Age'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _placeController,
-                decoration: InputDecoration(labelText: 'Place (Country/City)'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _addressController,
-                decoration: InputDecoration(labelText: 'Address'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _educationLevelController,
-                decoration: InputDecoration(labelText: 'Education Level'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _workController,
-                decoration: InputDecoration(labelText: 'Work'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _numPregnanciesController,
-                decoration: InputDecoration(labelText: 'Number of pregnancies'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _numDeliveriesController,
-                decoration: InputDecoration(labelText: 'Number of deliveries'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _lastDeliveryTypeController,
-                decoration: InputDecoration(labelText: 'Last delivery type'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _lastDeliveryTypeTypeController,
-                decoration: InputDecoration(labelText: 'Last delivery type details'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _lastPeriodDateController,
-                decoration: InputDecoration(labelText: 'Last period date'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _weeksPregnantController,
-                decoration: InputDecoration(labelText: 'Weeks pregnant'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _complicationsController,
-                decoration: InputDecoration(labelText: 'Complications'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _medicalHistoryController,
-                decoration: InputDecoration(labelText: 'Medical history'),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: _bmiController,
-                decoration: InputDecoration(labelText: 'BMI'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _saveProfile,
-                child: Text('Save Profile'),
-              ),
-            ],
-          ),
+        child: ListView(
+          children: [
+            CustomTextField(
+              lablelText: 'الأسم',
+              textfieldcontroller: _nameController,
+            ),
+            const SizedBox(height: 10),
+            CustomTextField(
+              textfieldcontroller: _ageController,
+              lablelText: 'السن',
+            ),
+            const SizedBox(height: 10),
+            CustomTextField(
+              textfieldcontroller: _placeController,
+              lablelText: 'المكان (البلد/ المدينة)',
+            ),
+            const SizedBox(height: 10),
+            CustomTextField(
+              textfieldcontroller: _addressController,
+              lablelText: 'العنوان',
+            ),
+            const SizedBox(height: 10),
+            CustomTextField(
+              textfieldcontroller: _educationLevelController,
+              lablelText: 'المستوى التعليمي',
+            ),
+            const SizedBox(height: 10),
+            CustomTextField(
+              textfieldcontroller: _workController,
+              lablelText: 'العمل',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _numPregnanciesController,
+              lablelText: 'عدد مرات الحمل',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _numDeliveriesController,
+              lablelText: 'عدد مرات الولادة',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _lastDeliveryTypeController,
+              lablelText: 'نوع الولادة الاخيرة',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _lastDeliveryTypeTypeController,
+              lablelText: 'تفاصيل نوع الولادة الاخيرة',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _lastPeriodDateController,
+              lablelText: 'تاريخ الدورة الشهرية الاخيرة',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _weeksPregnantController,
+              lablelText: 'عدد اسابيع الحمل الحالي',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _complicationsController,
+              lablelText: 'المضاعفات',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _medicalHistoryController,
+              lablelText: 'السيرة المرضية',
+            ),
+            const SizedBox(height: 20),
+            CustomTextField(
+              textfieldcontroller: _bmiController,
+              lablelText: 'مؤشر كتلة الجسم',
+            ),
+            const SizedBox(height: 20),
+            CustomButton(
+                ontap: () {
+                  _saveProfile();
+                },
+                text: 'حفظ')
+          ],
         ),
       ),
     );

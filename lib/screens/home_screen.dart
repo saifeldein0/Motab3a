@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     // Profile Icon Button
                     Icon_Button(
-                      icon: Icon(
+                      icon:const Icon(
                           Icons.person_outline), // Customize the icon if needed
                       class_name: const ProfileScreen(),
                     ),

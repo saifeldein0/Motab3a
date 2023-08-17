@@ -1,3 +1,5 @@
+import 'package:application/widgets/custom_button.dart';
+import 'package:application/widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -47,17 +49,21 @@ class _TestInputScreenState extends State<TestInputScreen> {
       showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Test Results Submitted'),
-            content: Text('Your test results have been submitted.'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text('OK'),
-              ),
-            ],
+          return Directionality(
+            textDirection: TextDirection.rtl,
+            child: AlertDialog(
+              
+              title: Text('نتائج التحاليل'),
+              content: Text('تم حفظ نتائج التحاليل الخاصة بك'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('تم'),
+                ),
+              ],
+            ),
           );
         },
       );
@@ -67,46 +73,55 @@ class _TestInputScreenState extends State<TestInputScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFfaeaf0),
       appBar: AppBar(
-        title: Text('Test Results Input'),
+        backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            ' نتائج التحاليل',
+            style: const TextStyle(
+                color: Color.fromARGB(255, 255, 255, 255),
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                fontFamily: 'cairo'),
+          ),
+        ),
+        shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        elevation: 10,
+        toolbarHeight: 70,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TextField(
-                controller: _cbcController,
-                decoration: InputDecoration(labelText: 'CBC Test Result'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _kidneyFunctionsController,
-                decoration: InputDecoration(labelText: 'Kidney Functions Result'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _liverFunctionsController,
-                decoration: InputDecoration(labelText: 'Liver Functions Result'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _bmiController,
-                decoration: InputDecoration(labelText: 'BMI Result'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: _bloodPressureController,
-                decoration: InputDecoration(labelText: 'Blood Pressure Result'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _submitTestResults,
-                child: Text('Submit Test Results'),
-              ),
-            ],
-          ),
+        child: ListView(
+          children: [
+            CustomTextField(
+                lablelText: 'ناتج تحليل صورة الدم',
+                textfieldcontroller: _cbcController),
+            const SizedBox(height: 10),
+            CustomTextField(
+                lablelText: 'ناتج تحليل وظائف الكبد',
+                textfieldcontroller: _kidneyFunctionsController),
+            const SizedBox(height: 10),
+            CustomTextField(
+                lablelText: 'ناتج تحليل وظائف الكبد',
+                textfieldcontroller: _liverFunctionsController),
+            const SizedBox(height: 10),
+            CustomTextField(
+                lablelText: 'مؤشر كتلة الجسم',
+                textfieldcontroller: _bmiController),
+            const SizedBox(height: 10),
+            CustomTextField(
+                lablelText: 'ناتج تحليل ضغط الدم',
+                textfieldcontroller: _bloodPressureController),
+            const SizedBox(height: 20),
+            CustomButton(
+                ontap: () {
+                  _submitTestResults();
+                },
+                text: 'حفظ نتائج التحاليل')
+          ],
         ),
       ),
     );

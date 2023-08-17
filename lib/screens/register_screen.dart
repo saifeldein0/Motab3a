@@ -1,3 +1,4 @@
+import 'package:application/widgets/custom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -218,29 +219,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             style:const TextStyle(color: Colors.red),
                           ),
                         const SizedBox(height: 10),
-                        GestureDetector(
-                          onTap: _registerUser,
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Color(0xFFde98bd)
-                                  .withOpacity(0.90),
-                              borderRadius: BorderRadius.circular(20),
-                            boxShadow: CupertinoContextMenu.kEndBoxShadow,
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'انشاء حساب',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'cairo',
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                         CustomButton(
+                            ontap: () {
+                              _registerUser();
+                            },
+                            text: 'انشاء حساب'),
                         const SizedBox(height: 10), // Added SizedBox for spacing
                         const Text(
                           'اختاري كلمة سر 8 حروف أو اكتر\nممكن تختاري أرقام\nافتكري الرمز دا كويس',
