@@ -77,10 +77,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 236, 161, 192),
-        title: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const Text(
+        backgroundColor:const Color.fromARGB(255, 236, 161, 192),
+        title:const Padding(
+          padding: EdgeInsets.all(8.0),
+          child:  Text(
             "   انشاء حساب",
             style: TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
@@ -94,7 +94,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         elevation: 10,
         toolbarHeight: 70,
       ),
-      backgroundColor: Color(0xFFfaeaf0),
+      backgroundColor:const Color(0xFFfaeaf0),
       body: Stack(
         children: [
           SafeArea(
@@ -134,6 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   fontFamily: 'cairo',
                                 ),
                               ),
+                              cursorColor: const Color(0xFFde98bd),
                             ),
                           ),
                         ),
@@ -171,6 +172,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       : Icon(Icons.visibility),
                                 ),
                               ),
+                              cursorColor: const Color(0xFFde98bd),
                             ),
                           ),
                         ),
@@ -196,6 +198,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: 'cairo',
+                                 
                                 ),
                                 suffixIcon: IconButton(
                                   onPressed: () {
@@ -209,6 +212,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       : Icon(Icons.visibility),
                                 ),
                               ),
+                              cursorColor: const Color(0xFFde98bd),
                             ),
                           ),
                         ),

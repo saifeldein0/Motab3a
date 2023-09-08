@@ -1,3 +1,5 @@
+import 'package:application/generated/l10n.dart';
+import 'package:application/helper.dart';
 import 'package:flutter/material.dart';
 
 class SymptomsAndComplicationsScreen extends StatelessWidget {
@@ -6,15 +8,15 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFde98bd),
+      backgroundColor:const Color(0xFFde98bd),
       appBar: AppBar(
-        backgroundColor:Color.fromARGB(255, 255, 255, 255),
-        title: const Text(
-          '   أعراض ومضاعفات الحمل',
-          style: TextStyle(
+        backgroundColor:const Color.fromARGB(255, 255, 255, 255),
+        foregroundColor: const Color(0xFFde98bd),
+        title:  Text(S.of(context).symptomsAppBar,
+          style: const TextStyle(
             color: Color.fromARGB(255, 236, 161, 192),
             fontWeight: FontWeight.bold,
-            fontSize: 23,
+            fontSize: 17,
             fontFamily: 'cairo'
           ),
         ),
@@ -37,13 +39,13 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   color:const Color.fromARGB(255, 255, 255, 255),
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 90),
+                  child:  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 90),
                     child: Text(
-                      'الأعراض الخطيرة',
-                      style: TextStyle(
+                      S.of(context).symptomsTitle1,
+                      style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Color.fromARGB(255, 236, 161, 192),
                           fontFamily: 'cairo'),
                     ),
@@ -52,104 +54,119 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
               ],
             ),
             
-const Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+ Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  '⬤ صداع شديد لم يزول بالمسكنات',
-                  style: TextStyle(fontSize: 20,  fontFamily: 'cairo',color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                padding: const EdgeInsets.all(8.0),
+                child: Text(S.of(context).symptomsText1_1,
+                  style: const TextStyle(fontSize: 20,  fontFamily: 'cairo',color: Colors.white),
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  '⬤ أضرابات في الرؤية (زغللة بالعين)',
-                  style: TextStyle(
+                    S.of(context).symptomsText1_2,
+                  style: const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding:const EdgeInsets.all(8.0),
                 child: Text(
-                  '⬤ تورم في اليدين أو القدمين، والوجه خاصة حول العينين',
-                  style: TextStyle(
+                    S.of(context).symptomsText1_3,
+                  style:const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding:const EdgeInsets.all(8.0),
                 child: Text(
-                  '⬤ ألم في الجزء الأعلى من البطن (تحت الأضلاع على الجانب الأيمن)',
-                  style: TextStyle(
+                    S.of(context).symptomsText1_4,
+                  style:const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding:const EdgeInsets.all(8.0),
                 child: Text(
-                  '⬤ غثيان أو قيء',
-                  style: TextStyle(
+                    S.of(context).symptomsText1_5,
+                  style:const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  '⬤ قلة إنتاج البول',
-                  style: TextStyle(
+                padding:const EdgeInsets.all(8.0),
+                child: Text(S.of(context).symptomsText1_6,
+                  style:const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding:const EdgeInsets.all(8.0),
                 child: Text(
-                  '⬤ ضعف وظائف الكبد',
-                      style: TextStyle(
+                    S.of(context).symptomsText1_7,
+                      style:const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding:const EdgeInsets.all(8.0),
                 child: Text(
-                  '⬤ ضيق في التنفس',
-                  style: TextStyle(
+                    S.of(context).symptomsText1_8,
+                  style:const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  '⬤ زيادة مفاجئة في الوزن',
-                  style: TextStyle(
+                padding:const EdgeInsets.all(8.0),
+                child: Text(S.of(context).symptomsText1_9,
+                  style:const TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Colors.white),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                 ),
               ),
             ],
@@ -171,13 +188,13 @@ const Column(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   color: const Color.fromARGB(255, 255, 255, 255),
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 90),
+                  child:  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 90),
                     child: Text(
-                      'المضاعفات',
-                      style: TextStyle(
+                      S.of(context).symptomsTitle2,
+                      style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 28,
+                          fontSize: 20,
                           color: Color.fromARGB(255, 236, 161, 192),
                           fontFamily: 'cairo'),
                     ),
@@ -185,107 +202,125 @@ const Column(
                 ),
               ],
             ),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const  EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ نوبات تشبه التشنج أوالصرع يحدث عادة بعد الأسبوع ال ٢٠ من الحمل',
-                    style: TextStyle(
+                    S.of(context).symptomsText2_1,
+                    style:const  TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-              padding: EdgeInsets.all(8.0),
+              padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ بطء نمو الجنين وانخفاض الوزن عند الولادة',
-                    style: TextStyle(
+                    S.of(context).symptomsText2_2,
+                    style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ متلازمة هيلب: تحدث في وقت متأخر من الحمل،تسبب تكسير كريات الدم الحمراء،ارتفاع إنزيمات الكبد وانخفاض عدد الصفائح الدموية',
-                    style: TextStyle(
+                    S.of(context).symptomsText2_3,
+                    style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-          padding: EdgeInsets.all(8.0),
+          padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ الولادة المبكرة',
-                    style: TextStyle(
+                    S.of(context).symptomsText2_4,
+                    style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ الفشل الكلوي',
-                  style: TextStyle(
+                    S.of(context).symptomsText2_5,
+                  style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ تليف الكبد',
-                  style: TextStyle(
+                    S.of(context).symptomsText2_6,
+                  style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ انفصال المشيمة',
-                    style: TextStyle(
+                    S.of(context).symptomsText2_7,
+                    style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ السكتة الدماغية',
-                  style: TextStyle(
+                    S.of(context).symptomsText2_8,
+                  style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const EdgeInsets.all(8.0),
                   child: Text(
-                    '⬤ أمراض القلب والأوعية الدموية',
-                  style: TextStyle(
+                    S.of(context).symptomsText2_9,
+                  style:const TextStyle(
                         fontSize: 20,
                         fontFamily: 'cairo',
                         color: Colors.white),
-                    textDirection: TextDirection.rtl,
+                    textDirection: Helper().isArabic()
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
                   ),
                 ),
               ],

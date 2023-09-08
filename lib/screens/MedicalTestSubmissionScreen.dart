@@ -1,3 +1,4 @@
+import 'package:application/generated/l10n.dart';
 import 'package:application/widgets/custom_button.dart';
 import 'package:application/widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
@@ -53,14 +54,14 @@ class _TestInputScreenState extends State<TestInputScreen> {
             textDirection: TextDirection.rtl,
             child: AlertDialog(
               
-              title: Text('نتائج التحاليل'),
-              content: Text('تم حفظ نتائج التحاليل الخاصة بك'),
+              title: Text(S.of(context).results_saved_title),
+              content: Text(S.of(context).results_saved_message),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('تم'),
+                  child: Text(S.of(context).confirm),
                 ),
               ],
             ),
@@ -79,7 +80,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            ' نتائج التحاليل',
+            S.of(context).test_input_title,
             style: const TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
                 fontWeight: FontWeight.bold,
@@ -97,30 +98,30 @@ class _TestInputScreenState extends State<TestInputScreen> {
         child: ListView(
           children: [
             CustomTextField(
-                lablelText: 'ناتج تحليل صورة الدم',
+                lablelText: S.of(context).cbc_label,
                 textfieldcontroller: _cbcController),
             const SizedBox(height: 10),
             CustomTextField(
-                lablelText: 'ناتج تحليل وظائف الكبد',
+                lablelText: S.of(context).kidney_functions_label,
                 textfieldcontroller: _kidneyFunctionsController),
             const SizedBox(height: 10),
             CustomTextField(
-                lablelText: 'ناتج تحليل وظائف الكبد',
+                lablelText: S.of(context).liver_functions_label,
                 textfieldcontroller: _liverFunctionsController),
             const SizedBox(height: 10),
             CustomTextField(
-                lablelText: 'مؤشر كتلة الجسم',
+                lablelText: S.of(context).bmi_label,
                 textfieldcontroller: _bmiController),
             const SizedBox(height: 10),
             CustomTextField(
-                lablelText: 'ناتج تحليل ضغط الدم',
+                lablelText: S.of(context).blood_pressure_label,
                 textfieldcontroller: _bloodPressureController),
             const SizedBox(height: 20),
             CustomButton(
                 ontap: () {
                   _submitTestResults();
                 },
-                text: 'حفظ نتائج التحاليل')
+                text: S.of(context).save_results_button)
           ],
         ),
       ),

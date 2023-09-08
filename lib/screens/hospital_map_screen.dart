@@ -1,3 +1,4 @@
+import 'package:application/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,9 +12,8 @@ class HospitalMapScreen extends StatelessWidget {
       backgroundColor: Color(0xFFfaeaf0),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 236, 161, 192),
-        title: const Text(
-          "  المستشفيات القريبة منك",
-          style: TextStyle(
+        title: Text(S.of(context).hospitalAppBar,
+          style: const  TextStyle(
               color: Color.fromARGB(255, 255, 255, 255),
               fontWeight: FontWeight.bold,
               fontSize: 23,
@@ -36,7 +36,8 @@ class HospitalMapScreen extends StatelessWidget {
           },
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: const Text('أقرب مستشفى', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold,fontFamily: 'cairo',),
+            child:  Text(
+              S.of(context).hospitalbutton, style: const TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold,fontFamily: 'cairo',),
                   ),
           ),
       ),

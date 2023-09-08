@@ -1,3 +1,5 @@
+import 'package:application/generated/l10n.dart';
+import 'package:application/helper.dart';
 import 'package:flutter/material.dart';
 
 class Environment extends StatelessWidget {
@@ -6,12 +8,13 @@ class Environment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:const Color(0xFFde98bd),
+      backgroundColor: const Color(0xFFde98bd),
       appBar: AppBar(
+        foregroundColor: const Color(0xFFde98bd),
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        title: const Text(
-          "  البيئة المحيطة بك ",
-          style: TextStyle(
+        title: Text(
+          S.of(context).environmentAppBar,
+          style: const TextStyle(
               color: Color.fromARGB(255, 236, 161, 192),
               fontWeight: FontWeight.bold,
               fontSize: 23,
@@ -21,28 +24,32 @@ class Environment extends StatelessWidget {
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
       ),
-      body: Column(
-        children: [
-          Card(
-            elevation: 13,
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            color: const Color.fromARGB(255, 255, 255, 255),
-            child: const Padding(
-              padding: EdgeInsets.all(30),
-              child: Text(
-                'يجب توفير بيئة هادئة جيدة التهوية لا تحتوى على أضائة عالية فيجب ان تحاولى بقدر الامكان أن تجعلى البيئة المحيطة بكى هادئة ومريحة والاضائة به خافته. ',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color: Color.fromARGB(255, 236, 161, 192),
-                  fontFamily: 'cairo',
+      body: ListView(
+        children:[ Column(
+          children: [
+            Card(
+              elevation: 13,
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
+              shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              color: const Color.fromARGB(255, 255, 255, 255),
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: Text(
+                  S.of(context).environmenttext,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Color.fromARGB(255, 236, 161, 192),
+                    fontFamily: 'cairo',
+                  ),
+                  textDirection:
+                      Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
                 ),
-                textDirection: TextDirection.rtl,
               ),
             ),
-          ),
+          ],
+        ),
         ],
       ),
     );

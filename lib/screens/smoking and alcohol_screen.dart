@@ -1,4 +1,6 @@
 
+import 'package:application/generated/l10n.dart';
+import 'package:application/helper.dart';
 import 'package:flutter/material.dart';
 
 class Smoking extends StatelessWidget {
@@ -7,15 +9,15 @@ class Smoking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFde98bd),
+      backgroundColor:const Color(0xFFde98bd),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        title: const Text(
-          "  اضرار التدخين والكحوليات ",
-          style: TextStyle(
+        foregroundColor:const Color(0xFFde98bd),
+        title:  Text(S.of(context).smoking_title,
+          style: const TextStyle(
               color: Color.fromARGB(255, 236, 161, 192),
               fontWeight: FontWeight.bold,
-              fontSize: 23,
+              fontSize: 20,
               fontFamily: 'cairo'),
         ),
         shape:
@@ -30,17 +32,16 @@ class Smoking extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             color: const Color.fromARGB(255, 255, 255, 255),
-            child: const Padding(
-              padding: EdgeInsets.all(30),
-              child: Text(
-                'عندما تدخن الحامل فإنها تستنشق السموم (مثل: النيكوتين، والرصاص، والزرنيخ، وأول أكسيد الكربون)؛ حيث تدخل هذه السموم المشيمة (النسيج الذي يربط الأم بالجنين)، وتمنع هذه السموم الجنين من الحصول على الإمدادات المناسبة من العناصر الغذائية والأكسجين التي يحتاجها للنمو. ويؤدى أيضا الى إنقاص وزن الجنين. يزيد من فرص حدوث الإجهاض وإرتفاع نسبة وفيات المواليد. قد يؤدي إلى حالات مرضية ضارة للحامل والجنين، مثل إنزلاق المشيمة،   وتسمم الحمل ',
-                style: TextStyle(
+            child:  Padding(
+              padding: const EdgeInsets.all(30),
+              child: Text(S.of(context).smoking_text,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 23,
+                  fontSize: 18,
                   color: Color.fromARGB(255, 236, 161, 192),
                   fontFamily: 'cairo',
                 ),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
           ),

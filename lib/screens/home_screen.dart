@@ -1,3 +1,4 @@
+import 'package:application/generated/l10n.dart';
 import 'package:application/screens/diet%20and%20nutrition_screen.dart';
 import 'package:application/screens/environment_screen.dart';
 import 'package:application/screens/MedicalTestSubmissionScreen.dart';
@@ -48,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                     // Profile Icon Button
                     Icon_Button(
                       icon:const Icon(
-                          Icons.person_outline), // Customize the icon if needed
+                          Icons.person_outline), 
                       class_name: const ProfileScreen(),
                     ),
                   ],
@@ -68,11 +69,11 @@ class HomeScreen extends StatelessWidget {
                     button(
                       class_name: SymptomsAndComplicationsScreen(),
                       icon: Icon(Icons.warning),
-                      label: 'الاعراض الخطيرة',
+                      label: S.of(context).symptoms_and_complications_label,
                     ),
                     button(
                       class_name: Diet(),
-                      label: 'الغذاء والتغذية',
+                      label: S.of(context).diet_label,
                       icon: Icon(Icons.food_bank_rounded),
                     ),
                   ],
@@ -86,11 +87,11 @@ class HomeScreen extends StatelessWidget {
                     button(
                       class_name: Smoking(),
                       icon: Icon(Icons.smoke_free_rounded),
-                      label: 'التدخين والكحوليات',
+                      label: S.of(context).smoking_label,
                     ),
                     button(
                       class_name: Environment(),
-                      label: 'البيئة المحيطة',
+                      label: S.of(context).environment_label,
                       icon: Icon(Icons.home),
                     ),
                   ],
@@ -104,11 +105,11 @@ class HomeScreen extends StatelessWidget {
                     button(
                       class_name: RestExcersice(),
                       icon: Icon(Icons.pregnant_woman),
-                      label: 'الراحة و ممارسة الرياضة',
+                      label: S.of(context).rest_and_exercise_label,
                     ),
                     button(
                       class_name: Stress(),
-                      label: 'الضغوطات النفسية',
+                      label: S.of(context).stress_label,
                       icon: Icon(Icons.do_not_disturb_alt_rounded),
                     ),
                   ],
@@ -122,11 +123,11 @@ class HomeScreen extends StatelessWidget {
                     button(
                       class_name: pharmaticuals(),
                       icon: Icon(Icons.local_pharmacy_rounded),
-                      label: 'الادوية',
+                      label: S.of(context).pharmaceuticals_label,
                     ),
                     button(
                       class_name: TestInputScreen(),
-                      label: 'الملاحظات و القياسات',
+                      label: S.of(context).test_input_label,
                       icon: Icon(Icons.medical_services_outlined),
                     ),
                   ],

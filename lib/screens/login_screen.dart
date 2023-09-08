@@ -122,7 +122,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontFamily: 'cairo', // Set hint text color
                         ),
                       ),
+                      cursorColor: const Color(0xFFde98bd),
                     ),
+                    
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -149,6 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       obscureText: true,
+                      cursorColor: const Color(0xFFde98bd),
                     ),
                   ),
                 ),

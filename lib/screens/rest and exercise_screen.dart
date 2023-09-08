@@ -1,3 +1,5 @@
+import 'package:application/generated/l10n.dart';
+import 'package:application/helper.dart';
 import 'package:flutter/material.dart';
 
 class RestExcersice extends StatelessWidget {
@@ -6,12 +8,12 @@ class RestExcersice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFde98bd),
+      backgroundColor: const Color(0xFFde98bd),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        title: const Text(
-          "  الراحة وممارسة الرياضة",
-          style: TextStyle(
+        foregroundColor: const Color(0xFFde98bd),
+        title:  Text(S.of(context).rest_exercise_title,
+          style:const TextStyle(
               color: Color.fromARGB(255, 236, 161, 192),
               fontWeight: FontWeight.bold,
               fontSize: 23,
@@ -23,8 +25,8 @@ class RestExcersice extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
               elevation: 8,
@@ -32,16 +34,15 @@ class RestExcersice extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16)),
               color: const Color.fromARGB(255, 255, 255, 255),
-              child: const Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Text(
-                  ' عدم ممارسة  أى مجهود بدنى وحاولى ان تحصلى على وقت من الراحة والاسترخاء \n يجب عليكى الحصول على قسط كاف من النوم على الاقل 8 ساعات ليلاُ وأخذ قسطاُ من الراحة نهارا على الاقل ساعتين ',
-                  style: TextStyle(
+              child: Padding(
+                padding:const EdgeInsets.all(15.0),
+                child: Text(S.of(context).rest_exercise_text_1,
+                  style: const  TextStyle(
                       fontSize: 20,
                       fontFamily: 'cairo',
                       color: Color.fromARGB(255, 236, 161, 192),
                       fontWeight: FontWeight.bold),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
                 ),
               ),
             ),
@@ -51,44 +52,44 @@ class RestExcersice extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25)),
               color: const Color.fromARGB(255, 255, 255, 255),
-              child: const Padding(
-                padding: EdgeInsets.all(12),
-                child: Text(
-                  'إذا كنتِ لا تشعرين بمضاعفات وبعد أستشارة الطبيب',
-                  style: TextStyle(
+              child:  Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(S.of(context).rest_exercise_text_2,
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
                       color: Color.fromARGB(255, 236, 161, 192),
                       fontFamily: 'cairo'),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                '⬤ يسمح لك بممارسة المشي الهادئ أو السريع ويعتبر المشي من الرياضات الآمنة لك بشرط أن تمارسيه على أرض ملائمة غير مرتفعة، يمكنك ممارسة المشي يوميًا بما لا يزيد عن نصف ساعة، لكن تذكري أن تأخذي قسطًا يكفيك من الراحة إن شعرت بأي إرهاق.',
-                style: TextStyle(
+            Padding(
+              padding: const  EdgeInsets.all(10.0),
+              child: Text(S.of(context).rest_exercise_text_3,
+                style:const  TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                '⬤ عليك ممارسة المشي بعد الإفطار بساعتين، وتذكري أن تحملي معك زجاجة من الماء أو العصير غير المحلى وإن شعرت بتعب فعليك التوقف والراحة.',
-                style: TextStyle(
+             Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(S.of(context).rest_exercise_text_4,
+                style: const TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                '⬤ ولتعلمي أن المشي يساعدك على الحفاظ على اللياقة والوزن المناسب أثناء الحمل ويقوي القلب بوجه عام حتى في حين الولادة.',
-                style: TextStyle(
+            Padding(
+              padding: const  EdgeInsets.all(10.0),
+              child: Text(S.of(context).rest_exercise_text_5,
+                style: const  TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic()
+                    ? TextDirection.rtl
+                    : TextDirection.ltr,
               ),
             ),
             Card(
@@ -97,71 +98,69 @@ class RestExcersice extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25)),
               color: const Color.fromARGB(255, 255, 255, 255),
-              child: const Padding(
-                padding: EdgeInsets.all(12),
-                child: Text(
-                  'أنصتي إلى شكوى بدنك',
-                  style: TextStyle(
+              child:  Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(S.of(context).rest_exercise_text_6,
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
                       color: Color.fromARGB(255, 236, 161, 192),
                       fontFamily: 'cairo'),
-                  textDirection: TextDirection.rtl,
+                  textDirection: Helper().isArabic()
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                'كما هو مهم ممارسة التدريبات فمراقبة العلامات الخاصة بأي مشكلة مهم أيضًا. أوقفي التدريب واتصلي بمسؤولى الرعاية الصحية في الحالات التالية:',
-                style: TextStyle(
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(S.of(context).rest_exercise_text_7,
+                style: const TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                '•	النزيف المهبلي',
-                style: TextStyle(
+             Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(S.of(context).rest_exercise_text_8,
+                style: const TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
+             Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Text(
-                '•	الدوخة',
-                style: TextStyle(
+                S.of(context).rest_exercise_text_9,
+                style: const TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
+             Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Text(
-                '•  الصداع',
-                style: TextStyle(
+                S.of(context).rest_exercise_text_10,
+                style: const TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                '•	الشعور بتزايد ضيق النفس قبل البدء في ممارسة الرياضة',
-                style: TextStyle(
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(S.of(context).rest_exercise_text_11,
+                style: const TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                '•	ألم الصدر',
-                style: TextStyle(
+             Padding(
+              padding:const EdgeInsets.all(10.0),
+              child: Text(S.of(context).rest_exercise_text_12,
+                style:const TextStyle(
                     fontSize: 18, fontFamily: 'cairo', color: Colors.white),
-                textDirection: TextDirection.rtl,
+                textDirection:
+                    Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
           ],

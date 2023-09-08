@@ -1,4 +1,4 @@
-
+import 'package:application/generated/l10n.dart';
 import 'package:application/widgets/custom_button.dart';
 import 'package:application/widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
@@ -105,19 +105,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
         'bmi': bmi,
       });
 
-      // Show a success message or navigate to the next screen
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('حفظ الملف الشخصي'),
-            content: Text('تم حفظ ملفك الشخصي'),
+            title: Text(S.of(context).profile_saved_title),
+            content: Text(S.of(context).profile_saved_message),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('تم'),
+                child: Text(S.of(context).confirm),
               ),
             ],
           );
@@ -135,7 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            'الملف الشخصي',
+            S.of(context).profile_title,
             style: const TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
                 fontWeight: FontWeight.bold,
@@ -153,85 +152,85 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: ListView(
           children: [
             CustomTextField(
-              lablelText: 'الأسم',
+              lablelText: S.of(context).name_label,
               textfieldcontroller: _nameController,
             ),
             const SizedBox(height: 10),
             CustomTextField(
               textfieldcontroller: _ageController,
-              lablelText: 'السن',
+              lablelText: S.of(context).age_label,
             ),
             const SizedBox(height: 10),
             CustomTextField(
               textfieldcontroller: _placeController,
-              lablelText: 'المكان (البلد/ المدينة)',
+              lablelText: S.of(context).place_label,
             ),
             const SizedBox(height: 10),
             CustomTextField(
               textfieldcontroller: _addressController,
-              lablelText: 'العنوان',
+              lablelText: S.of(context).address_label,
             ),
             const SizedBox(height: 10),
             CustomTextField(
               textfieldcontroller: _educationLevelController,
-              lablelText: 'المستوى التعليمي',
+              lablelText: S.of(context).education_level_label,
             ),
             const SizedBox(height: 10),
             CustomTextField(
               textfieldcontroller: _workController,
-              lablelText: 'العمل',
+              lablelText: S.of(context).work_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _numPregnanciesController,
-              lablelText: 'عدد مرات الحمل',
+              lablelText: S.of(context).num_pregnancies_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _numDeliveriesController,
-              lablelText: 'عدد مرات الولادة',
+              lablelText: S.of(context).num_deliveries_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _lastDeliveryTypeController,
-              lablelText: 'نوع الولادة الاخيرة',
+              lablelText: S.of(context).last_delivery_type_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _lastDeliveryTypeTypeController,
-              lablelText: 'تفاصيل نوع الولادة الاخيرة',
+              lablelText: S.of(context).last_delivery_type_details_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _lastPeriodDateController,
-              lablelText: 'تاريخ الدورة الشهرية الاخيرة',
+              lablelText: S.of(context).last_period_date_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _weeksPregnantController,
-              lablelText: 'عدد اسابيع الحمل الحالي',
+              lablelText: S.of(context).weeks_pregnant_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _complicationsController,
-              lablelText: 'المضاعفات',
+              lablelText: S.of(context).complications_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _medicalHistoryController,
-              lablelText: 'السيرة المرضية',
+              lablelText: S.of(context).medical_history_label,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               textfieldcontroller: _bmiController,
-              lablelText: 'مؤشر كتلة الجسم',
+              lablelText: S.of(context).bmi_label,
             ),
             const SizedBox(height: 20),
             CustomButton(
                 ontap: () {
                   _saveProfile();
                 },
-                text: 'حفظ')
+                text: S.of(context).save_button_text)
           ],
         ),
       ),

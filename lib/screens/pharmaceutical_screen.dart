@@ -1,3 +1,5 @@
+import 'package:application/generated/l10n.dart';
+import 'package:application/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -10,9 +12,10 @@ class pharmaticuals extends StatelessWidget {
       backgroundColor: Color(0xFFde98bd),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        title: const Text(
-          "  الادوية",
-          style: TextStyle(
+        foregroundColor: const Color(0xFFde98bd),
+        title: Text(
+          S.of(context).pharmatics_title,
+          style: const TextStyle(
               color: Color.fromARGB(255, 236, 161, 192),
               fontWeight: FontWeight.bold,
               fontSize: 23,
@@ -22,59 +25,60 @@ class pharmaticuals extends StatelessWidget {
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        
+       
         children: [
           Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Text(
-              '⬤  يجب عليكى الحفاظ على الجرعة اليوميه الموصى بعا من قبل الطبيب المعالج (لادوية الضغط والسيولة ) وعدم تغير الجرعة إلا بعد مراجعة طبيبك',
-              style: TextStyle(
+              S.of(context).pharmatics_text1,
+              style: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'cairo',
                 color: Colors.white,
               ),
-              textDirection: TextDirection.rtl,
-              textAlign: TextAlign.center,
+              textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
+              
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Text(
-              '⬤  الالتزام بمواعيد وطريقة اخذ الدواء اليومية',
-              style: TextStyle(
+              S.of(context).pharmatics_text2,
+              style: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'cairo',
                 color: Colors.white,
               ),
-              textDirection: TextDirection.rtl,
+              textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Text(
-              '⬤ 	الالتزام بالمكملات الغذائية اليومية بالجرعة الموصى بها من قبل الطبيب',
-              style: TextStyle(
+              S.of(context).pharmatics_text3,
+              style: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'cairo',
                 color: Colors.white,
               ),
-              textDirection: TextDirection.rtl,
-              textAlign: TextAlign.center,
+              textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
+             
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Text(
-              '⬤  قد يكون أستخدمك اى نوع من الادوية فيه تعارض مع ادويتك لذلك يجب عليكى مراجعة طبيبك قبل أستخدام اى دواء.',
-              style: TextStyle(
+              S.of(context).pharmatics_text4,
+              style: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'cairo',
                 color: Colors.white,
               ),
-              textDirection: TextDirection.rtl,
-              textAlign: TextAlign.center,
+              textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
+              
             ),
           ),
         ],
