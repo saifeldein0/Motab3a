@@ -16,6 +16,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _nationalIdController = TextEditingController(); // Add this controller
 
   String _errorMessage = '';
 
@@ -24,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _loginUser() async {
     String email = _emailController.text;
     String password = _passwordController.text;
+    String nationalId = _nationalIdController.text; // Retrieve National ID
 
     try {
       // Sign in the user with email and password
@@ -37,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user != null) {
         // User logged in successfully
         print('تم تسجيل الدخول بنجاح ${user.uid}');
+        // Now, you can use the nationalId as needed.
         Get.to(() => HomeScreen(),
             transition: Transition.fade, duration: Duration(seconds: 1));
       } else {
@@ -85,100 +88,125 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Center(
           child: ListView(
-            
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(16),
-              children: [
-                const Text(
-                  'لديك حساب ؟',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    color: Color(0xFFde98bd),
-                    fontFamily: 'cairo',
-                  ),
-                  textAlign: TextAlign.right,
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(16),
+            children: [
+              const Text(
+                'لديك حساب ؟',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Color(0xFFde98bd),
+                  fontFamily: 'cairo',
                 ),
-                const SizedBox(height: 20),
-                Container(
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Color(0xFFde98bd),
-                      ),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.mail),
-                        border: InputBorder.none,
-                        hintText: "البريد الالكتروني",
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                          fontFamily: 'cairo', // Set hint text color
-                        ),
-                      ),
-                      cursorColor: const Color(0xFFde98bd),
-                    ),
-                    
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Container(
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Color(0xFFde98bd),
-                      ),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: TextField(
-                      controller: _passwordController,
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.lock),
-                        border: InputBorder.none,
-                        hintText: 'كلمة المرور',
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                          fontFamily: 'cairo', // Set hint text color
-                        ),
-                      ),
-                      obscureText: true,
-                      cursorColor: const Color(0xFFde98bd),
+                textAlign: TextAlign.right,
+              ),
+              const SizedBox(height: 20),
+              Container(
+                height: 50,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color(0xFFde98bd),
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
-                if (_errorMessage.isNotEmpty)
-                  Text(
-                    _errorMessage,
-                    style: TextStyle(color: Colors.red),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: TextField(
+                    controller: _emailController,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.mail),
+                      border: InputBorder.none,
+                      hintText: "البريد الالكتروني",
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'cairo', // Set hint text color
+                      ),
+                    ),
+                    cursorColor: const Color(0xFFde98bd),
                   ),
-                const SizedBox(height: 10),
-                /////signinbutton
-                CustomButton(
-                    ontap: () {
-                      _loginUser();
-                    },
-                    text: 'تسجيل دخول'),
-                const SizedBox(height: 10),
-                CustomButton(
-                    ontap: () {
-                      _goToRegisterScreen();
-                    },
-                    text: 'انشاء حساب')
-              ],
-            ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                height: 50,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color(0xFFde98bd),
+                    ),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: TextField(
+                    controller: _passwordController,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.lock),
+                      border: InputBorder.none,
+                      hintText: 'كلمة المرور',
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'cairo', // Set hint text color
+                      ),
+                    ),
+                    obscureText: true,
+                    cursorColor: const Color(0xFFde98bd),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                height: 50,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color(0xFFde98bd),
+                    ),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: TextField(
+                    controller: _nationalIdController, // Add this line
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.credit_card),
+                      border: InputBorder.none,
+                      hintText: 'الرقم القومي',
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'cairo', // Set hint text color
+                      ),
+                    ),
+                    cursorColor: const Color(0xFFde98bd),
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.0),
+              if (_errorMessage.isNotEmpty)
+                Text(
+                  _errorMessage,
+                  style: TextStyle(color: Colors.red),
+                ),
+              const SizedBox(height: 10),
+              CustomButton(
+                ontap: () {
+                  _loginUser();
+                },
+                text: 'تسجيل دخول',
+              ),
+              const SizedBox(height: 10),
+              CustomButton(
+                ontap: () {
+                  _goToRegisterScreen();
+                },
+                text: 'انشاء حساب',
+              )
+            ],
+          ),
         ),
-        ),
-      
+      ),
     );
   }
 }

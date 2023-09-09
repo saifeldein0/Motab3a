@@ -16,6 +16,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
+  TextEditingController _nationalIdController = TextEditingController(); // Add this controller
 
   String _errorMessage = '';
 
@@ -28,6 +29,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     String email = _emailController.text;
     String password = _passwordController.text;
     String confirmPassword = _confirmPasswordController.text;
+    String nationalId = _nationalIdController.text; // Retrieve National ID
+
+    // Validate National ID (must be 14 digits)
+    if (nationalId.length != 14 || !RegExp(r'^[0-9]*$').hasMatch(nationalId)) {
+      setState(() {
+        _errorMessage = 'الرقم القومي يجب أن يحتوي على 14 رقم فقط';
+      });
+      return;
+    }
 
     if (password != confirmPassword) {
       setState(() {
@@ -49,8 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -58,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       User? user = userCredential.user;
       if (user != null) {
         print('تم تسجيل المستخدم بنجاح');
-        Get.to(()=>LoginScreen(),
+        Get.to(() => LoginScreen(),
             transition: Transition.fade, duration: Duration(seconds: 1));
       } else {
         setState(() {
@@ -76,32 +85,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-        backgroundColor:const Color.fromARGB(255, 236, 161, 192),
-        title:const Padding(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 236, 161, 192),
+        title: const Padding(
           padding: EdgeInsets.all(8.0),
-          child:  Text(
+          child: Text(
             "   انشاء حساب",
             style: TextStyle(
-                color: Color.fromARGB(255, 255, 255, 255),
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-                fontFamily: 'cairo'),
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+              fontFamily: 'cairo',
+            ),
           ),
         ),
-         shape:
-            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
         toolbarHeight: 70,
       ),
-      backgroundColor:const Color(0xFFfaeaf0),
+      backgroundColor: const Color(0xFFfaeaf0),
       body: Stack(
         children: [
           SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Container(
@@ -109,7 +117,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       shrinkWrap: true,
                       padding: const EdgeInsets.all(16),
                       children: [
-                        
                         const SizedBox(height: 20),
                         Container(
                           height: 50,
@@ -128,7 +135,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
                                 hintText: 'البريد الالكتروني',
-                                
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: 'cairo',
@@ -194,11 +200,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
-                                hintText:'تأكيد كلمة المرور',
+                                hintText: 'تأكيد كلمة المرور',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: 'cairo',
-                                 
                                 ),
                                 suffixIcon: IconButton(
                                   onPressed: () {
@@ -216,18 +221,46 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-                       const SizedBox(height: 16.0),
+                        const SizedBox(height: 10),
+                        Container(
+                          height: 50,
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xFFde98bd),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            child: TextField(
+                              controller: _nationalIdController, // Add the controller here
+                              decoration: InputDecoration(
+                                icon: Icon(Icons.credit_card),
+                                border: InputBorder.none,
+                                hintText: 'الرقم القومي', // Hint text
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
+                                  fontFamily: 'cairo',
+                                ),
+                              ),
+                              cursorColor: const Color(0xFFde98bd),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16.0),
                         if (_errorMessage.isNotEmpty)
                           Text(
                             _errorMessage,
-                            style:const TextStyle(color: Colors.red),
+                            style: const TextStyle(color: Colors.red),
                           ),
                         const SizedBox(height: 10),
-                         CustomButton(
-                            ontap: () {
-                              _registerUser();
-                            },
-                            text: 'انشاء حساب'),
+                        CustomButton(
+                          ontap: () {
+                            _registerUser();
+                          },
+                          text: 'انشاء حساب',
+                        ),
                         const SizedBox(height: 10), // Added SizedBox for spacing
                         const Text(
                           'اختاري كلمة سر 8 حروف أو اكتر\nممكن تختاري أرقام\nافتكري الرمز دا كويس',

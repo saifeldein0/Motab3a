@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   CustomTextField(
-      {required this.lablelText, required this.textfieldcontroller});
+      {required this.lablelText,required this.textfieldcontroller});
   String? lablelText;
   TextEditingController? textfieldcontroller;
 
