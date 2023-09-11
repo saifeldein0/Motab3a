@@ -1,11 +1,12 @@
 import 'package:application/generated/l10n.dart';
 import 'package:application/screens/diet%20and%20nutrition_screen.dart';
 import 'package:application/screens/environment_screen.dart';
-import 'package:application/screens/MedicalTestSubmissionScreen.dart';
+import 'package:application/screens/MedicalMeasurementsSubmissionScreen.dart';
 import 'package:application/screens/pharmaceutical_screen.dart';
 import 'package:application/screens/psychological%20stressors_screen.dart';
 import 'package:application/screens/rest%20and%20exercise_screen.dart';
 import 'package:application/screens/smoking%20and%20alcohol_screen.dart';
+import 'package:application/screens/test&measurements.dart';
 import 'package:application/widgets/bottom_bar_iconbuttons.dart';
 import 'package:application/widgets/home_buttons.dart';
 import 'package:flutter/cupertino.dart';
@@ -126,7 +127,7 @@ class HomeScreen extends StatelessWidget {
                       label: S.of(context).pharmaceuticals_label,
                     ),
                     button(
-                      class_name: TestInputScreen(),
+                      class_name: TestAndMeasurements(),
                       label: S.of(context).test_input_label,
                       icon: Icon(Icons.medical_services_outlined),
                     ),

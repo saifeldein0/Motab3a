@@ -233,7 +233,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "test_input_label":
             MessageLookupByLibrary.simpleMessage("الملاحظات والقياسات"),
         "test_input_title":
-            MessageLookupByLibrary.simpleMessage("نتائج التحاليل"),
+            MessageLookupByLibrary.simpleMessage("نتائج التحاليل والقياسات"),
         "weeks_pregnant_label":
             MessageLookupByLibrary.simpleMessage("عدد أسابيع الحمل الحالي"),
         "work_label": MessageLookupByLibrary.simpleMessage("العمل")

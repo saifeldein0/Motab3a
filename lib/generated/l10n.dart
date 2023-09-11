@@ -810,10 +810,10 @@ class S {
     );
   }
 
-  /// `Test Results`
+  /// `Test & Measurements Results`
   String get test_input_title {
     return Intl.message(
-      'Test Results',
+      'Test & Measurements Results',
       name: 'test_input_title',
       desc: '',
       args: [],

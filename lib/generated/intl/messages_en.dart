@@ -236,7 +236,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "test_input_label":
             MessageLookupByLibrary.simpleMessage("Notes and Measurements"),
         "test_input_title":
-            MessageLookupByLibrary.simpleMessage("Test Results"),
+            MessageLookupByLibrary.simpleMessage("Test & Measurements Results"),
         "weeks_pregnant_label":
             MessageLookupByLibrary.simpleMessage("Weeks Pregnant"),
         "work_label": MessageLookupByLibrary.simpleMessage("Work")
