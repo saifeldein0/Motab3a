@@ -13,9 +13,11 @@ class button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+       final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: 100,
-      width: 180,
+      height: screenHeight * 0.1,
+      width: screenWidth * 0.42,
       child: Directionality(
                textDirection: TextDirection.ltr,
         child: ElevatedButton.icon(
@@ -25,7 +27,9 @@ class button extends StatelessWidget {
             backgroundColor: const MaterialStatePropertyAll(
                 Color.fromARGB(255, 236, 161, 192)),
             iconColor: const MaterialStatePropertyAll(Colors.white),
-            iconSize: const MaterialStatePropertyAll(50),
+            iconSize:  MaterialStatePropertyAll(
+              screenWidth * 0.10,
+            ),
             
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
@@ -39,10 +43,10 @@ class button extends StatelessWidget {
           icon: icon!,
           label: Text(
             label!,
-            style: const TextStyle(
+            style:  TextStyle(
                 color: Colors.white,
                 fontFamily: 'cairo',
-                fontSize: 13,
+                fontSize: screenWidth * 0.03,
                 fontWeight: FontWeight.bold),
             textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
           ),

@@ -1,3 +1,5 @@
+import 'package:application/generated/l10n.dart';
+import 'package:application/helper.dart';
 import 'package:application/widgets/custom_button.dart';
 import 'package:application/widgets/custom_textfields.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -7,7 +9,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-// ignore: must_be_immutable
 class LabResult extends StatefulWidget {
   LabResult({super.key});
 
@@ -110,8 +111,8 @@ class _LabResultState extends State<LabResult> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Results Saved'),
-              content: Text('Test results have been saved successfully.'),
+              title: Text(S.of(context).results_saved_title),
+              content: Text(S.of(context).results_saved_message),
               actions: [
                 TextButton(
                   onPressed: () {
@@ -128,35 +129,37 @@ class _LabResultState extends State<LabResult> {
         String warningMessage = '';
         if (int.tryParse(altController.text) != null &&
             int.tryParse(altController.text)! > 55) {
-          warningMessage += 'ALT is greater than 55.\n';
+          warningMessage += S.of(context).alt_warning_message + '\n';
         }
         if (int.tryParse(astController.text) != null &&
             int.tryParse(astController.text)! > 50) {
-          warningMessage += 'AST is greater than 50.\n';
+          warningMessage += S.of(context).ast_warning_message + '\n';
         }
         if (int.tryParse(alpController.text) != null &&
             int.tryParse(alpController.text)! > 148) {
-          warningMessage += 'ALP is greater than 148.\n';
+          warningMessage += S.of(context).alp_warning_message + '\n';
         }
         if (double.tryParse(albuminCreatininController.text) != null &&
             double.tryParse(albuminCreatininController.text)! < 2.0) {
-          warningMessage += 'Albumin-Creatinine ratio is less than 2.0.\n';
+          warningMessage +=
+              S.of(context).albumin_creatinine_warning_message + '\n';
         }
         if (int.tryParse(ggtController.text) != null &&
             int.tryParse(ggtController.text)! > 300) {
-          warningMessage += 'GGT is greater than 300.\n';
+          warningMessage += S.of(context).ggt_warning_message + '\n';
         }
         if (int.tryParse(ureaController.text) != null &&
             int.tryParse(ureaController.text)! > 30) {
-          warningMessage += 'Urea is greater than 30.\n';
+          warningMessage += S.of(context).urea_warning_message + '\n';
         }
         if (double.tryParse(creatInUrineController.text) != null &&
             double.tryParse(creatInUrineController.text)! > 1.2) {
-          warningMessage += 'Creatinine in Urine is greater than 1.2.\n';
+          warningMessage +=
+              S.of(context).creatinine_urine_warning_message + '\n';
         }
         if (int.tryParse(plateletController.text) != null &&
             int.tryParse(plateletController.text)! < 100000) {
-          warningMessage += 'Platelet count is less than 100,000.\n';
+          warningMessage += S.of(context).platelet_count_warning_message + '\n';
         }
 
         // Display warnings if there are any
@@ -165,8 +168,15 @@ class _LabResultState extends State<LabResult> {
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
-                title: Text('Warning'),
-                content: Text(warningMessage),
+                title: Text(S.of(context).warning_title,  textDirection: Helper().isArabic()
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
+                ),
+                content: Text(warningMessage,
+                  textDirection: Helper().isArabic()
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
+                ),
                 actions: [
                   TextButton(
                     onPressed: () {
@@ -187,8 +197,8 @@ class _LabResultState extends State<LabResult> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Error'),
-            content: const Text('An error occurred while saving test results.'),
+            title: Text(S.of(context).error_title),
+            content: Text(S.of(context).error_message),
             actions: [
               TextButton(
                 onPressed: () {
@@ -209,10 +219,10 @@ class _LabResultState extends State<LabResult> {
       backgroundColor: const Color(0xFFfaeaf0),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 236, 161, 192),
-        title: const Padding(
+        title:  Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
-            'نتائج تحاليل المعمل',
+            S.of(context).app_title,
             style: TextStyle(
               color: Color.fromARGB(255, 255, 255, 255),
               fontWeight: FontWeight.bold,
@@ -231,9 +241,10 @@ class _LabResultState extends State<LabResult> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            const Text(
-              'تحاليل وظائف الكلى',
+            Text(
+              S.of(context).urea_label,
               textAlign: TextAlign.start,
+               textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               style: TextStyle(
                 fontFamily: 'cairo',
                 fontSize: 18,
@@ -241,45 +252,50 @@ class _LabResultState extends State<LabResult> {
               ),
             ),
             CustomTextField(
-              lablelText: 'Urea',
+              lablelText: S.of(context).urea_label,
               textfieldcontroller: ureaController,
             ),
             CustomTextField(
-              lablelText: 'Creat',
+              lablelText: S.of(context).creat_label,
               textfieldcontroller: creatInUrineController,
             ),
             CustomTextField(
-              lablelText: 'Albumin-Creatinine ratio',
+              lablelText: S.of(context).albumin_creatinine_ratio_label,
               textfieldcontroller: albuminCreatininController,
             ),
-            const Text(
-              'تحاليل وظائف الكبد',
+            Text(
+              S.of(context).liver_function_tests_title,
               textAlign: TextAlign.start,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               style: TextStyle(
                 fontFamily: 'cairo',
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                
               ),
             ),
             CustomTextField(
-              lablelText: 'ALT',
+              lablelText: S.of(context).alt_label,
               textfieldcontroller: altController,
             ),
             CustomTextField(
-              lablelText: 'AST',
+              lablelText: S.of(context).ast_label,
               textfieldcontroller: astController,
             ),
             CustomTextField(
-              lablelText: 'ALP',
+              lablelText: S.of(context).alp_label,
               textfieldcontroller: alpController,
             ),
             CustomTextField(
-              lablelText: 'GGT',
+              lablelText: S.of(context).ggt_label,
               textfieldcontroller: ggtController,
             ),
-            const Text(
-              "صورة الدم الكاملة",
+            Text(
+              S.of(context).complete_blood_picture_title,
               textAlign: TextAlign.start,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               style: TextStyle(
                 fontFamily: 'cairo',
                 fontSize: 18,
@@ -287,15 +303,15 @@ class _LabResultState extends State<LabResult> {
               ),
             ),
             CustomTextField(
-              lablelText: 'Hb%',
+              lablelText: S.of(context).hb_percentage_label,
               textfieldcontroller: hbController,
             ),
             CustomTextField(
-              lablelText: 'Hct',
+              lablelText: S.of(context).hct_label,
               textfieldcontroller: hctController,
             ),
             CustomTextField(
-              lablelText: 'Platelet count',
+              lablelText: S.of(context).platelet_count_label,
               textfieldcontroller: plateletController,
             ),
             _imageFile != null
@@ -308,13 +324,13 @@ class _LabResultState extends State<LabResult> {
               ontap: () {
                 _pickImage(); // Open the image picker
               },
-              text: 'Pick an Image',
+              text: S.of(context).pick_image_button,
             ),
             CustomButton(
               ontap: () {
                 _saveLabResults(context);
               },
-              text: 'Save lab Results',
+              text: S.of(context).save_lab_results_button,
             ),
           ],
         ),

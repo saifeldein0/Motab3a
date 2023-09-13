@@ -1,4 +1,5 @@
 import 'package:application/generated/l10n.dart';
+import 'package:application/helper.dart';
 import 'package:application/widgets/custom_button.dart';
 import 'package:application/widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
@@ -61,14 +62,14 @@ class _TestInputScreenState extends State<TestInputScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Results Saved'),
-              content: Text('Test results have been saved successfully.'),
+              title: Text(S.of(context).results_saved_title),
+              content: Text(S.of(context).results_saved_message),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('OK'),
+                  child: Text(S.of(context).confirm),
                 ),
               ],
             );
@@ -81,8 +82,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         if (newWeight != 0.0) {
           if (lastWeight != null && newWeight - lastWeight >= 1.0) {
             setState(() {
-              weightErrorMessage =
-                  'تحذير : الوزن الحالي لايجب ان يزيد عن 1 كيلو عن القياس الاخير';
+              weightErrorMessage = S.of(context).weight_warning;
             });
           } else {
             setState(() {
@@ -98,8 +98,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
 
         if (isValidBloodPressure(bloodPressureValue) == false) {
           setState(() {
-            bloodPressureWarning =
-                'High blood pressure detected (more than 160/110). Please consult a doctor.';
+            bloodPressureWarning = S.of(context).blood_pressure_warning;
           });
           return; // Return early if blood pressure is high
         } else {
@@ -113,14 +112,14 @@ class _TestInputScreenState extends State<TestInputScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Error'),
-              content: Text('User data not found.'),
+              title: Text(S.of(context).error_title),
+              content: Text(S.of(context).user_data_not_found),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('OK'),
+                  child: Text(S.of(context).confirm),
                 ),
               ],
             );
@@ -134,14 +133,14 @@ class _TestInputScreenState extends State<TestInputScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Error'),
-            content: const Text('An error occurred while saving test results.'),
+            title: Text(S.of(context).error_title),
+            content: Text(S.of(context).error_message),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('OK'),
+                child: Text(S.of(context).confirm),
               ),
             ],
           );
@@ -220,7 +219,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            S.of(context).test_input_title,
+            S.of(context).test_input_label,
             style: const TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
                 fontWeight: FontWeight.bold,
@@ -237,75 +236,117 @@ class _TestInputScreenState extends State<TestInputScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            //Image.asset(''),
-            const Text(
-              ' قياس الضغط كل 48 ساعة وقبل قياس الضغط يجب اتباع الارشادات التالية: \n  الالتزام بالراحة لمدة لا تقل عن 15 دقيقة( عدم بذل اى مجهود سواء نفسيا او بدنياً) .التأكد من حجم جهاز الضغط مناسب لذراع الأم. \nالالتزام بوضع الجلوس أثناء القياس استخدام  نفس الذراع فى كل مرة قياس وان بكون الذراع فى مستوى القلب',
+            Image.asset(
+              'images/bloodpressure.jpg',
+              width: 200,
+              height: 200,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              S.of(context).blood_pressure_instructions,
               textAlign: TextAlign.start,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               style: TextStyle(fontFamily: 'cairo', fontSize: 14),
             ),
             const SizedBox(height: 10),
 
             CustomTextField(
-                lablelText: 'Blood Pressure',
+                lablelText: S.of(context).blood_pressure_label,
                 textfieldcontroller: bloodPressureController),
             Text(
               bloodPressureWarning,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 14,
               ),
             ),
+            const Divider(
+              thickness: 1.5,
+              color: Color.fromARGB(255, 236, 161, 192),
+              height: 50,
+              indent: 50,
+              endIndent: 50,
+            ),
 
             const SizedBox(height: 10),
             //Image.asset(''),
-            const Text(
-              '\nقياس البروتين عن طريق الشرائط البولية عبارة عن اختبار طبّي يُجرى للكشف عن وجود البروتينات في البول، ومن أنواعها الألبومين أو الزلال يضم شريط فحص البول يتغير لونها بعد غمرها في عينة بول. يمكن قراءة النتيجة عادةً بعد 60- 120 ثانية من الغمس يبدأ الفحص بغمر الشريط تمامًا في عينة بول ممزوجة جيدًا لفترة قصيرة من الوقت، من ثم يرفع الشريط من الوعاء ويثبت على جداره للتخلص من البول الزائد. يترك الشريط بعد ذلك مدة معينة لحدوث التفاعل (عادةً من دقيقة إلى دقيقتين)، ثم تقرأ النتائج عبر مقارنة الألوان بالمقياس اللوني الذي توفره الشركة المصنعة يتغير اللون بوجود البروتين ضمن درجات مختلفة من اللون الأخضر وحتى اللون الأزرق. تتدرج النتائج وفق التالي: سلبية ثم أثر ثم 1+ و2+ و3+ و4 لأفضل نتيجة يفضل عمل الفحص صباحا وعدم أخذ العينة الاولى عند أفراغ المثانة ولكن العينه الوسطى عند أفراغ المثانه',
+            Text(
+              S.of(context).protein_in_urine_instructions,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               textAlign: TextAlign.start,
               style: TextStyle(fontFamily: 'cairo', fontSize: 14),
             ),
             CustomTextField(
-              lablelText: 'Protein in urine',
+              lablelText: S.of(context).protein_in_urine_label,
               textfieldcontroller: proteinInUrineController,
             ),
-
-            const SizedBox(height: 10),
-
-            const Text(
-              ' متابعة الوزن اسبوعيا وذالك يكون صباحا قبل الافطار ويكون بنفس الميزان  فى كل مرة من المتوقع ان تزيد الأم الحامل من (نص كيلو الى كيلو ) أسبوعيا',
+            const Divider(
+              thickness: 1.5,
+              color: Color.fromARGB(255, 236, 161, 192),
+              height: 50,
+              indent: 50,
+              endIndent: 50,
+            ),
+            const SizedBox(height: 20),
+            Image.asset(
+              'images/weight.jpg',
+              width: 300,
+              height: 300,
+            ),
+            Text(
+              S.of(context).weight_instructions,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               textAlign: TextAlign.start,
               style: TextStyle(fontFamily: 'cairo', fontSize: 14),
             ),
             CustomTextField(
-              lablelText: 'Weight',
+              lablelText: S.of(context).weight_label,
               textfieldcontroller: weightController,
             ),
             Text(
               weightErrorMessage,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 14,
               ),
             ),
-
+            const Divider(
+              thickness: 1.5,
+              color: Color.fromARGB(255, 236, 161, 192),
+              height: 50,
+              indent: 50,
+              endIndent: 50,
+            ),
             const SizedBox(height: 10),
-            const Text(
-              '	متابعة حركة الجنين يوميا يجب على الام الحامل متابعة حركة الجنين بأستمرار, ,ان لا تقل حركة الجنين  عن 10 حركات فى الساعتين: \n ضعي يدك أو يديك على بطنك. احسبي العدد كل مرة تشعرين فيها بطفلك يتحرك. إذا شعرتِ بكثير من الحركات في الوقت نفسه، احسب ي عدد الحركات التي تشعرين بها. سجّلي التا ريخ والوقت الذي بدأتِ فيه بحساب عدد الحركات على جدول حركة الجنين',
+            Text(
+              S.of(context).fetus_movement_instructions,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               textAlign: TextAlign.start,
               style: TextStyle(fontFamily: 'cairo', fontSize: 14),
             ),
             CustomTextField(
-              lablelText: 'Fetus Movement',
+              lablelText: S.of(context).fetus_movement_label,
               textfieldcontroller: fetusMovementController,
             ),
 
             const SizedBox(height: 10),
-            const Text(
-              ' متابعة الماء حول الجنين ووزن الجنين كل اسبوعي',
+            Text(
+              S.of(context).sonar_instructions,
+               textDirection:
+                  Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               textAlign: TextAlign.start,
               style: TextStyle(fontFamily: 'cairo', fontSize: 14),
             ),
             CustomTextField(
-              lablelText: 'SONAR',
+              lablelText: S.of(context).sonar_label,
               textfieldcontroller: sonarController,
             ),
 
@@ -316,7 +357,7 @@ class _TestInputScreenState extends State<TestInputScreen> {
               ontap: () {
                 _saveTestResults();
               },
-              text: 'Save Test Results',
+              text: S.of(context).save_test_results_button,
             ),
           ],
         ),

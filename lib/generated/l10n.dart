@@ -810,16 +810,6 @@ class S {
     );
   }
 
-  /// `Test & Measurements Results`
-  String get test_input_title {
-    return Intl.message(
-      'Test & Measurements Results',
-      name: 'test_input_title',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `CBC Test Result`
   String get cbc_label {
     return Intl.message(
@@ -1200,21 +1190,591 @@ class S {
     );
   }
 
-  /// `Notes and Measurements`
+  /// `Test Input`
   String get test_input_label {
     return Intl.message(
-      'Notes and Measurements',
+      'Test Input',
       name: 'test_input_label',
       desc: '',
       args: [],
     );
   }
 
-  /// `Healthcare App Home Screen`
-  String get cover_image_description {
+  /// `Blood pressure should be measured every 48 hours. Before measuring blood pressure, follow these instructions:\n\n1. Rest for at least 15 minutes (no mental or physical effort).\n2. Ensure the cuff size is appropriate for your arm.\n3. Sit while measuring, using the same arm for consistency.`
+  String get blood_pressure_instructions {
     return Intl.message(
-      'Healthcare App Home Screen',
-      name: 'cover_image_description',
+      'Blood pressure should be measured every 48 hours. Before measuring blood pressure, follow these instructions:\n\n1. Rest for at least 15 minutes (no mental or physical effort).\n2. Ensure the cuff size is appropriate for your arm.\n3. Sit while measuring, using the same arm for consistency.',
+      name: 'blood_pressure_instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blood Pressure`
+  String get blood_pressure_title {
+    return Intl.message(
+      'Blood Pressure',
+      name: 'blood_pressure_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `High blood pressure detected (more than 160/110). Please consult a doctor.`
+  String get blood_pressure_warning {
+    return Intl.message(
+      'High blood pressure detected (more than 160/110). Please consult a doctor.',
+      name: 'blood_pressure_warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protein measurement using urine strips is a medical test to detect the presence of proteins in urine, including albumin or globulin. The test strip changes color when dipped in a well-mixed urine sample. Results are usually read after 60-120 seconds of immersion. Results are graded as negative, trace, 1+, 2+, 3+, and 4+ based on the color change.`
+  String get protein_in_urine_instructions {
+    return Intl.message(
+      'Protein measurement using urine strips is a medical test to detect the presence of proteins in urine, including albumin or globulin. The test strip changes color when dipped in a well-mixed urine sample. Results are usually read after 60-120 seconds of immersion. Results are graded as negative, trace, 1+, 2+, 3+, and 4+ based on the color change.',
+      name: 'protein_in_urine_instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protein in Urine`
+  String get protein_in_urine_label {
+    return Intl.message(
+      'Protein in Urine',
+      name: 'protein_in_urine_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monitor your weight weekly, preferably in the morning before breakfast, using the same scale each time. Expect an increase of 0.5 to 1 kilogram per week during pregnancy.`
+  String get weight_instructions {
+    return Intl.message(
+      'Monitor your weight weekly, preferably in the morning before breakfast, using the same scale each time. Expect an increase of 0.5 to 1 kilogram per week during pregnancy.',
+      name: 'weight_instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get weight_label {
+    return Intl.message(
+      'Weight',
+      name: 'weight_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Warning: The current weight should not increase by more than 1 kilogram compared to the last measurement.`
+  String get weight_warning {
+    return Intl.message(
+      'Warning: The current weight should not increase by more than 1 kilogram compared to the last measurement.',
+      name: 'weight_warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monitor fetal movements daily. The pregnant mother should feel at least 10 movements in two hours. Place your hand(s) on your belly and count each time you feel the baby move. If you feel many movements at the same time, count the number of movements you feel. Record the date and time when you start counting the movements on the fetal movement chart.`
+  String get fetus_movement_instructions {
+    return Intl.message(
+      'Monitor fetal movements daily. The pregnant mother should feel at least 10 movements in two hours. Place your hand(s) on your belly and count each time you feel the baby move. If you feel many movements at the same time, count the number of movements you feel. Record the date and time when you start counting the movements on the fetal movement chart.',
+      name: 'fetus_movement_instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fetus Movement`
+  String get fetus_movement_label {
+    return Intl.message(
+      'Fetus Movement',
+      name: 'fetus_movement_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monitor the amount of amniotic fluid around the fetus and the fetal weight every two weeks.`
+  String get sonar_instructions {
+    return Intl.message(
+      'Monitor the amount of amniotic fluid around the fetus and the fetal weight every two weeks.',
+      name: 'sonar_instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SONAR`
+  String get sonar_label {
+    return Intl.message(
+      'SONAR',
+      name: 'sonar_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Test Results`
+  String get save_test_results_button {
+    return Intl.message(
+      'Save Test Results',
+      name: 'save_test_results_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error_title {
+    return Intl.message(
+      'Error',
+      name: 'error_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while saving test results. Please try again later.`
+  String get error_message {
+    return Intl.message(
+      'An error occurred while saving test results. Please try again later.',
+      name: 'error_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User data not found.`
+  String get user_data_not_found {
+    return Intl.message(
+      'User data not found.',
+      name: 'user_data_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `measurements results`
+  String get measurements_results_label {
+    return Intl.message(
+      'measurements results',
+      name: 'measurements_results_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `lab results`
+  String get lab_results_label {
+    return Intl.message(
+      'lab results',
+      name: 'lab_results_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lab Results`
+  String get app_title {
+    return Intl.message(
+      'Lab Results',
+      name: 'app_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Urea`
+  String get urea_label {
+    return Intl.message(
+      'Urea',
+      name: 'urea_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Creat`
+  String get creat_label {
+    return Intl.message(
+      'Creat',
+      name: 'creat_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Albumin-Creatinine ratio`
+  String get albumin_creatinine_ratio_label {
+    return Intl.message(
+      'Albumin-Creatinine ratio',
+      name: 'albumin_creatinine_ratio_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Liver Function Tests`
+  String get liver_function_tests_title {
+    return Intl.message(
+      'Liver Function Tests',
+      name: 'liver_function_tests_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ALT`
+  String get alt_label {
+    return Intl.message(
+      'ALT',
+      name: 'alt_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AST`
+  String get ast_label {
+    return Intl.message(
+      'AST',
+      name: 'ast_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ALP`
+  String get alp_label {
+    return Intl.message(
+      'ALP',
+      name: 'alp_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GGT`
+  String get ggt_label {
+    return Intl.message(
+      'GGT',
+      name: 'ggt_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete Blood Picture`
+  String get complete_blood_picture_title {
+    return Intl.message(
+      'Complete Blood Picture',
+      name: 'complete_blood_picture_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hb%`
+  String get hb_percentage_label {
+    return Intl.message(
+      'Hb%',
+      name: 'hb_percentage_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hct`
+  String get hct_label {
+    return Intl.message(
+      'Hct',
+      name: 'hct_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Platelet count`
+  String get platelet_count_label {
+    return Intl.message(
+      'Platelet count',
+      name: 'platelet_count_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick an Image`
+  String get pick_image_button {
+    return Intl.message(
+      'Pick an Image',
+      name: 'pick_image_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Lab Results`
+  String get save_lab_results_button {
+    return Intl.message(
+      'Save Lab Results',
+      name: 'save_lab_results_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Warning`
+  String get warning_title {
+    return Intl.message(
+      'Warning',
+      name: 'warning_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ALT is greater than 55.`
+  String get alt_warning_message {
+    return Intl.message(
+      'ALT is greater than 55.',
+      name: 'alt_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AST is greater than 50.`
+  String get ast_warning_message {
+    return Intl.message(
+      'AST is greater than 50.',
+      name: 'ast_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ALP is greater than 148.`
+  String get alp_warning_message {
+    return Intl.message(
+      'ALP is greater than 148.',
+      name: 'alp_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Albumin-Creatinine ratio is less than 2.0.`
+  String get albumin_creatinine_warning_message {
+    return Intl.message(
+      'Albumin-Creatinine ratio is less than 2.0.',
+      name: 'albumin_creatinine_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GGT is greater than 300.`
+  String get ggt_warning_message {
+    return Intl.message(
+      'GGT is greater than 300.',
+      name: 'ggt_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Urea is greater than 30.`
+  String get urea_warning_message {
+    return Intl.message(
+      'Urea is greater than 30.',
+      name: 'urea_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Creatinine in Urine is greater than 1.2.`
+  String get creatinine_urine_warning_message {
+    return Intl.message(
+      'Creatinine in Urine is greater than 1.2.',
+      name: 'creatinine_urine_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Platelet count is less than 100,000.`
+  String get platelet_count_warning_message {
+    return Intl.message(
+      'Platelet count is less than 100,000.',
+      name: 'platelet_count_warning_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create an Account`
+  String get register_app_title {
+    return Intl.message(
+      'Create an Account',
+      name: 'register_app_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email_hint {
+    return Intl.message(
+      'Email',
+      name: 'email_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password_hint {
+    return Intl.message(
+      'Password',
+      name: 'password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirm_password_hint {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirm_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `National ID`
+  String get national_id_hint {
+    return Intl.message(
+      'National ID',
+      name: 'national_id_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `National ID must contain exactly 14 digits and only numbers.`
+  String get error_message_invalid_national_id {
+    return Intl.message(
+      'National ID must contain exactly 14 digits and only numbers.',
+      name: 'error_message_invalid_national_id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match.`
+  String get error_message_password_mismatch {
+    return Intl.message(
+      'Passwords do not match.',
+      name: 'error_message_password_mismatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be 8 characters or longer.`
+  String get error_message_short_password {
+    return Intl.message(
+      'Password must be 8 characters or longer.',
+      name: 'error_message_short_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create an Account`
+  String get register_button_text {
+    return Intl.message(
+      'Create an Account',
+      name: 'register_button_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose a password that is 8 characters or longer. You can use numbers. Remember to keep this code safe.`
+  String get password_requirements_message {
+    return Intl.message(
+      'Choose a password that is 8 characters or longer. You can use numbers. Remember to keep this code safe.',
+      name: 'password_requirements_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successfully registered`
+  String get register_success_message {
+    return Intl.message(
+      'Successfully registered',
+      name: 'register_success_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `registration failed`
+  String get error_message_registration_failed {
+    return Intl.message(
+      'registration failed',
+      name: 'error_message_registration_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login_app_title {
+    return Intl.message(
+      'Login',
+      name: 'login_app_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get have_account_question {
+    return Intl.message(
+      'Already have an account?',
+      name: 'have_account_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `login failed`
+  String get login_error_message {
+    return Intl.message(
+      'login failed',
+      name: 'login_error_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login_button_text {
+    return Intl.message(
+      'Login',
+      name: 'login_button_text',
       desc: '',
       args: [],
     );

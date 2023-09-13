@@ -24,29 +24,31 @@ class Smoking extends StatelessWidget {
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
       ),
-      body: Column(
-        children: [
-          Card(
-            elevation: 10,
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            color: const Color.fromARGB(255, 255, 255, 255),
-            child:  Padding(
-              padding: const EdgeInsets.all(30),
-              child: Text(S.of(context).smoking_text,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 236, 161, 192),
-                  fontFamily: 'cairo',
+      body: ListView(
+      
+          children: [
+            Card(
+              elevation: 10,
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+              shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              color: const Color.fromARGB(255, 255, 255, 255),
+              child:  Padding(
+                padding: const EdgeInsets.all(30),
+                child: Text(S.of(context).smoking_text,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 236, 161, 192),
+                    fontFamily: 'cairo',
+                  ),
+                  textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
                 ),
-                textDirection: Helper().isArabic() ? TextDirection.rtl : TextDirection.ltr,
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      
     );
   }
 }

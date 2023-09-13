@@ -43,7 +43,7 @@ android {
 
     buildTypes {
         release {
-            // signingConfig signingConfigs.debug // Commented out since it was referring to debug signing config
+            signingConfig signingConfigs.debug // Commented out since it was referring to debug signing config
         }
     }
 

@@ -26,6 +26,7 @@ dependencies:
         sdk: flutter
   firebase_storage: ^11.2.6
   image_picker: ^1.0.4
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -46,8 +47,7 @@ flutter:
         - asset: fonts/Cairo-VariableFont_slnt,wght.ttf
 
   assets:
-    - images/logo.png
-    - images/cover.png
-    - images/splash.png
+    - images/
+    
 flutter_intl:
   enabled: true

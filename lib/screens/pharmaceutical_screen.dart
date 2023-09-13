@@ -25,8 +25,8 @@ class pharmaticuals extends StatelessWidget {
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: ListView(
+      
        
         children: [
           Padding(

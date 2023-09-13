@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:application/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,6 +10,8 @@ class HospitalMapScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Color(0xFFfaeaf0),
       appBar: AppBar(
@@ -25,23 +29,28 @@ class HospitalMapScreen extends StatelessWidget {
       ),
       body: 
        Center(
-        child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 236, 161, 192),
-                        ) ,
-          ),
-          onPressed: () {
-            // Launch Google Maps
-            launchMaps();
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child:  Text(
-              S.of(context).hospitalbutton, style: const TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold,fontFamily: 'cairo',),
-                  ),
-          ),
-      ),
-      ),
+        child: SizedBox(
+          width: screenWidth * 0.5,
+          height: screenHeight *0.1,
+          child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 236, 161, 192),
+              ) ,
+             
+            ),
+            onPressed: () {
+              // Launch Google Maps
+              launchMaps();
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:  Text(
+                S.of(context).hospitalbutton, style:  TextStyle(color: Colors.white, fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold,fontFamily: 'cairo',),
+                    ),
+            ),
+             ),
+        ),
+           ),
     );
   }
 

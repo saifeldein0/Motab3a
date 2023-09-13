@@ -24,19 +24,46 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "address_label": MessageLookupByLibrary.simpleMessage("العنوان"),
         "age_label": MessageLookupByLibrary.simpleMessage("السن"),
+        "albumin_creatinine_ratio_label": MessageLookupByLibrary.simpleMessage(
+            "نسبة الألبومين إلى الكرياتينين"),
+        "albumin_creatinine_warning_message":
+            MessageLookupByLibrary.simpleMessage(
+                "نسبة الألبومين إلى الكرياتينين أقل من 2.0."),
+        "alp_label": MessageLookupByLibrary.simpleMessage("ALP"),
+        "alp_warning_message":
+            MessageLookupByLibrary.simpleMessage("ALP أعلى من 148."),
+        "alt_label": MessageLookupByLibrary.simpleMessage("ALT"),
+        "alt_warning_message":
+            MessageLookupByLibrary.simpleMessage("ALT أعلى من 55."),
+        "app_title": MessageLookupByLibrary.simpleMessage("نتائج التحاليل"),
+        "ast_label": MessageLookupByLibrary.simpleMessage("AST"),
+        "ast_warning_message":
+            MessageLookupByLibrary.simpleMessage("AST أعلى من 50."),
+        "blood_pressure_instructions": MessageLookupByLibrary.simpleMessage(
+            "يجب قياس ضغط الدم كل 48 ساعة. قبل قياس ضغط الدم، اتبع هذه التعليمات:\n\n1. استرح لمدة لا تقل عن 15 دقيقة (بدون أي جهد عقلي أو جسدي).\n2. تأكد من أن حجم الكفة مناسب لذراعك.\n3. قم بالجلوس أثناء القياس واستخدم نفس الذراع للحفاظ على الاستقرار."),
         "blood_pressure_label":
             MessageLookupByLibrary.simpleMessage("نتيجة تحليل ضغط الدم"),
+        "blood_pressure_title":
+            MessageLookupByLibrary.simpleMessage("ضغط الدم"),
+        "blood_pressure_warning": MessageLookupByLibrary.simpleMessage(
+            "تم اكتشاف ارتفاع في ضغط الدم (أكثر من 160/110). يرجى استشارة الطبيب."),
         "bmi_label":
             MessageLookupByLibrary.simpleMessage("مؤشر كتلة الجسم (BMI)"),
         "bmi_label_profile":
             MessageLookupByLibrary.simpleMessage("مؤشر كتلة الجسم"),
         "cbc_label":
             MessageLookupByLibrary.simpleMessage("نتيجة تحليل صورة الدم (CBC)"),
+        "complete_blood_picture_title":
+            MessageLookupByLibrary.simpleMessage("صورة دم كاملة"),
         "complications_label":
             MessageLookupByLibrary.simpleMessage("المضاعفات"),
         "confirm": MessageLookupByLibrary.simpleMessage("تم"),
-        "cover_image_description": MessageLookupByLibrary.simpleMessage(
-            "شاشة الصفحة الرئيسية لتطبيق الرعاية الصحية"),
+        "confirm_password_hint":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "creat_label": MessageLookupByLibrary.simpleMessage("الكرياتين"),
+        "creatinine_urine_warning_message":
+            MessageLookupByLibrary.simpleMessage(
+                "كرياتينين البول أعلى من 1.2."),
         "dietAppBar": MessageLookupByLibrary.simpleMessage("الغذاء والتغذية"),
         "diet_label":
             MessageLookupByLibrary.simpleMessage("النظام الغذائي والتغذية"),
@@ -64,12 +91,36 @@ class MessageLookup extends MessageLookupByLibrary {
         "diettitle2": MessageLookupByLibrary.simpleMessage("تجنبي هذا الطعام"),
         "education_level_label":
             MessageLookupByLibrary.simpleMessage("المستوى التعليمي"),
+        "email_hint": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "environmentAppBar":
             MessageLookupByLibrary.simpleMessage("  البيئة المحيطة بك "),
         "environment_label":
             MessageLookupByLibrary.simpleMessage("البيئة المحيطة"),
         "environmenttext": MessageLookupByLibrary.simpleMessage(
             "يجب توفير بيئة هادئة جيدة التهوية لا تحتوى على أضائة عالية فيجب ان تحاولى بقدر الامكان أن تجعلى البيئة المحيطة بكى هادئة ومريحة والاضائة به خافته."),
+        "error_message": MessageLookupByLibrary.simpleMessage(
+            "حدث خطأ أثناء حفظ نتائج الاختبار. يرجى المحاولة مرة أخرى لاحقًا."),
+        "error_message_invalid_national_id":
+            MessageLookupByLibrary.simpleMessage(
+                "الرقم القومي يجب أن يحتوي على 14 رقمًا وأرقام فقط."),
+        "error_message_password_mismatch":
+            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة."),
+        "error_message_registration_failed":
+            MessageLookupByLibrary.simpleMessage("فشل التسجيل"),
+        "error_message_short_password": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على 8 أحرف أو أكثر."),
+        "error_title": MessageLookupByLibrary.simpleMessage("خطأ"),
+        "fetus_movement_instructions": MessageLookupByLibrary.simpleMessage(
+            "راقب حركة الجنين يوميًا. يجب على الأم الحامل أن تشعر بما لا يقل عن 10 حركات في غضون ساعتين. ضع يدك (يديك) على بطنك واحصر كل مرة تشعر فيها بحركة الجنين. إذا شعرت بالعديد من الحركات في نفس الوقت، احصر عدد الحركات التي تشعر بها. قم بتسجيل تاريخ ووقت بدء عد الحركات على جدول حركة الجنين."),
+        "fetus_movement_label":
+            MessageLookupByLibrary.simpleMessage("حركة الجنين"),
+        "ggt_label": MessageLookupByLibrary.simpleMessage("GGT"),
+        "ggt_warning_message":
+            MessageLookupByLibrary.simpleMessage("GGT أعلى من 300."),
+        "have_account_question":
+            MessageLookupByLibrary.simpleMessage("هل لديك حساب؟"),
+        "hb_percentage_label": MessageLookupByLibrary.simpleMessage("نسبة Hb"),
+        "hct_label": MessageLookupByLibrary.simpleMessage("نسبة Hct"),
         "home_label": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
         "hospitalAppBar":
             MessageLookupByLibrary.simpleMessage("  المستشفيات القريبة منك"),
@@ -78,22 +129,37 @@ class MessageLookup extends MessageLookupByLibrary {
         "hospitalbutton": MessageLookupByLibrary.simpleMessage("أقرب مستشفى"),
         "kidney_functions_label":
             MessageLookupByLibrary.simpleMessage("نتيجة تحليل وظائف الكلى"),
+        "lab_results_label":
+            MessageLookupByLibrary.simpleMessage("نتائج تحليل المعمل"),
         "last_delivery_type_details_label":
             MessageLookupByLibrary.simpleMessage("تفاصيل نوع الولادة الأخيرة"),
         "last_delivery_type_label":
             MessageLookupByLibrary.simpleMessage("نوع الولادة الأخيرة"),
         "last_period_date_label": MessageLookupByLibrary.simpleMessage(
             "تاريخ الدورة الشهرية الأخيرة"),
+        "liver_function_tests_title":
+            MessageLookupByLibrary.simpleMessage("اختبارات وظائف الكبد"),
         "liver_functions_label":
             MessageLookupByLibrary.simpleMessage("نتيجة تحليل وظائف الكبد"),
+        "login_app_title": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
+        "login_button_text": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
+        "login_error_message":
+            MessageLookupByLibrary.simpleMessage("فشل الدخول"),
         "logout_label": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "measurements_results_label":
+            MessageLookupByLibrary.simpleMessage("نتائج القياسات"),
         "medical_history_label":
             MessageLookupByLibrary.simpleMessage("السيرة المرضية"),
         "name_label": MessageLookupByLibrary.simpleMessage("الأسم"),
+        "national_id_hint":
+            MessageLookupByLibrary.simpleMessage("الرقم القومي"),
         "num_deliveries_label":
             MessageLookupByLibrary.simpleMessage("عدد مرات الولادة"),
         "num_pregnancies_label":
             MessageLookupByLibrary.simpleMessage("عدد مرات الحمل"),
+        "password_hint": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "password_requirements_message": MessageLookupByLibrary.simpleMessage(
+            "اختر كلمة مرور تحتوي على 8 أحرف أو أكثر. يمكنك استخدام الأرقام. تذكر أن تحتفظ بهذا الرمز بأمان."),
         "pharmaceuticals_label":
             MessageLookupByLibrary.simpleMessage("الأدوية"),
         "pharmatics_text1": MessageLookupByLibrary.simpleMessage(
@@ -105,13 +171,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "pharmatics_text4": MessageLookupByLibrary.simpleMessage(
             "⬤  قد يكون أستخدمك اى نوع من الادوية فيه تعارض مع ادويتك لذلك يجب عليكى مراجعة طبيبك قبل أستخدام اى دواء."),
         "pharmatics_title": MessageLookupByLibrary.simpleMessage("الادوية"),
+        "pick_image_button": MessageLookupByLibrary.simpleMessage("اختر صورة"),
         "place_label":
             MessageLookupByLibrary.simpleMessage("المكان (البلد/ المدينة)"),
+        "platelet_count_label":
+            MessageLookupByLibrary.simpleMessage("عدد الصفائح"),
+        "platelet_count_warning_message":
+            MessageLookupByLibrary.simpleMessage("عدد الصفائح أقل من 100,000."),
         "profile_saved_message":
             MessageLookupByLibrary.simpleMessage("تم حفظ ملفك الشخصي."),
         "profile_saved_title":
             MessageLookupByLibrary.simpleMessage("حفظ الملف الشخصي"),
         "profile_title": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "protein_in_urine_instructions": MessageLookupByLibrary.simpleMessage(
+            "قياس البروتين باستخدام شرائط البول هو اختبار طبي يُستخدم لاكتشاف وجود بروتين في البول، بما في ذلك الألبيومين أو الجلوبولين. تتغير لون شريط الاختبار عند تغميسه في عينة بول مخلوطة جيدًا. عادةً ما يتم قراءة النتائج بعد 60-120 ثانية من الانغماس. تُصنف النتائج على أنها سلبية، أثر، 1+، 2+، 3+، و 4+ استنادًا إلى تغيير اللون."),
+        "protein_in_urine_label":
+            MessageLookupByLibrary.simpleMessage("البروتين في البول"),
+        "register_app_title":
+            MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "register_button_text":
+            MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "register_success_message":
+            MessageLookupByLibrary.simpleMessage("تم التسجيل"),
         "rest_and_exercise_label":
             MessageLookupByLibrary.simpleMessage("الراحة وممارسة الرياضة"),
         "rest_exercise_text_1": MessageLookupByLibrary.simpleMessage(
@@ -144,14 +225,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "results_saved_title":
             MessageLookupByLibrary.simpleMessage("تم حفظ نتائج التحاليل"),
         "save_button_text": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "save_lab_results_button":
+            MessageLookupByLibrary.simpleMessage("حفظ نتائج التحاليل"),
         "save_results_button":
             MessageLookupByLibrary.simpleMessage("حفظ نتائج التحاليل"),
+        "save_test_results_button":
+            MessageLookupByLibrary.simpleMessage("حفظ نتائج الاختبار"),
         "smoking_label":
             MessageLookupByLibrary.simpleMessage("التدخين والكحول"),
         "smoking_text": MessageLookupByLibrary.simpleMessage(
             "عندما تدخن الحامل فإنها تستنشق السموم (مثل: النيكوتين، والرصاص، والزرنيخ، وأول أكسيد الكربون)؛ حيث تدخل هذه السموم المشيمة (النسيج الذي يربط الأم بالجنين)، وتمنع هذه السموم الجنين من الحصول على الإمدادات المناسبة من العناصر الغذائية والأكسجين التي يحتاجها للنمو. ويؤدى أيضاً إلى إنقاص وزن الجنين. يزيد من فرص حدوث الإجهاض وإرتفاع نسبة وفيات المواليد. قد يؤدي إلى حالات مرضية ضارة للحامل والجنين، مثل إنزلاق المشيمة وتسمم الحمل."),
         "smoking_title":
             MessageLookupByLibrary.simpleMessage("أضرار التدخين والكحوليات"),
+        "sonar_instructions": MessageLookupByLibrary.simpleMessage(
+            "راقب كمية السائل الأميني حول الجنين ووزن الجنين كل أسبوعين."),
+        "sonar_label": MessageLookupByLibrary.simpleMessage("سونار"),
         "stressAppBar": MessageLookupByLibrary.simpleMessage("الضغوط النفسية"),
         "stressList1": MessageLookupByLibrary.simpleMessage(
             "⬤تجنب التفكير بالأمور التي قد تزيد من القلق والتوتر."),
@@ -232,10 +320,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أعراض خطيرة"),
         "test_input_label":
             MessageLookupByLibrary.simpleMessage("الملاحظات والقياسات"),
-        "test_input_title":
-            MessageLookupByLibrary.simpleMessage("نتائج التحاليل والقياسات"),
+        "urea_label": MessageLookupByLibrary.simpleMessage("اليوريا"),
+        "urea_warning_message":
+            MessageLookupByLibrary.simpleMessage("اليوريا أعلى من 30."),
+        "user_data_not_found":
+            MessageLookupByLibrary.simpleMessage("بيانات المستخدم غير موجودة."),
+        "warning_title": MessageLookupByLibrary.simpleMessage("تحذير"),
         "weeks_pregnant_label":
             MessageLookupByLibrary.simpleMessage("عدد أسابيع الحمل الحالي"),
+        "weight_instructions": MessageLookupByLibrary.simpleMessage(
+            "راقب وزنك أسبوعيًا، مفضلًا في الصباح قبل الإفطار، باستخدام نفس الميزان في كل مرة. توقع زيادة تتراوح بين 0.5 و 1 كيلوجرام في الأسبوع أثناء الحمل."),
+        "weight_label": MessageLookupByLibrary.simpleMessage("الوزن"),
+        "weight_warning": MessageLookupByLibrary.simpleMessage(
+            "تحذير: لا يجب أن يزيد الوزن الحالي بأكثر من 1 كيلوجرام مقارنة بالقياس السابق."),
         "work_label": MessageLookupByLibrary.simpleMessage("العمل")
       };
 }

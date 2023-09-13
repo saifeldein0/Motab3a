@@ -27,9 +27,10 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
       body:  SingleChildScrollView(
         child:
         Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset('images/complications.jpg',height:550,width: 300,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -55,8 +56,8 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
             ),
             
  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -203,8 +204,8 @@ class SymptomsAndComplicationsScreen extends StatelessWidget {
               ],
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
+             crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding:const  EdgeInsets.all(8.0),

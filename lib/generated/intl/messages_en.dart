@@ -24,18 +24,45 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "address_label": MessageLookupByLibrary.simpleMessage("Address"),
         "age_label": MessageLookupByLibrary.simpleMessage("Age"),
+        "albumin_creatinine_ratio_label":
+            MessageLookupByLibrary.simpleMessage("Albumin-Creatinine ratio"),
+        "albumin_creatinine_warning_message":
+            MessageLookupByLibrary.simpleMessage(
+                "Albumin-Creatinine ratio is less than 2.0."),
+        "alp_label": MessageLookupByLibrary.simpleMessage("ALP"),
+        "alp_warning_message":
+            MessageLookupByLibrary.simpleMessage("ALP is greater than 148."),
+        "alt_label": MessageLookupByLibrary.simpleMessage("ALT"),
+        "alt_warning_message":
+            MessageLookupByLibrary.simpleMessage("ALT is greater than 55."),
+        "app_title": MessageLookupByLibrary.simpleMessage("Lab Results"),
+        "ast_label": MessageLookupByLibrary.simpleMessage("AST"),
+        "ast_warning_message":
+            MessageLookupByLibrary.simpleMessage("AST is greater than 50."),
+        "blood_pressure_instructions": MessageLookupByLibrary.simpleMessage(
+            "Blood pressure should be measured every 48 hours. Before measuring blood pressure, follow these instructions:\n\n1. Rest for at least 15 minutes (no mental or physical effort).\n2. Ensure the cuff size is appropriate for your arm.\n3. Sit while measuring, using the same arm for consistency."),
         "blood_pressure_label":
             MessageLookupByLibrary.simpleMessage("Blood Pressure Test Result"),
+        "blood_pressure_title":
+            MessageLookupByLibrary.simpleMessage("Blood Pressure"),
+        "blood_pressure_warning": MessageLookupByLibrary.simpleMessage(
+            "High blood pressure detected (more than 160/110). Please consult a doctor."),
         "bmi_label":
             MessageLookupByLibrary.simpleMessage("Body Mass Index (BMI)"),
         "bmi_label_profile":
             MessageLookupByLibrary.simpleMessage("Body Mass Index"),
         "cbc_label": MessageLookupByLibrary.simpleMessage("CBC Test Result"),
+        "complete_blood_picture_title":
+            MessageLookupByLibrary.simpleMessage("Complete Blood Picture"),
         "complications_label":
             MessageLookupByLibrary.simpleMessage("Complications"),
         "confirm": MessageLookupByLibrary.simpleMessage("ok"),
-        "cover_image_description":
-            MessageLookupByLibrary.simpleMessage("Healthcare App Home Screen"),
+        "confirm_password_hint":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "creat_label": MessageLookupByLibrary.simpleMessage("Creat"),
+        "creatinine_urine_warning_message":
+            MessageLookupByLibrary.simpleMessage(
+                "Creatinine in Urine is greater than 1.2."),
         "dietAppBar":
             MessageLookupByLibrary.simpleMessage("Food and Nutrition"),
         "diet_label":
@@ -64,12 +91,36 @@ class MessageLookup extends MessageLookupByLibrary {
         "diettitle2": MessageLookupByLibrary.simpleMessage("Avoid These Foods"),
         "education_level_label":
             MessageLookupByLibrary.simpleMessage("Education Level"),
+        "email_hint": MessageLookupByLibrary.simpleMessage("Email"),
         "environmentAppBar":
             MessageLookupByLibrary.simpleMessage("Your Surroundings"),
         "environment_label":
             MessageLookupByLibrary.simpleMessage("Surroundings"),
         "environmenttext": MessageLookupByLibrary.simpleMessage(
             "It is important to provide a quiet and well-ventilated environment with subdued lighting. Try to make your surroundings as peaceful and comfortable as possible, avoiding bright lights."),
+        "error_message": MessageLookupByLibrary.simpleMessage(
+            "An error occurred while saving test results. Please try again later."),
+        "error_message_invalid_national_id":
+            MessageLookupByLibrary.simpleMessage(
+                "National ID must contain exactly 14 digits and only numbers."),
+        "error_message_password_mismatch":
+            MessageLookupByLibrary.simpleMessage("Passwords do not match."),
+        "error_message_registration_failed":
+            MessageLookupByLibrary.simpleMessage("registration failed"),
+        "error_message_short_password": MessageLookupByLibrary.simpleMessage(
+            "Password must be 8 characters or longer."),
+        "error_title": MessageLookupByLibrary.simpleMessage("Error"),
+        "fetus_movement_instructions": MessageLookupByLibrary.simpleMessage(
+            "Monitor fetal movements daily. The pregnant mother should feel at least 10 movements in two hours. Place your hand(s) on your belly and count each time you feel the baby move. If you feel many movements at the same time, count the number of movements you feel. Record the date and time when you start counting the movements on the fetal movement chart."),
+        "fetus_movement_label":
+            MessageLookupByLibrary.simpleMessage("Fetus Movement"),
+        "ggt_label": MessageLookupByLibrary.simpleMessage("GGT"),
+        "ggt_warning_message":
+            MessageLookupByLibrary.simpleMessage("GGT is greater than 300."),
+        "have_account_question":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "hb_percentage_label": MessageLookupByLibrary.simpleMessage("Hb%"),
+        "hct_label": MessageLookupByLibrary.simpleMessage("Hct"),
         "home_label": MessageLookupByLibrary.simpleMessage("Home"),
         "hospitalAppBar":
             MessageLookupByLibrary.simpleMessage("Nearby Hospitals"),
@@ -79,22 +130,36 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nearest Hospital"),
         "kidney_functions_label": MessageLookupByLibrary.simpleMessage(
             "Kidney Functions Test Result"),
+        "lab_results_label":
+            MessageLookupByLibrary.simpleMessage("lab results"),
         "last_delivery_type_details_label":
             MessageLookupByLibrary.simpleMessage("Last Delivery Type Details"),
         "last_delivery_type_label":
             MessageLookupByLibrary.simpleMessage("Last Delivery Type"),
         "last_period_date_label":
             MessageLookupByLibrary.simpleMessage("Last Period Date"),
+        "liver_function_tests_title":
+            MessageLookupByLibrary.simpleMessage("Liver Function Tests"),
         "liver_functions_label":
             MessageLookupByLibrary.simpleMessage("Liver Functions Test Result"),
+        "login_app_title": MessageLookupByLibrary.simpleMessage("Login"),
+        "login_button_text": MessageLookupByLibrary.simpleMessage("Login"),
+        "login_error_message":
+            MessageLookupByLibrary.simpleMessage("login failed"),
         "logout_label": MessageLookupByLibrary.simpleMessage("Logout"),
+        "measurements_results_label":
+            MessageLookupByLibrary.simpleMessage("measurements results"),
         "medical_history_label":
             MessageLookupByLibrary.simpleMessage("Medical History"),
         "name_label": MessageLookupByLibrary.simpleMessage("Name"),
+        "national_id_hint": MessageLookupByLibrary.simpleMessage("National ID"),
         "num_deliveries_label":
             MessageLookupByLibrary.simpleMessage("Number of Deliveries"),
         "num_pregnancies_label":
             MessageLookupByLibrary.simpleMessage("Number of Pregnancies"),
+        "password_hint": MessageLookupByLibrary.simpleMessage("Password"),
+        "password_requirements_message": MessageLookupByLibrary.simpleMessage(
+            "Choose a password that is 8 characters or longer. You can use numbers. Remember to keep this code safe."),
         "pharmaceuticals_label":
             MessageLookupByLibrary.simpleMessage("Pharmaceuticals"),
         "pharmatics_text1": MessageLookupByLibrary.simpleMessage(
@@ -106,13 +171,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "pharmatics_text4": MessageLookupByLibrary.simpleMessage(
             "⬤ Your use of any type of medication may conflict with your existing medications, so you should consult your doctor before using any medication."),
         "pharmatics_title": MessageLookupByLibrary.simpleMessage("Medications"),
+        "pick_image_button":
+            MessageLookupByLibrary.simpleMessage("Pick an Image"),
         "place_label":
             MessageLookupByLibrary.simpleMessage("Location (Country/City)"),
+        "platelet_count_label":
+            MessageLookupByLibrary.simpleMessage("Platelet count"),
+        "platelet_count_warning_message": MessageLookupByLibrary.simpleMessage(
+            "Platelet count is less than 100,000."),
         "profile_saved_message": MessageLookupByLibrary.simpleMessage(
             "Your profile has been saved."),
         "profile_saved_title":
             MessageLookupByLibrary.simpleMessage("Profile Saved"),
         "profile_title": MessageLookupByLibrary.simpleMessage("Profile"),
+        "protein_in_urine_instructions": MessageLookupByLibrary.simpleMessage(
+            "Protein measurement using urine strips is a medical test to detect the presence of proteins in urine, including albumin or globulin. The test strip changes color when dipped in a well-mixed urine sample. Results are usually read after 60-120 seconds of immersion. Results are graded as negative, trace, 1+, 2+, 3+, and 4+ based on the color change."),
+        "protein_in_urine_label":
+            MessageLookupByLibrary.simpleMessage("Protein in Urine"),
+        "register_app_title":
+            MessageLookupByLibrary.simpleMessage("Create an Account"),
+        "register_button_text":
+            MessageLookupByLibrary.simpleMessage("Create an Account"),
+        "register_success_message":
+            MessageLookupByLibrary.simpleMessage("Successfully registered"),
         "rest_and_exercise_label":
             MessageLookupByLibrary.simpleMessage("Rest and Exercise"),
         "rest_exercise_text_1": MessageLookupByLibrary.simpleMessage(
@@ -146,7 +227,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "results_saved_title":
             MessageLookupByLibrary.simpleMessage("Test Results Saved"),
         "save_button_text": MessageLookupByLibrary.simpleMessage("Save"),
+        "save_lab_results_button":
+            MessageLookupByLibrary.simpleMessage("Save Lab Results"),
         "save_results_button":
+            MessageLookupByLibrary.simpleMessage("Save Test Results"),
+        "save_test_results_button":
             MessageLookupByLibrary.simpleMessage("Save Test Results"),
         "smoking_label":
             MessageLookupByLibrary.simpleMessage("Smoking and Alcohol"),
@@ -154,6 +239,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "When a pregnant woman smokes, she inhales toxins (such as nicotine, lead, arsenic, and carbon monoxide). These toxins enter the placenta (the tissue that connects the mother to the fetus), preventing the fetus from receiving the necessary nutrients and oxygen it needs for growth. It can also lead to a decrease in fetal weight. Smoking increases the risk of miscarriage and infant mortality. It can lead to harmful conditions for both the pregnant woman and the fetus, such as placental abruption and preeclampsia."),
         "smoking_title": MessageLookupByLibrary.simpleMessage(
             "Dangers of Smoking and Alcohol"),
+        "sonar_instructions": MessageLookupByLibrary.simpleMessage(
+            "Monitor the amount of amniotic fluid around the fetus and the fetal weight every two weeks."),
+        "sonar_label": MessageLookupByLibrary.simpleMessage("SONAR"),
         "stressAppBar":
             MessageLookupByLibrary.simpleMessage("Psychological Stress"),
         "stressList1": MessageLookupByLibrary.simpleMessage(
@@ -233,12 +321,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "symptomsTitle2": MessageLookupByLibrary.simpleMessage("Complications"),
         "symptoms_and_complications_label":
             MessageLookupByLibrary.simpleMessage("Serious Symptoms"),
-        "test_input_label":
-            MessageLookupByLibrary.simpleMessage("Notes and Measurements"),
-        "test_input_title":
-            MessageLookupByLibrary.simpleMessage("Test & Measurements Results"),
+        "test_input_label": MessageLookupByLibrary.simpleMessage("Test Input"),
+        "urea_label": MessageLookupByLibrary.simpleMessage("Urea"),
+        "urea_warning_message":
+            MessageLookupByLibrary.simpleMessage("Urea is greater than 30."),
+        "user_data_not_found":
+            MessageLookupByLibrary.simpleMessage("User data not found."),
+        "warning_title": MessageLookupByLibrary.simpleMessage("Warning"),
         "weeks_pregnant_label":
             MessageLookupByLibrary.simpleMessage("Weeks Pregnant"),
+        "weight_instructions": MessageLookupByLibrary.simpleMessage(
+            "Monitor your weight weekly, preferably in the morning before breakfast, using the same scale each time. Expect an increase of 0.5 to 1 kilogram per week during pregnancy."),
+        "weight_label": MessageLookupByLibrary.simpleMessage("Weight"),
+        "weight_warning": MessageLookupByLibrary.simpleMessage(
+            "Warning: The current weight should not increase by more than 1 kilogram compared to the last measurement."),
         "work_label": MessageLookupByLibrary.simpleMessage("Work")
       };
 }

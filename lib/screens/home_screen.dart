@@ -21,123 +21,144 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: Color(0xFFfaeaf0),
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color(0xFFde98bd),
-                  borderRadius: BorderRadius.all(Radius.circular(100)),
-                  boxShadow: CupertinoContextMenu.kEndBoxShadow,
-                ),
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon_Button(
-                      icon: const Icon(Icons.logout_rounded),
-                      class_name: const LoginScreen(),
-                    ),
-                    Icon_Button(
-                      icon: const Icon(Icons.place_outlined),
-                      class_name: const HospitalMapScreen(),
-                    ),
-                    // Profile Icon Button
-                    Icon_Button(
-                      icon:const Icon(
-                          Icons.person_outline), 
-                      class_name: const ProfileScreen(),
-                    ),
-                  ],
+      backgroundColor: const Color(0xFFfaeaf0),
+      body: Padding(
+        padding:  EdgeInsets.all(screenWidth * 0.01),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.all(screenWidth * 0.05), // Adjust padding based on screen width
+                child: Container(
+                  width: screenWidth * 0.8,
+               
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFde98bd),
+                    borderRadius: BorderRadius.circular(screenWidth * 0.1), // Adjust border radius
+                    boxShadow: const [BoxShadow(blurRadius: 8,spreadRadius: 5,color: Color.fromARGB(255, 182, 181, 181))],
+                  ),
+                  height: screenHeight * 0.08, // Adjust container height
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon_Button(
+                        icon: const Icon(Icons.logout_rounded),
+                        class_name: LoginScreen(),
+                      ),
+                      Icon_Button(
+                        icon: const Icon(Icons.place_outlined),
+                        class_name: const HospitalMapScreen(),
+                      ),
+                      Icon_Button(
+                        icon: const Icon(Icons.person_outline),
+                        class_name: const ProfileScreen(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('images/cover.png'),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+      
+        
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    button(
-                      class_name: SymptomsAndComplicationsScreen(),
-                      icon: Icon(Icons.warning),
-                      label: S.of(context).symptoms_and_complications_label,
+                    const SizedBox(
+                    height: 30,
+                  ),
+                    Image.asset('images/cover.png'),
+                    
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          button(
+                            class_name: SymptomsAndComplicationsScreen(),
+                            icon: Icon(Icons.warning),
+                            label: S.of(context).symptoms_and_complications_label,
+                          ),
+                          button(
+                            class_name: Diet(),
+                            label: S.of(context).diet_label,
+                            icon: Icon(Icons.food_bank_rounded),
+                          ),
+                        ],
+                      ),
                     ),
-                    button(
-                      class_name: Diet(),
-                      label: S.of(context).diet_label,
-                      icon: Icon(Icons.food_bank_rounded),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          button(
+                            class_name: Smoking(),
+                            icon: Icon(Icons.smoke_free_rounded),
+                            label: S.of(context).smoking_label,
+                          ),
+                          button(
+                            class_name: Environment(),
+                            label: S.of(context).environment_label,
+                            icon: Icon(Icons.home),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          button(
+                            class_name: RestExcersice(),
+                            icon: Icon(Icons.pregnant_woman),
+                            label: S.of(context).rest_and_exercise_label,
+                          ),
+                          button(
+                            class_name: Stress(),
+                            label: S.of(context).stress_label,
+                            icon: Icon(Icons.do_not_disturb_alt_rounded),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          button(
+                            class_name: pharmaticuals(),
+                            icon: Icon(Icons.local_pharmacy_rounded),
+                            label: S.of(context).pharmaceuticals_label,
+                          ),
+                          button(
+                            class_name: TestAndMeasurements(),
+                            label: S.of(context).test_input_label,
+                            icon: Icon(Icons.medical_services_outlined),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
+                    
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    button(
-                      class_name: Smoking(),
-                      icon: Icon(Icons.smoke_free_rounded),
-                      label: S.of(context).smoking_label,
-                    ),
-                    button(
-                      class_name: Environment(),
-                      label: S.of(context).environment_label,
-                      icon: Icon(Icons.home),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    button(
-                      class_name: RestExcersice(),
-                      icon: Icon(Icons.pregnant_woman),
-                      label: S.of(context).rest_and_exercise_label,
-                    ),
-                    button(
-                      class_name: Stress(),
-                      label: S.of(context).stress_label,
-                      icon: Icon(Icons.do_not_disturb_alt_rounded),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    button(
-                      class_name: pharmaticuals(),
-                      icon: Icon(Icons.local_pharmacy_rounded),
-                      label: S.of(context).pharmaceuticals_label,
-                    ),
-                    button(
-                      class_name: TestAndMeasurements(),
-                      label: S.of(context).test_input_label,
-                      icon: Icon(Icons.medical_services_outlined),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
+            ),
+        
+          ],
+        
+            ),
       ),
+    
+    
+    
+      
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:application/generated/l10n.dart';
 import 'package:application/widgets/custom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
-  TextEditingController _nationalIdController = TextEditingController(); // Add this controller
+  TextEditingController _nationalIdController = TextEditingController();
 
   String _errorMessage = '';
 
@@ -29,26 +30,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
     String email = _emailController.text;
     String password = _passwordController.text;
     String confirmPassword = _confirmPasswordController.text;
-    String nationalId = _nationalIdController.text; // Retrieve National ID
+    String nationalId = _nationalIdController.text;
 
     // Validate National ID (must be 14 digits)
     if (nationalId.length != 14 || !RegExp(r'^[0-9]*$').hasMatch(nationalId)) {
       setState(() {
-        _errorMessage = 'الرقم القومي يجب أن يحتوي على 14 رقم فقط';
+        _errorMessage = S.of(context).error_message_invalid_national_id;
       });
       return;
     }
 
     if (password != confirmPassword) {
       setState(() {
-        _errorMessage = 'كلمة السر مش متوافقة';
+        _errorMessage = S.of(context).error_message_password_mismatch;
       });
       return;
     }
 
     if (password.length < 8) {
       setState(() {
-        _errorMessage = 'كلمة السر لازم تكون 8 حروف أو أكتر';
+        _errorMessage = S.of(context).error_message_short_password;
       });
       return;
     }
@@ -59,25 +60,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
       User? user = userCredential.user;
       if (user != null) {
-        print('تم تسجيل المستخدم بنجاح');
+        print(S.of(context).register_success_message);
         Get.to(() => LoginScreen(),
             transition: Transition.fade, duration: Duration(seconds: 1));
       } else {
         setState(() {
-          _errorMessage = 'فشل في تسجيل المستخدم';
+          _errorMessage = S.of(context).error_message_registration_failed;
         });
       }
     } catch (e) {
       print(e);
       setState(() {
-        _errorMessage = 'فشل في تسجيل المستخدم';
+        _errorMessage = S.of(context).error_message_registration_failed;
       });
     }
   }
@@ -87,10 +89,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 236, 161, 192),
-        title: const Padding(
+        title:Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
-            "   انشاء حساب",
+            S.of(context).register_app_title,
             style: TextStyle(
               color: Color.fromARGB(255, 255, 255, 255),
               fontWeight: FontWeight.bold,
@@ -99,7 +101,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ),
         ),
-        shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        shape:
+            ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
         elevation: 10,
         toolbarHeight: 70,
       ),
@@ -131,10 +134,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _emailController,
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
-                                hintText: 'البريد الالكتروني',
+                                hintText: S.of(context).email_hint,
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: 'cairo',
@@ -162,7 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
-                                hintText: 'كلمة المرور',
+                                hintText: S.of(context).password_hint,
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: 'cairo',
@@ -200,7 +203,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               decoration: InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
-                                hintText: 'تأكيد كلمة المرور',
+                                hintText: S.of(context).confirm_password_hint,
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: 'cairo',
@@ -234,11 +237,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
-                              controller: _nationalIdController, // Add the controller here
+                              controller: _nationalIdController,
                               decoration: InputDecoration(
                                 icon: Icon(Icons.credit_card),
                                 border: InputBorder.none,
-                                hintText: 'الرقم القومي', // Hint text
+                                hintText: S.of(context).national_id_hint,
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: 'cairo',
@@ -259,11 +262,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ontap: () {
                             _registerUser();
                           },
-                          text: 'انشاء حساب',
+                          text: S.of(context).register_button_text,
                         ),
-                        const SizedBox(height: 10), // Added SizedBox for spacing
-                        const Text(
-                          'اختاري كلمة سر 8 حروف أو اكتر\nممكن تختاري أرقام\nافتكري الرمز دا كويس',
+                        const SizedBox(height: 10),
+                        Text(
+                          S.of(context).password_requirements_message,
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey,
