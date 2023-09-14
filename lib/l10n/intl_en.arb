@@ -171,6 +171,7 @@
     "login_app_title": "Login",
     "have_account_question": "Already have an account?",
   "login_error_message":"login failed",
-    "login_button_text": "Login"
+    "login_button_text": "Login",
+    "pick_sonar_image":"pick a sonar image"
    
 }

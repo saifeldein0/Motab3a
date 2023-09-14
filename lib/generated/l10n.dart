@@ -1779,6 +1779,16 @@ class S {
       args: [],
     );
   }
+
+  /// `pick a sonar image`
+  String get pick_sonar_image {
+    return Intl.message(
+      'pick a sonar image',
+      name: 'pick_sonar_image',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

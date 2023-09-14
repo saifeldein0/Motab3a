@@ -173,6 +173,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pharmatics_title": MessageLookupByLibrary.simpleMessage("Medications"),
         "pick_image_button":
             MessageLookupByLibrary.simpleMessage("Pick an Image"),
+        "pick_sonar_image":
+            MessageLookupByLibrary.simpleMessage("pick a sonar image"),
         "place_label":
             MessageLookupByLibrary.simpleMessage("Location (Country/City)"),
         "platelet_count_label":

@@ -172,6 +172,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "⬤  قد يكون أستخدمك اى نوع من الادوية فيه تعارض مع ادويتك لذلك يجب عليكى مراجعة طبيبك قبل أستخدام اى دواء."),
         "pharmatics_title": MessageLookupByLibrary.simpleMessage("الادوية"),
         "pick_image_button": MessageLookupByLibrary.simpleMessage("اختر صورة"),
+        "pick_sonar_image":
+            MessageLookupByLibrary.simpleMessage("اختر صورة للسونار"),
         "place_label":
             MessageLookupByLibrary.simpleMessage("المكان (البلد/ المدينة)"),
         "platelet_count_label":

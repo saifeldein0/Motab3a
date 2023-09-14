@@ -175,6 +175,7 @@
     "login_app_title": "تسجيل دخول",
   "have_account_question": "هل لديك حساب؟",
 "login_error_message": "فشل الدخول",
-  "login_button_text": "تسجيل دخول"
+  "login_button_text": "تسجيل دخول",
+  "pick_sonar_image": "اختر صورة للسونار"
   
 }

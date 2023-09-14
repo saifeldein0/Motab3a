@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:application/generated/l10n.dart';
 import 'package:application/helper.dart';
 import 'package:application/widgets/custom_button.dart';
 import 'package:application/widgets/custom_textfields.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:image_picker/image_picker.dart';
 
 class TestInputScreen extends StatefulWidget {
   const TestInputScreen({Key? key}) : super(key: key);
@@ -22,6 +26,36 @@ class _TestInputScreenState extends State<TestInputScreen> {
   String bloodPressureWarning = '';
 
   String weightErrorMessage = '';
+  File? _imageFile;
+
+  Future<String?> uploadImage(
+      File imageFile, String userId, String imageName) async {
+    try {
+      final Reference storageReference =
+          FirebaseStorage.instance.ref().child('Sonar/$imageName');
+
+      UploadTask uploadTask = storageReference.putFile(imageFile);
+
+      TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() => null);
+
+      String imageUrl = await taskSnapshot.ref.getDownloadURL();
+      return imageUrl;
+    } catch (e) {
+      print('Error uploading image: $e');
+      return null;
+    }
+  }
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedImage != null) {
+      setState(() {
+        _imageFile = File(pickedImage.path);
+      });
+    }
+  }
 
   void _saveTestResults() async {
     try {
@@ -41,6 +75,12 @@ class _TestInputScreenState extends State<TestInputScreen> {
       if (userSnapshot.exists) {
         String userName =
             (userSnapshot.data() as Map<String, dynamic>)['name'] ?? '';
+              String? imageUrl;
+        if (_imageFile != null) {
+          // Use the user's name as the filename
+          String imageName = '$userName.png';
+          imageUrl = await uploadImage(_imageFile!, userId, imageName);
+        }
 
         // Create a map with the data to be saved, including the user's name
         Map<String, dynamic> data = {
@@ -51,7 +91,8 @@ class _TestInputScreenState extends State<TestInputScreen> {
           'weight': weightController.text,
           'fetusMovement': fetusMovementController.text,
           'sonar': sonarController.text,
-          'name': userName, // Add the user's name to the data
+          'name': userName,
+          'sonarUrl': imageUrl, // Add the user's name to the data
         };
 
         // Add the data to the 'test_results' collection
@@ -351,7 +392,18 @@ class _TestInputScreenState extends State<TestInputScreen> {
             ),
 
             const SizedBox(height: 20),
-
+              _imageFile != null
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.file(_imageFile!),
+                  )
+                : const SizedBox(),
+            CustomButton(
+              ontap: () {
+                _pickImage(); // Open the image picker
+              },
+              text: S.of(context).pick_sonar_image,
+            ),
             // Save button
             CustomButton(
               ontap: () {
