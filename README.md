@@ -37,8 +37,10 @@ Measurements: Recording measurements related to the pregnancy.
 
 Lab Tests: Recording results of lab tests related to the pregnancy.
 
+5. Nearest hospital
+allows the user to get the nearest hospitals to her on maps in emergency cases.    
 
-5. Professional Doctor Monitoring
+6. Professional Doctor Monitoring
 
 All user information, including test data and personal profiles, is accessible to certified professional doctors for monitoring and follow-up during the pregnancy.
 
