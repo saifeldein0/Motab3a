@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'login_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Add this import for Firestore
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String _errorMessage = '';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // Firestore instance
 
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
@@ -60,6 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
+      // Create the user account using Firebase Authentication.
       UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -68,6 +71,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       User? user = userCredential.user;
       if (user != null) {
+        // Store the user's national ID in Firestore.
+        await _firestore.collection('users').doc(user.uid).set({
+          'national_id': nationalId,
+        });
+
         print(S.of(context).register_success_message);
         Get.to(() => LoginScreen(),
             transition: Transition.fade, duration: Duration(seconds: 1));

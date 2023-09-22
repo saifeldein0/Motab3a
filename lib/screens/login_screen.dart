@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'register_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Add this import for Firestore
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String _errorMessage = '';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // Firestore instance
 
   void _loginUser() async {
     String email = _emailController.text;
@@ -37,9 +39,28 @@ class _LoginScreenState extends State<LoginScreen> {
 
       User? user = userCredential.user;
       if (user != null) {
-        print('تم تسجيل الدخول بنجاح ${user.uid}');
-        Get.to(() => HomeScreen(),
-            transition: Transition.fade, duration: Duration(seconds: 1));
+        // Retrieve the user's stored national ID from Firestore based on their UID.
+        DocumentSnapshot snapshot =
+            await _firestore.collection('users').doc(user.uid).get();
+
+        if (snapshot.exists) {
+          String storedNationalId = snapshot['national_id'];
+
+          // Compare the entered national ID with the stored national ID.
+          if (nationalId == storedNationalId) {
+            print('تم تسجيل الدخول بنجاح ${user.uid}');
+            Get.to(() => HomeScreen(),
+                transition: Transition.fade, duration: Duration(seconds: 1));
+          } else {
+            setState(() {
+              _errorMessage = S.of(context).login_error_message;
+            });
+          }
+        } else {
+          setState(() {
+            _errorMessage = S.of(context).login_error_message;
+          });
+        }
       } else {
         setState(() {
           _errorMessage = S.of(context).login_error_message;
@@ -207,9 +228,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomButton(
-                      ontap: ()  {
-                       
-                       MyApp.setLocale(context,const Locale('ar'));
+                      ontap: () {
+                        MyApp.setLocale(context, const Locale('ar'));
                       },
                       text: "العربية"),
                   const SizedBox(
@@ -217,7 +237,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   CustomButton(
                       ontap: () {
-                        MyApp.setLocale(context,const Locale('en'));
+                        MyApp.setLocale(context, const Locale('en'));
                       },
                       text: 'English')
                 ],
