@@ -4,19 +4,18 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'firebase_options.dart';
-//import 'package:application/screens/NotificationsManager.dart'; // Import the notification manager
-import 'package:application/screens/Login_screen.dart';
-
-//final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+import 'screens/Login_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Initialize Firebase Messaging and request permissions
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   NotificationSettings settings = await messaging.requestPermission(
     alert: true,
@@ -38,38 +37,34 @@ void main() async {
     }
   });
 
-  // Initialize the notification manager
-  // await NotificationManager.init();
-
   runApp(const MyApp());
 }
- 
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-  
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
-   static void setLocale(BuildContext context, Locale newLocale) {
+
+  static void setLocale(BuildContext context, Locale newLocale) {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
     state?.setLocale(newLocale);
   }
 }
 
 class _MyAppState extends State<MyApp> {
-   Locale? _locale;
+  Locale? _locale;
 
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       locale: _locale,
-      
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         S.delegate,
@@ -79,12 +74,23 @@ class _MyAppState extends State<MyApp> {
       ],
       supportedLocales: S.delegate.supportedLocales,
       home: AnimatedSplashScreen(
-          duration: 3000,
-          splash: 'images/splash.png',
-          nextScreen: const LoginScreen(),
-          splashTransition: SplashTransition.fadeTransition,
-          splashIconSize: 300,
-          backgroundColor: const Color(0xFFfaeaf0)),
+        duration: 3000,
+        splash: 'images/splash.png',
+        // Check if the user is already signed in and choose the appropriate screen
+        nextScreen: isLoggedIn() ? HomeScreen() : LoginScreen(),
+        splashTransition: SplashTransition.fadeTransition,
+        splashIconSize: 300,
+        backgroundColor: const Color(0xFFfaeaf0),
+      ),
     );
+  }
+
+  // Function to check if a user is logged in
+  bool isLoggedIn() {
+    // You can implement your logic here to check if the user is logged in.
+    // For example, by using Firebase Authentication.
+    // Return true if the user is logged in, false otherwise.
+    // Replace this return statement with your actual implementation.
+    return false; // Change this to your logic
   }
 }
