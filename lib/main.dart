@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'firebase_options.dart';
 import 'screens/Login_screen.dart';
 import 'screens/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Auth
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -87,10 +88,8 @@ class _MyAppState extends State<MyApp> {
 
   // Function to check if a user is logged in
   bool isLoggedIn() {
-    // You can implement your logic here to check if the user is logged in.
-    // For example, by using Firebase Authentication.
-    // Return true if the user is logged in, false otherwise.
-    // Replace this return statement with your actual implementation.
-    return false; // Change this to your logic
+    // Use Firebase Authentication to check if a user is authenticated
+    User? user = FirebaseAuth.instance.currentUser;
+    return user != null;
   }
 }

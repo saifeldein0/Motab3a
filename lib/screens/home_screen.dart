@@ -15,9 +15,24 @@ import 'login_screen.dart';
 import 'package:application/screens/profile_screen.dart';
 import 'hospital_map_screen.dart';
 import 'symptoms_and_complications_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key});
+
+  Future<void> _logOut(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => LoginScreen(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+    } catch (e) {
+      print("Error logging out: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,28 +42,38 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFfaeaf0),
       body: Padding(
-        padding:  EdgeInsets.all(screenWidth * 0.01),
+        padding: EdgeInsets.all(screenWidth * 0.01),
         child: Stack(
           children: [
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: EdgeInsets.all(screenWidth * 0.05), // Adjust padding based on screen width
+                padding: EdgeInsets.all(screenWidth * 0.05),
                 child: Container(
                   width: screenWidth * 0.8,
-               
                   decoration: BoxDecoration(
                     color: const Color(0xFFde98bd),
-                    borderRadius: BorderRadius.circular(screenWidth * 0.1), // Adjust border radius
-                    boxShadow: const [BoxShadow(blurRadius: 8,spreadRadius: 5,color: Color.fromARGB(255, 182, 181, 181))],
+                    borderRadius: BorderRadius.circular(screenWidth * 0.1),
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 8,
+                        spreadRadius: 5,
+                        color: Color.fromARGB(255, 182, 181, 181),
+                      )
+                    ],
                   ),
-                  height: screenHeight * 0.08, // Adjust container height
+                  height: screenHeight * 0.08,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon_Button(
-                        icon: const Icon(Icons.logout_rounded),
-                        class_name: LoginScreen(),
+                      GestureDetector(
+                        onTap: () {
+                          _logOut(context);
+                        },
+                        child: Icon(
+                          Icons.logout_rounded,
+                          color: Colors.white,
+                        ),
                       ),
                       Icon_Button(
                         icon: const Icon(Icons.place_outlined),
