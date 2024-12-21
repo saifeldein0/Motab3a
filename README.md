@@ -49,7 +49,6 @@ All user information, including test data and personal profiles, is accessible t
 
 ![Screenshot 2023-09-18 222641](https://github.com/rawannmmohamed/motab3a/assets/76457482/99fa7f95-a21d-443a-98dd-660e13298f66)
 ![Screenshot 2023-09-18 222624](https://github.com/rawannmmohamed/motab3a/assets/76457482/2385ed1b-87fa-406c-a00e-2626c11ddfe8)
-![Screenshot 2023-09-18 222610](https://github.com/rawannmmohamed/motab3a/assets/76457482/228b8f34-b5df-4625-8588-4659d67321b0)
 ![Screenshot 2023-09-18 222552](https://github.com/rawannmmohamed/motab3a/assets/76457482/5249a39a-49e4-43db-9b6a-ca031f042cfd)
 ![Screenshot 2023-09-18 222535](https://github.com/rawannmmohamed/motab3a/assets/76457482/3dcde162-f123-4363-ae61-0c88379d3514)
 ![Screenshot 2023-09-18 222512](https://github.com/rawannmmohamed/motab3a/assets/76457482/7c94db84-4cb5-4812-8ee5-60c6549cf164)
